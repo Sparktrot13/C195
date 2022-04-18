@@ -54,7 +54,6 @@ public class Utility {
         Parent scene = FXMLLoader.load(Utility.class.getResource(url));
         stage.setScene(new Scene(scene));
         stage.centerOnScreen();
-        stage.setMaximized(true);
         stage.show();
     }
 }
