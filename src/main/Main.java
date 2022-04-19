@@ -1,10 +1,12 @@
 package main;
 
+import database.DBConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import static database.DBConnection.*;
 
 public class Main extends Application {
     @Override
@@ -16,6 +18,8 @@ public class Main extends Application {
         primaryStage.setOnCloseRequest(null);
     }
     public static void main(String[] args){
+        startConnection();
         launch(args);
+        closeConnection();
     }
     }
