@@ -4,35 +4,35 @@ import java.time.format.DateTimeFormatter;
 
 public class Appointments {
     private int Appointment_ID;
-    private String Title;
-    private String Description;
-    private String Location;
-    private String Type;
-    private DateTimeFormatter StartTime;
-    private DateTimeFormatter EndTime;
-    private DateTimeFormatter Created_Date;
-    private String Created_By;
-    private DateTimeFormatter Last_Updated;
-    private String Last_Updated_By;
-    private int Customer_ID;
-    private int User_ID;
-    private int Contact_ID;
+    private String Appt_Title;
+    private String Appt_Description;
+    private String Appt_Location;
+    private String Appt_Type;
+    private DateTimeFormatter Appt_StartTime;
+    private DateTimeFormatter Appt_EndTime;
+    private DateTimeFormatter Appt_Created_Date;
+    private String Appt_Creator;
+    private DateTimeFormatter Appt_TimeStamp;
+    private String Appt_Editor;
+    private int Appt_Customer_ID;
+    private int Appt_User_ID;
+    private int Appt_Contact_ID;
 
-    public Appointments(int appointment_ID, String title, String description, String location, String type, DateTimeFormatter startTime, DateTimeFormatter endTime, DateTimeFormatter created_Date, String created_By, DateTimeFormatter last_Updated, String last_Updated_By, int customer_ID, int user_ID, int contact_ID) {
+    public Appointments(int appointment_ID, String appt_Title, String appt_Description, String appt_Location, String appt_Type, DateTimeFormatter appt_StartTime, DateTimeFormatter appt_EndTime, DateTimeFormatter appt_Created_Date, String appt_Creator, DateTimeFormatter appt_TimeStamp, String appt_Editor, int appt_Customer_ID, int appt_User_ID, int appt_Contact_ID) {
         Appointment_ID = appointment_ID;
-        Title = title;
-        Description = description;
-        Location = location;
-        Type = type;
-        StartTime = startTime;
-        EndTime = endTime;
-        Created_Date = created_Date;
-        Created_By = created_By;
-        Last_Updated = last_Updated;
-        Last_Updated_By = last_Updated_By;
-        Customer_ID = customer_ID;
-        User_ID = user_ID;
-        Contact_ID = contact_ID;
+        Appt_Title = appt_Title;
+        Appt_Description = appt_Description;
+        Appt_Location = appt_Location;
+        Appt_Type = appt_Type;
+        Appt_StartTime = appt_StartTime;
+        Appt_EndTime = appt_EndTime;
+        Appt_Created_Date = appt_Created_Date;
+        Appt_Creator = appt_Creator;
+        Appt_TimeStamp = appt_TimeStamp;
+        Appt_Editor = appt_Editor;
+        Appt_Customer_ID = appt_Customer_ID;
+        Appt_User_ID = appt_User_ID;
+        Appt_Contact_ID = appt_Contact_ID;
     }
 
     public int getAppointment_ID() {
@@ -43,107 +43,107 @@ public class Appointments {
         Appointment_ID = appointment_ID;
     }
 
-    public String getTitle() {
-        return Title;
+    public String getAppt_Title() {
+        return Appt_Title;
     }
 
-    public void setTitle(String title) {
-        Title = title;
+    public void setAppt_Title(String appt_Title) {
+        Appt_Title = appt_Title;
     }
 
-    public String getDescription() {
-        return Description;
+    public String getAppt_Description() {
+        return Appt_Description;
     }
 
-    public void setDescription(String description) {
-        Description = description;
+    public void setAppt_Description(String appt_Description) {
+        Appt_Description = appt_Description;
     }
 
-    public String getLocation() {
-        return Location;
+    public String getAppt_Location() {
+        return Appt_Location;
     }
 
-    public void setLocation(String location) {
-        Location = location;
+    public void setAppt_Location(String appt_Location) {
+        Appt_Location = appt_Location;
     }
 
-    public String getType() {
-        return Type;
+    public String getAppt_Type() {
+        return Appt_Type;
     }
 
-    public void setType(String type) {
-        Type = type;
+    public void setAppt_Type(String appt_Type) {
+        Appt_Type = appt_Type;
     }
 
-    public DateTimeFormatter getStartTime() {
-        return StartTime;
+    public DateTimeFormatter getAppt_StartTime() {
+        return Appt_StartTime;
     }
 
-    public void setStartTime(DateTimeFormatter startTime) {
-        StartTime = startTime;
+    public void setAppt_StartTime(DateTimeFormatter appt_StartTime) {
+        Appt_StartTime = appt_StartTime;
     }
 
-    public DateTimeFormatter getEndTime() {
-        return EndTime;
+    public DateTimeFormatter getAppt_EndTime() {
+        return Appt_EndTime;
     }
 
-    public void setEndTime(DateTimeFormatter endTime) {
-        EndTime = endTime;
+    public void setAppt_EndTime(DateTimeFormatter appt_EndTime) {
+        Appt_EndTime = appt_EndTime;
     }
 
-    public DateTimeFormatter getCreated_Date() {
-        return Created_Date;
+    public DateTimeFormatter getAppt_Created_Date() {
+        return Appt_Created_Date;
     }
 
-    public void setCreated_Date(DateTimeFormatter created_Date) {
-        Created_Date = created_Date;
+    public void setAppt_Created_Date(DateTimeFormatter appt_Created_Date) {
+        Appt_Created_Date = appt_Created_Date;
     }
 
-    public String getCreated_By() {
-        return Created_By;
+    public String getAppt_Creator() {
+        return Appt_Creator;
     }
 
-    public void setCreated_By(String created_By) {
-        Created_By = created_By;
+    public void setAppt_Creator(String appt_Creator) {
+        Appt_Creator = appt_Creator;
     }
 
-    public DateTimeFormatter getLast_Updated() {
-        return Last_Updated;
+    public DateTimeFormatter getAppt_TimeStamp() {
+        return Appt_TimeStamp;
     }
 
-    public void setLast_Updated(DateTimeFormatter last_Updated) {
-        Last_Updated = last_Updated;
+    public void setAppt_TimeStamp(DateTimeFormatter appt_TimeStamp) {
+        Appt_TimeStamp = appt_TimeStamp;
     }
 
-    public String getLast_Updated_By() {
-        return Last_Updated_By;
+    public String getAppt_Editor() {
+        return Appt_Editor;
     }
 
-    public void setLast_Updated_By(String last_Updated_By) {
-        Last_Updated_By = last_Updated_By;
+    public void setAppt_Editor(String appt_Editor) {
+        Appt_Editor = appt_Editor;
     }
 
-    public int getCustomer_ID() {
-        return Customer_ID;
+    public int getAppt_Customer_ID() {
+        return Appt_Customer_ID;
     }
 
-    public void setCustomer_ID(int customer_ID) {
-        Customer_ID = customer_ID;
+    public void setAppt_Customer_ID(int appt_Customer_ID) {
+        Appt_Customer_ID = appt_Customer_ID;
     }
 
-    public int getUser_ID() {
-        return User_ID;
+    public int getAppt_User_ID() {
+        return Appt_User_ID;
     }
 
-    public void setUser_ID(int user_ID) {
-        User_ID = user_ID;
+    public void setAppt_User_ID(int appt_User_ID) {
+        Appt_User_ID = appt_User_ID;
     }
 
-    public int getContact_ID() {
-        return Contact_ID;
+    public int getAppt_Contact_ID() {
+        return Appt_Contact_ID;
     }
 
-    public void setContact_ID(int contact_ID) {
-        Contact_ID = contact_ID;
+    public void setAppt_Contact_ID(int appt_Contact_ID) {
+        Appt_Contact_ID = appt_Contact_ID;
     }
 }
