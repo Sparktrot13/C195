@@ -8,22 +8,22 @@ public class Customers {
     private String Customer_Address;
     private String Customer_Postal;
     private String Customer_Phone;
-    private DateTimeFormatter Customer_Created;
-    private String Customer_Created_By;
+    private DateTimeFormatter Customer_Created_Date;
+    private String Customer_Creator;
     private DateTimeFormatter TimeStamp;
-    private String Customer_Updated_by;
+    private String Customer_Editor;
     private int Customer_Div_ID;
 
-    public Customers(int customer_ID, String customer_Name, String customer_Address, String customer_Postal, String customer_Phone, DateTimeFormatter customer_Created, String customer_Created_By, DateTimeFormatter timeStamp, String customer_Updated_by, int customer_Div_ID) {
+    public Customers(int customer_ID, String customer_Name, String customer_Address, String customer_Postal, String customer_Phone, DateTimeFormatter customer_Created_Date, String customer_Creator, DateTimeFormatter timeStamp, String customer_Editor, int customer_Div_ID) {
         Customer_ID = customer_ID;
         Customer_Name = customer_Name;
         Customer_Address = customer_Address;
         Customer_Postal = customer_Postal;
         Customer_Phone = customer_Phone;
-        Customer_Created = customer_Created;
-        Customer_Created_By = customer_Created_By;
+        Customer_Created_Date = customer_Created_Date;
+        Customer_Creator = customer_Creator;
         TimeStamp = timeStamp;
-        Customer_Updated_by = customer_Updated_by;
+        Customer_Editor = customer_Editor;
         Customer_Div_ID = customer_Div_ID;
     }
 
@@ -67,20 +67,20 @@ public class Customers {
         Customer_Phone = customer_Phone;
     }
 
-    public DateTimeFormatter getCustomer_Created() {
-        return Customer_Created;
+    public DateTimeFormatter getCustomer_Created_Date() {
+        return Customer_Created_Date;
     }
 
-    public void setCustomer_Created(DateTimeFormatter customer_Created) {
-        Customer_Created = customer_Created;
+    public void setCustomer_Created_Date(DateTimeFormatter customer_Created_Date) {
+        Customer_Created_Date = customer_Created_Date;
     }
 
-    public String getCustomer_Created_By() {
-        return Customer_Created_By;
+    public String getCustomer_Creator() {
+        return Customer_Creator;
     }
 
-    public void setCustomer_Created_By(String customer_Created_By) {
-        Customer_Created_By = customer_Created_By;
+    public void setCustomer_Creator(String customer_Creator) {
+        Customer_Creator = customer_Creator;
     }
 
     public DateTimeFormatter getTimeStamp() {
@@ -91,12 +91,12 @@ public class Customers {
         TimeStamp = timeStamp;
     }
 
-    public String getCustomer_Updated_by() {
-        return Customer_Updated_by;
+    public String getCustomer_Editor() {
+        return Customer_Editor;
     }
 
-    public void setCustomer_Updated_by(String customer_Updated_by) {
-        Customer_Updated_by = customer_Updated_by;
+    public void setCustomer_Editor(String customer_Editor) {
+        Customer_Editor = customer_Editor;
     }
 
     public int getCustomer_Div_ID() {
