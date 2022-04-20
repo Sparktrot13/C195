@@ -6,20 +6,20 @@ import java.time.format.DateTimeFormatter;
 public class Users {
     private int User_ID;
     private String User_Name;
-    private String Password;
-    private DateFormat Create_Date;
-    private String Created_by;
-    private DateTimeFormatter Last_Updated;
-    private String Last_Updated_By;
+    private String User_Password;
+    private DateFormat User_Created_Date;
+    private String User_Creator;
+    private DateTimeFormatter User_TimeStamp;
+    private String User_Editor;
 
-    public Users(int user_ID, String user_Name, String password, DateFormat create_Date, String created_by, DateTimeFormatter last_Updated, String last_Updated_By) {
+    public Users(int user_ID, String user_Name, String user_Password, DateFormat user_Created_Date, String user_Creator, DateTimeFormatter user_TimeStamp, String user_Editor) {
         User_ID = user_ID;
         User_Name = user_Name;
-        Password = password;
-        Create_Date = create_Date;
-        Created_by = created_by;
-        Last_Updated = last_Updated;
-        Last_Updated_By = last_Updated_By;
+        User_Password = user_Password;
+        User_Created_Date = user_Created_Date;
+        User_Creator = user_Creator;
+        User_TimeStamp = user_TimeStamp;
+        User_Editor = user_Editor;
     }
 
     public int getUser_ID() {
@@ -38,43 +38,43 @@ public class Users {
         User_Name = user_Name;
     }
 
-    public String getPassword() {
-        return Password;
+    public String getUser_Password() {
+        return User_Password;
     }
 
-    public void setPassword(String password) {
-        Password = password;
+    public void setUser_Password(String user_Password) {
+        User_Password = user_Password;
     }
 
-    public DateFormat getCreate_Date() {
-        return Create_Date;
+    public DateFormat getUser_Created_Date() {
+        return User_Created_Date;
     }
 
-    public void setCreate_Date(DateFormat create_Date) {
-        Create_Date = create_Date;
+    public void setUser_Created_Date(DateFormat user_Created_Date) {
+        User_Created_Date = user_Created_Date;
     }
 
-    public String getCreated_by() {
-        return Created_by;
+    public String getUser_Creator() {
+        return User_Creator;
     }
 
-    public void setCreated_by(String created_by) {
-        Created_by = created_by;
+    public void setUser_Creator(String user_Creator) {
+        User_Creator = user_Creator;
     }
 
-    public DateTimeFormatter getLast_Updated() {
-        return Last_Updated;
+    public DateTimeFormatter getUser_TimeStamp() {
+        return User_TimeStamp;
     }
 
-    public void setLast_Updated(DateTimeFormatter last_Updated) {
-        Last_Updated = last_Updated;
+    public void setUser_TimeStamp(DateTimeFormatter user_TimeStamp) {
+        User_TimeStamp = user_TimeStamp;
     }
 
-    public String getLast_Updated_By() {
-        return Last_Updated_By;
+    public String getUser_Editor() {
+        return User_Editor;
     }
 
-    public void setLast_Updated_By(String last_Updated_By) {
-        Last_Updated_By = last_Updated_By;
+    public void setUser_Editor(String user_Editor) {
+        User_Editor = user_Editor;
     }
 }
