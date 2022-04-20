@@ -6,7 +6,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-import static controller.Utility.*;
+import static Utility.Utility.*;
 
 public class LoginController {
     public TextField passwordField;
