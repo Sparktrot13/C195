@@ -10,11 +10,11 @@ public class Customers {
     private String Customer_Phone;
     private DateTimeFormatter Customer_Created_Date;
     private String Customer_Creator;
-    private DateTimeFormatter TimeStamp;
+    private DateTimeFormatter Customer_TimeStamp;
     private String Customer_Editor;
     private int Customer_Div_ID;
 
-    public Customers(int customer_ID, String customer_Name, String customer_Address, String customer_Postal, String customer_Phone, DateTimeFormatter customer_Created_Date, String customer_Creator, DateTimeFormatter timeStamp, String customer_Editor, int customer_Div_ID) {
+    public Customers(int customer_ID, String customer_Name, String customer_Address, String customer_Postal, String customer_Phone, DateTimeFormatter customer_Created_Date, String customer_Creator, DateTimeFormatter customer_TimeStamp, String customer_Editor, int customer_Div_ID) {
         Customer_ID = customer_ID;
         Customer_Name = customer_Name;
         Customer_Address = customer_Address;
@@ -22,7 +22,7 @@ public class Customers {
         Customer_Phone = customer_Phone;
         Customer_Created_Date = customer_Created_Date;
         Customer_Creator = customer_Creator;
-        TimeStamp = timeStamp;
+        Customer_TimeStamp = customer_TimeStamp;
         Customer_Editor = customer_Editor;
         Customer_Div_ID = customer_Div_ID;
     }
@@ -83,12 +83,12 @@ public class Customers {
         Customer_Creator = customer_Creator;
     }
 
-    public DateTimeFormatter getTimeStamp() {
-        return TimeStamp;
+    public DateTimeFormatter getCustomer_TimeStamp() {
+        return Customer_TimeStamp;
     }
 
-    public void setTimeStamp(DateTimeFormatter timeStamp) {
-        TimeStamp = timeStamp;
+    public void setCustomer_TimeStamp(DateTimeFormatter customer_TimeStamp) {
+        Customer_TimeStamp = customer_TimeStamp;
     }
 
     public String getCustomer_Editor() {
