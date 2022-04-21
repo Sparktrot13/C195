@@ -18,7 +18,7 @@ public class Utility {
     public static final String confirmation = "Confirmation Needed";
 
     // URL for viewScreens
-    public static final String mainScreenURL = "/view/mainScreen.fxml";
+    public static final String mainScreenURL = "/view/ApptScreen.fxml";
 
 
     public enum alertType {confirmation, error, warning}
