@@ -49,7 +49,7 @@ public class ApptScreenController {
     }
 
     public void Delete_Appt(ActionEvent actionEvent) {
-        alert(alertType.confirmation,apptDelete,confirmation);
+        alert(alertType.confirmation,apptDelete + "Selected Appointment" + ". " + confirm,confirmation);
         System.out.println("Delete confirmed");
     }
 

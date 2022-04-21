@@ -1,23 +1,27 @@
 package Utility;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.*;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Queue;
 
 public class Utility {
     //Strings for alerts
     public static final String exit = "Are you sure you want to exit the program?";
     public static final String confirmation = "Confirmation Needed";
-    public static final String apptDelete = "You are about to delete an appointment for " + ". Do you wish to continue?";
+    public static final String apptDelete = "You are about to delete an appointment for ";
+    public static final String confirm = "Do you wish to continue?";
 
 
     // URL for viewScreens
@@ -39,18 +43,21 @@ public class Utility {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, contentText, ButtonType.CANCEL, ButtonType.YES);
             alert.setTitle(title);
             alert.setHeaderText(title);
+            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             Optional<ButtonType> confirm = alert.showAndWait();
             return (confirm.isPresent() && confirm.get() == ButtonType.YES);
         } else if (type == alertType.error) {
             Alert alert = new Alert(Alert.AlertType.ERROR, contentText);
             alert.setTitle(title);
             alert.setHeaderText(title);
+            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             alert.showAndWait();
             return false;
         } else if (type == alertType.warning) {
             Alert alert = new Alert(Alert.AlertType.WARNING, contentText);
             alert.setTitle(title);
             alert.setHeaderText(title);
+            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             alert.showAndWait();
             return false;
         } else return false;
