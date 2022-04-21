@@ -40,7 +40,8 @@ public class ApptScreenController {
     public void WeekRadio_Appt(ActionEvent actionEvent) {
     }
 
-    public void New_Appt(ActionEvent actionEvent) {
+    public void New_Appt(ActionEvent actionEvent) throws IOException {
+        viewScreen(actionEvent,addApptScreenURL);
     }
 
     public void Update_Appt(ActionEvent actionEvent) {

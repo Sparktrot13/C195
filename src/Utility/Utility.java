@@ -20,6 +20,7 @@ public class Utility {
     // URL for viewScreens
     public static final String apptScreenURL = "/view/ApptScreen.fxml";
     public static final String customerScreenURL = "/view/CustomerScreen.fxml";
+    public static final String addApptScreenURL = "/view/AddAppointment.fxml";
 
 
     public enum alertType {confirmation, error, warning}
