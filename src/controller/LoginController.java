@@ -18,7 +18,7 @@ public class LoginController {
         System.out.println(usernameField.getText().trim());
         System.out.println(passwordField.getText().trim());
         System.out.println("Login Success");
-        viewScreen(actionEvent, apptScreenURL);
+        viewScreen(actionEvent, apptScreenURL,apptViewerTitle);
     }
     public void cancelButton(ActionEvent actionEvent) {
         exitProgram(actionEvent);

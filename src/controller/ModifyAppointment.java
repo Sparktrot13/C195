@@ -41,6 +41,6 @@ public class ModifyAppointment {
     }
 
     public void Cancel_ModApptButton(ActionEvent actionEvent) throws IOException {
-        viewScreen(actionEvent, apptScreenURL);
+        viewScreen(actionEvent, apptScreenURL,apptViewerTitle);
     }
 }

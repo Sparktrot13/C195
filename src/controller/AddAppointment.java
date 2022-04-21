@@ -38,6 +38,6 @@ public class AddAppointment {
     }
 
     public void Cancel_addApptButton(ActionEvent actionEvent) throws IOException {
-        viewScreen(actionEvent,apptScreenURL);
+        viewScreen(actionEvent,apptScreenURL,apptViewerTitle);
     }
 }

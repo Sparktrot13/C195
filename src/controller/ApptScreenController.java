@@ -41,17 +41,20 @@ public class ApptScreenController {
     }
 
     public void New_Appt(ActionEvent actionEvent) throws IOException {
-        viewScreen(actionEvent,addApptScreenURL);
+        viewScreen(actionEvent,addApptScreenURL, newApptTitle);
     }
 
-    public void Update_Appt(ActionEvent actionEvent) {
+    public void Update_Appt(ActionEvent actionEvent) throws IOException {
+        newScreen(actionEvent,updateApptScreenURL,"Update Appointment");
     }
 
     public void Delete_Appt(ActionEvent actionEvent) {
+        alert(alertType.confirmation,"You are about to delete and Appointment, do you wish to continue",confirmation);
+        System.out.println("Delete confirmed");
     }
 
     public void Customer_Appt(ActionEvent actionEvent) throws IOException {
-        viewScreen(actionEvent,customerScreenURL);
+        viewScreen(actionEvent,customerScreenURL,customerTitle);
     }
 
     public void Appt_Exit(ActionEvent actionEvent) {

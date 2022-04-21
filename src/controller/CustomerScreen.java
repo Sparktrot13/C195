@@ -49,6 +49,6 @@ public class CustomerScreen {
     }
 
     public void BackToPrevious(ActionEvent actionEvent) throws IOException {
-        viewScreen(actionEvent,apptScreenURL);
+        viewScreen(actionEvent,apptScreenURL,apptViewerTitle);
     }
 }

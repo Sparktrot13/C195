@@ -21,6 +21,13 @@ public class Utility {
     public static final String apptScreenURL = "/view/ApptScreen.fxml";
     public static final String customerScreenURL = "/view/CustomerScreen.fxml";
     public static final String addApptScreenURL = "/view/AddAppointment.fxml";
+    public static final String updateApptScreenURL = "/view/ModifyAppointment.fxml";
+
+    //Screen titles
+    public static final String newApptTitle = "New Appointment Scheduler";
+    public static final String updateApptTitle = "Update Appointment";
+    public static final String customerTitle = "Customer Information";
+    public static final String apptViewerTitle = "ABC Corporation Appointments";
 
 
     public enum alertType {confirmation, error, warning}
@@ -51,11 +58,21 @@ public class Utility {
             stage.close();
         }
     }
-    public static void viewScreen(ActionEvent event, String url) throws IOException {
+    public static void viewScreen(ActionEvent event, String url, String title) throws IOException {
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         Parent scene = FXMLLoader.load(Utility.class.getResource(url));
         stage.setScene(new Scene(scene));
         stage.centerOnScreen();
+        stage.setTitle(title);
         stage.show();
+    }
+    public static void newScreen(ActionEvent event, String url, String title) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(Utility.class.getResource(url));
+        Scene newScene = new Scene(fxmlLoader.load());
+        Stage newStage = new Stage();
+        newStage.setTitle(title);
+        newStage.setScene(newScene);
+        newStage.show();
     }
 }
