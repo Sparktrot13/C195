@@ -3,6 +3,10 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
+import java.io.IOException;
+
+import static Utility.Utility.*;
+
 public class CustomerScreen {
     public TableView CustomerTable;
     public TableColumn Cust_IDColumn;
@@ -44,6 +48,7 @@ public class CustomerScreen {
     public void Delete_CustomerButton(ActionEvent actionEvent) {
     }
 
-    public void BackToPrevious(ActionEvent actionEvent) {
+    public void BackToPrevious(ActionEvent actionEvent) throws IOException {
+        viewScreen(actionEvent,apptScreenURL);
     }
 }

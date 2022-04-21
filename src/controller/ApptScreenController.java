@@ -3,6 +3,10 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
+import java.io.IOException;
+
+import static Utility.Utility.*;
+
 public class ApptScreenController {
     public TableColumn Appt_IDColumn;
     public TableColumn Appt_TitleColumn;
@@ -43,7 +47,8 @@ public class ApptScreenController {
     public void Delete_Appt(ActionEvent actionEvent) {
     }
 
-    public void Customer_Appt(ActionEvent actionEvent) {
+    public void Customer_Appt(ActionEvent actionEvent) throws IOException {
+        viewScreen(actionEvent,customerScreenURL);
     }
 
     public void Appt_Exit(ActionEvent actionEvent) {
