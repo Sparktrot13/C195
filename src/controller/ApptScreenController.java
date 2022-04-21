@@ -28,6 +28,8 @@ public class ApptScreenController {
     public Button DeleteAppt;
     public Button CustomerAppt;
     public Button ExitAppt;
+    public MenuBar Appt_MenuBar;
+    public TableView ApptTable;
 
     public void AllRadio_Appt(ActionEvent actionEvent) {
     }

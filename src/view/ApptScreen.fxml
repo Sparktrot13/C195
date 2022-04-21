@@ -49,7 +49,7 @@
                         </Menu>
                     </menus>
                 </MenuBar>
-                <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                <TableView fx:id="ApptTable" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                     <columns>
                         <TableColumn fx:id="Appt_IDColumn" prefWidth="29.0" text="ID" />
                         <TableColumn fx:id="Appt_TitleColumn" prefWidth="121.0" text="Title" />
