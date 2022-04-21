@@ -16,6 +16,8 @@ public class Utility {
     //Strings for alerts
     public static final String exit = "Are you sure you want to exit the program?";
     public static final String confirmation = "Confirmation Needed";
+    public static final String apptDelete = "You are about to delete an appointment for " + ". Do you wish to continue?";
+
 
     // URL for viewScreens
     public static final String apptScreenURL = "/view/ApptScreen.fxml";
