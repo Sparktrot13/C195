@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerScreen">
+   <children>
+      <GridPane prefHeight="650.0" prefWidth="1000.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="728.0" minWidth="10.0" prefWidth="620.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="468.0" minWidth="10.0" prefWidth="380.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="537.0" minHeight="10.0" prefHeight="537.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="527.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="58.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <MenuBar GridPane.columnSpan="2">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <GridPane GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="166.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="479.0" minHeight="10.0" prefHeight="479.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TableView fx:id="CustomerTable" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                    <columns>
+                      <TableColumn fx:id="Cust_IDColumn" prefWidth="31.0" text="ID" />
+                      <TableColumn fx:id="Cust_NameColumn" prefWidth="109.0" text="Name" />
+                        <TableColumn fx:id="Cust_AddressColumn" prefWidth="126.0" text="Address" />
+                        <TableColumn fx:id="Cust_PostalColumn" prefWidth="72.0" text="Postal Code" />
+                        <TableColumn fx:id="Cust_PhoneColumn" prefWidth="93.0" text="Phone Number" />
+                        <TableColumn fx:id="Cust_RegionColumn" prefWidth="73.0" text="Region" />
+                        <TableColumn fx:id="Cust_CountryColumn" prefWidth="75.0" text="Country" />
+                    </columns>
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                  </TableView>
+               </children>
+            </GridPane>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="234.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="173.0" minHeight="0.0" prefHeight="57.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="387.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="93.0" minHeight="10.0" prefHeight="93.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <GridPane GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="95.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="288.0" minWidth="10.0" prefWidth="285.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="137.0" minHeight="10.0" prefHeight="118.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="Cust_CountryLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="180.0" text="Country">
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="Cust_RegionLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Region" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="Cust_IDLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Customer ID" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="Cust_NameLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Name" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="Cust_AddressLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Address" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="Cust_PostalLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Postal Code" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="Cust_PhoneLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Phone Number" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField disable="true" editable="false" promptText=" Auto Generated ID" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets right="20.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets right="20.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets right="20.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets right="20.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets right="20.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <ComboBox prefHeight="25.0" prefWidth="316.0" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets right="20.0" />
+                           </GridPane.margin>
+                        </ComboBox>
+                        <ComboBox prefHeight="25.0" prefWidth="327.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="20.0" />
+                           </GridPane.margin>
+                        </ComboBox>
+                        <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="7">
+                          <buttons>
+                              <Button mnemonicParsing="false" text="Save" />
+                          </buttons>
+                           <GridPane.margin>
+                              <Insets right="20.0" />
+                           </GridPane.margin>
+                        </ButtonBar>
+                     </children>
+                  </GridPane>
+               </children>
+            </GridPane>
+            <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="2">
+              <buttons>
+                  <Button mnemonicParsing="false" text="Update Customer" />
+                <Button mnemonicParsing="false" text="Create Appointment" />
+                  <Button mnemonicParsing="false" text="Delete Customer" />
+              </buttons>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
+            </ButtonBar>
+            <Button mnemonicParsing="false" text="Back" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+      <TextField layoutX="-43.0" layoutY="-69.0" />
+   </children>
+</AnchorPane>
