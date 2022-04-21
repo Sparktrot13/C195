@@ -52,5 +52,6 @@ public class ApptScreenController {
     }
 
     public void Appt_Exit(ActionEvent actionEvent) {
+        exitProgram(actionEvent);
     }
 }
