@@ -1,6 +1,7 @@
 package model;
 
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class Appointments {
     private int Appointment_ID;
@@ -8,17 +9,17 @@ public class Appointments {
     private String Appt_Description;
     private String Appt_Location;
     private String Appt_Type;
-    private DateTimeFormatter Appt_StartTime;
-    private DateTimeFormatter Appt_EndTime;
-    private DateTimeFormatter Appt_Created_Date;
+    private Date Appt_StartTime;
+    private Date Appt_EndTime;
+    private Date Appt_Created_Date;
     private String Appt_Creator;
-    private DateTimeFormatter Appt_TimeStamp;
+    private Date Appt_TimeStamp;
     private String Appt_Editor;
     private int Appt_Customer_ID;
     private int Appt_User_ID;
     private int Appt_Contact_ID;
 
-    public Appointments(int appointment_ID, String appt_Title, String appt_Description, String appt_Location, String appt_Type, DateTimeFormatter appt_StartTime, DateTimeFormatter appt_EndTime, DateTimeFormatter appt_Created_Date, String appt_Creator, DateTimeFormatter appt_TimeStamp, String appt_Editor, int appt_Customer_ID, int appt_User_ID, int appt_Contact_ID) {
+    public Appointments(int appointment_ID, String appt_Title, String appt_Description, String appt_Location, String appt_Type, Date appt_StartTime, Date appt_EndTime, Date appt_Created_Date, String appt_Creator, Date appt_TimeStamp, String appt_Editor, int appt_Customer_ID, int appt_User_ID, int appt_Contact_ID) {
         Appointment_ID = appointment_ID;
         Appt_Title = appt_Title;
         Appt_Description = appt_Description;
@@ -75,27 +76,27 @@ public class Appointments {
         Appt_Type = appt_Type;
     }
 
-    public DateTimeFormatter getAppt_StartTime() {
+    public Date getAppt_StartTime() {
         return Appt_StartTime;
     }
 
-    public void setAppt_StartTime(DateTimeFormatter appt_StartTime) {
+    public void setAppt_StartTime(Date appt_StartTime) {
         Appt_StartTime = appt_StartTime;
     }
 
-    public DateTimeFormatter getAppt_EndTime() {
+    public Date getAppt_EndTime() {
         return Appt_EndTime;
     }
 
-    public void setAppt_EndTime(DateTimeFormatter appt_EndTime) {
+    public void setAppt_EndTime(Date appt_EndTime) {
         Appt_EndTime = appt_EndTime;
     }
 
-    public DateTimeFormatter getAppt_Created_Date() {
+    public Date getAppt_Created_Date() {
         return Appt_Created_Date;
     }
 
-    public void setAppt_Created_Date(DateTimeFormatter appt_Created_Date) {
+    public void setAppt_Created_Date(Date appt_Created_Date) {
         Appt_Created_Date = appt_Created_Date;
     }
 
@@ -107,11 +108,11 @@ public class Appointments {
         Appt_Creator = appt_Creator;
     }
 
-    public DateTimeFormatter getAppt_TimeStamp() {
+    public Date getAppt_TimeStamp() {
         return Appt_TimeStamp;
     }
 
-    public void setAppt_TimeStamp(DateTimeFormatter appt_TimeStamp) {
+    public void setAppt_TimeStamp(Date appt_TimeStamp) {
         Appt_TimeStamp = appt_TimeStamp;
     }
 

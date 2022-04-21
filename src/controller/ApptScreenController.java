@@ -1,13 +1,19 @@
 package controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import static Utility.Utility.*;
+import static database.DBConnection.*;
+import static database.DBAppointments.*;
 
-public class ApptScreenController {
+public class ApptScreenController implements Initializable {
     public TableColumn Appt_IDColumn;
     public TableColumn Appt_TitleColumn;
     public TableColumn Appt_DescriptionColumn;
@@ -59,5 +65,18 @@ public class ApptScreenController {
 
     public void Appt_Exit(ActionEvent actionEvent) {
         exitProgram(actionEvent);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ApptTable.setItems(getAllAppointments());
+        Appt_IDColumn.setCellValueFactory(new PropertyValueFactory<>("Appointment_ID"));
+        Appt_TitleColumn.setCellValueFactory(new PropertyValueFactory<>("Appt_Title"));
+        Appt_DescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("Appt_Description"));
+        Appt_LocationColumn.setCellValueFactory(new PropertyValueFactory<>("Appt_Location"));
+        Appt_TypeColumn.setCellValueFactory(new PropertyValueFactory<>("Appt_Type"));
+
+
+
     }
 }
