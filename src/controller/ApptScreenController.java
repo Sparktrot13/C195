@@ -45,7 +45,7 @@ public class ApptScreenController {
     }
 
     public void Update_Appt(ActionEvent actionEvent) throws IOException {
-        newScreen(actionEvent,updateApptScreenURL,"Update Appointment");
+        newScreen(actionEvent,updateApptScreenURL,updateApptTitle);
     }
 
     public void Delete_Appt(ActionEvent actionEvent) {

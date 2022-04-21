@@ -10,6 +10,7 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Optional;
 
 public class Utility {
@@ -62,7 +63,7 @@ public class Utility {
     }
     public static void viewScreen(ActionEvent event, String url, String title) throws IOException {
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        Parent scene = FXMLLoader.load(Utility.class.getResource(url));
+        Parent scene = FXMLLoader.load(Objects.requireNonNull(Utility.class.getResource(url)));
         stage.setScene(new Scene(scene));
         stage.centerOnScreen();
         stage.setTitle(title);
