@@ -4,9 +4,9 @@ import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Appointments;
+import static database.DBConnection.*;
 
 import java.sql.*;
-import java.time.format.DateTimeFormatter;
 
 public class DBAppointments {
     public static ObservableList<Appointments> getAllAppointments(){

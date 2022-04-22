@@ -10,6 +10,7 @@ import static password.password.*;
 import static database.DBAppointments.*;
 
 public class DBConnection {
+    public static ObservableList<Appointments> ApptList = FXCollections.observableArrayList();
     private static final String protocol = "jdbc";
     private static final String vendor = ":mysql:";
     private static final String location = "//localhost/";
