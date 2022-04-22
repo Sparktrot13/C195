@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.Date;
 import java.time.format.DateTimeFormatter;
 
 public class Customers {
@@ -8,13 +9,13 @@ public class Customers {
     private String Customer_Address;
     private String Customer_Postal;
     private String Customer_Phone;
-    private DateTimeFormatter Customer_Created_Date;
+    private Date Customer_Created_Date;
     private String Customer_Creator;
-    private DateTimeFormatter Customer_TimeStamp;
+    private Date Customer_TimeStamp;
     private String Customer_Editor;
     private int Customer_Div_ID;
 
-    public Customers(int customer_ID, String customer_Name, String customer_Address, String customer_Postal, String customer_Phone, DateTimeFormatter customer_Created_Date, String customer_Creator, DateTimeFormatter customer_TimeStamp, String customer_Editor, int customer_Div_ID) {
+    public Customers(int customer_ID, String customer_Name, String customer_Address, String customer_Postal, String customer_Phone, Date customer_Created_Date, String customer_Creator, Date customer_TimeStamp, String customer_Editor, int customer_Div_ID) {
         Customer_ID = customer_ID;
         Customer_Name = customer_Name;
         Customer_Address = customer_Address;
@@ -67,11 +68,11 @@ public class Customers {
         Customer_Phone = customer_Phone;
     }
 
-    public DateTimeFormatter getCustomer_Created_Date() {
+    public Date getCustomer_Created_Date() {
         return Customer_Created_Date;
     }
 
-    public void setCustomer_Created_Date(DateTimeFormatter customer_Created_Date) {
+    public void setCustomer_Created_Date(Date customer_Created_Date) {
         Customer_Created_Date = customer_Created_Date;
     }
 
@@ -83,11 +84,11 @@ public class Customers {
         Customer_Creator = customer_Creator;
     }
 
-    public DateTimeFormatter getCustomer_TimeStamp() {
+    public Date getCustomer_TimeStamp() {
         return Customer_TimeStamp;
     }
 
-    public void setCustomer_TimeStamp(DateTimeFormatter customer_TimeStamp) {
+    public void setCustomer_TimeStamp(Date customer_TimeStamp) {
         Customer_TimeStamp = customer_TimeStamp;
     }
 

@@ -1,13 +1,18 @@
 package controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import static Utility.Utility.*;
+import static database.DBCustomers.*;
 
-public class CustomerScreen {
+public class CustomerScreen implements Initializable {
     public TableView CustomerTable;
     public TableColumn Cust_IDColumn;
     public TableColumn Cust_NameColumn;
@@ -50,5 +55,25 @@ public class CustomerScreen {
 
     public void BackToPrevious(ActionEvent actionEvent) throws IOException {
         viewScreen(actionEvent,apptScreenURL,apptViewerTitle);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        CustomerTable.setItems(getAllCustomers());
+        //ID
+        //Name
+        //Address
+        //Postal
+        //Phone
+        //region
+        //country
+        Cust_IDColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_ID"));
+        Cust_NameColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Name"));
+        Cust_AddressColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Address"));
+        Cust_PostalColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Postal"));
+        Cust_PhoneColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_ID"));
+        Cust_RegionColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_ID"));
+        Cust_CountryColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_ID"));
+
     }
 }
