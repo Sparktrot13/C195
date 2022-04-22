@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import model.Users;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -87,7 +88,7 @@ public class Utility {
         newStage.setScene(newScene);
         newStage.show();
     }
-    public static boolean lookupUsers (TextField username) {
+    public static ObservableList<Users> lookupUsers (TextField username) {
         String user = username.getText().toString();
         ObservableList<Users> name = FXCollections.observableArrayList();
         ObservableList list = getAllUsers();
@@ -99,13 +100,8 @@ public class Utility {
             } else {
                 System.out.println("Cannot find User");
             }
-        } if (name.size() == 1){
-            return true;
-        } else return false;
+        } return name;
     }
-    public static Boolean checkPassword(TextField username, TextField password){
-        lookupUsers(username);
-        return true;
-    }
+
 }
 

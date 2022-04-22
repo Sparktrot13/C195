@@ -2,6 +2,7 @@ package database;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TextField;
 import model.Users;
 
 import java.sql.PreparedStatement;
@@ -9,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Date;
+import static controller.LoginController.*;
+import static Utility.Utility.*;
 
 public class DBUsers {
     public static ObservableList<Users> getAllUsers() {
@@ -32,5 +35,20 @@ public class DBUsers {
             e.printStackTrace();
         }
         return UsersList;
+    }
+    public static Boolean chkCredentials (TextField username, TextField password){
+        String user = username.getText();
+        String pass = password.getText();
+        try{
+            String chk = "Select User_Name, Password from users where User_Name = " + user + " and Password = " + pass;
+            PreparedStatement ps = DBConnection.getConnection().prepareStatement(chk);
+            ResultSet rs = ps.executeQuery();
+            if (!rs.next()) {
+                alert(alertType.error, "xxx", "xxx");
+                return false;
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        } return true;
     }
 }
