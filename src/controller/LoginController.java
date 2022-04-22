@@ -15,10 +15,15 @@ public class LoginController {
     public TextField usernameField;
 
     public void loginButton(ActionEvent actionEvent) throws IOException {
-        System.out.println(usernameField.getText().trim());
-        System.out.println(passwordField.getText().trim());
-        System.out.println("Login Success");
-        viewScreen(actionEvent, apptScreenURL,apptViewerTitle);
+        if(lookupUsers(usernameField)==true){
+            viewScreen(actionEvent, apptScreenURL,apptViewerTitle);
+            System.out.println("Login Success");
+        } else {
+            alert(alertType.error,Username,"Login error");
+            System.out.println("Login unsuccessful");
+        }
+
+
     }
     public void cancelButton(ActionEvent actionEvent) {
         exitProgram(actionEvent);

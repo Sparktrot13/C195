@@ -7,15 +7,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import model.Users;
 
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Queue;
+
 import static database.DBUsers.*;
 
 public class Utility {
@@ -24,6 +23,7 @@ public class Utility {
     public static final String confirmation = "Confirmation Needed";
     public static final String apptDelete = "You are about to delete an appointment for ";
     public static final String confirm = "Do you wish to continue?";
+    public static final String Username = "Username or password is incorrect, Please try again.";
 
 
     // URL for viewScreens
@@ -87,9 +87,20 @@ public class Utility {
         newStage.setScene(newScene);
         newStage.show();
     }
-    public static void Validate_Username (TextField username){
+    public static boolean lookupUsers (TextField username) {
+        String user = username.getText().toString();
+        ObservableList<Users> name = FXCollections.observableArrayList();
         ObservableList list = getAllUsers();
-        String check = username.getText().trim();
-        if (list.contains(PropertyValueFactory<>("User_Name")))
+        for (int i = 0; i < list.size(); i++) {
+            Users u = (Users) list.get(i);
+            if (u.getUser_Name().toLowerCase().contains(user)) {
+                name.add(u);
+                System.out.println("Checks good");
+            } else {
+                System.out.println("Cannot find User");
+            }
+        } if (name.size() == 1){
+            return true;
+        } else return false;
     }
 }
