@@ -3,7 +3,6 @@ package database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Customers;
-
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,5 +33,4 @@ public class DBCustomers {
             e.printStackTrace();
         } return Cust_List;
     }
-
 }
