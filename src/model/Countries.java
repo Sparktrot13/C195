@@ -1,16 +1,17 @@
 package model;
 
+import java.sql.Date;
 import java.time.format.DateTimeFormatter;
 
 public class Countries {
     private int Country_ID;
     private String Country_Name;
-    private DateTimeFormatter Country_Created_Date;
+    private Date Country_Created_Date;
     private String Country_Creator;
-    private DateTimeFormatter Country_TimeStamp;
+    private Date Country_TimeStamp;
     private String Country_Editor;
 
-    public Countries(int country_ID, String country_Name, DateTimeFormatter country_Created_Date, String country_Creator, DateTimeFormatter country_TimeStamp, String country_Editor) {
+    public Countries(int country_ID, String country_Name, Date country_Created_Date, String country_Creator, Date country_TimeStamp, String country_Editor) {
         Country_ID = country_ID;
         Country_Name = country_Name;
         Country_Created_Date = country_Created_Date;
@@ -35,11 +36,11 @@ public class Countries {
         Country_Name = country_Name;
     }
 
-    public DateTimeFormatter getCountry_Created_Date() {
+    public Date getCountry_Created_Date() {
         return Country_Created_Date;
     }
 
-    public void setCountry_Created_Date(DateTimeFormatter country_Created_Date) {
+    public void setCountry_Created_Date(Date country_Created_Date) {
         Country_Created_Date = country_Created_Date;
     }
 
@@ -51,11 +52,11 @@ public class Countries {
         Country_Creator = country_Creator;
     }
 
-    public DateTimeFormatter getCountry_TimeStamp() {
+    public Date getCountry_TimeStamp() {
         return Country_TimeStamp;
     }
 
-    public void setCountry_TimeStamp(DateTimeFormatter country_TimeStamp) {
+    public void setCountry_TimeStamp(Date country_TimeStamp) {
         Country_TimeStamp = country_TimeStamp;
     }
 
