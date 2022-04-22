@@ -103,4 +103,9 @@ public class Utility {
             return true;
         } else return false;
     }
+    public static Boolean checkPassword(TextField username, TextField password){
+        lookupUsers(username);
+        return true;
+    }
 }
+
