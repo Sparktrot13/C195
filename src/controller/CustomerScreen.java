@@ -66,7 +66,7 @@ public class CustomerScreen implements Initializable {
         Cust_PostalColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Postal"));
         Cust_PhoneColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Phone"));
         Cust_RegionColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Div_ID"));
-        Cust_CountryColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_ID"));
+        Cust_CountryColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Name"));
 
     }
 }
