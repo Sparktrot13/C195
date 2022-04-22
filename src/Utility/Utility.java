@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
@@ -15,6 +16,7 @@ import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Queue;
+import static database.DBUsers.*;
 
 public class Utility {
     //Strings for alerts
@@ -84,5 +86,10 @@ public class Utility {
         newStage.setTitle(title);
         newStage.setScene(newScene);
         newStage.show();
+    }
+    public static void Validate_Username (TextField username){
+        ObservableList list = getAllUsers();
+        String check = username.getText().trim();
+        if (list.contains(PropertyValueFactory<>("User_Name")))
     }
 }

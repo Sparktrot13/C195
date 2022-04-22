@@ -7,6 +7,7 @@ import model.Users;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class DBUsers {
@@ -20,9 +21,9 @@ public class DBUsers {
                 int User_ID = rs.getInt("User_ID");
                 String User_Name = rs.getString("User_Name");
                 String User_Password = rs.getString("Password");
-                Date User_Created_Date = rs.getDate("Create_Date");
+                Timestamp User_Created_Date = rs.getTimestamp("Create_Date");
                 String User_Creator = rs.getString("Created_By");
-                Date User_TimeStamp = rs.getDate("Last_Update");
+                Timestamp User_TimeStamp = rs.getTimestamp("Last_Update");
                 String User_Editor = rs.getString("Last_Updated_By");
                 Users u = new Users(User_ID,User_Name,User_Password,User_Created_Date,User_Creator, User_TimeStamp,User_Editor);
                 UsersList.add(u);
