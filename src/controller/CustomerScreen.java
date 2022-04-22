@@ -59,7 +59,6 @@ public class CustomerScreen implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String country =
         CustomerTable.setItems(getAllCustomers());
         Cust_IDColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_ID"));
         Cust_NameColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Name"));
