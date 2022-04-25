@@ -36,19 +36,21 @@ public class DBUsers {
         }
         return UsersList;
     }
-    public static Boolean chkCredentials (TextField username, TextField password){
+    public static Boolean chkCredentials (TextField username, TextField password) throws SQLException {
         String user = username.getText();
         String pass = password.getText();
-        try{
-            String chk = "Select User_Name, Password from users where User_Name = " + user + " and Password = " + pass;
-            PreparedStatement ps = DBConnection.getConnection().prepareStatement(chk);
-            ResultSet rs = ps.executeQuery();
-            if (!rs.next()) {
-                alert(alertType.error, "xxx", "xxx");
-                return false;
-            }
-        } catch (SQLException e){
-            e.printStackTrace();
-        } return true;
+        String chk = "Select User_Name, Password from users where User_Name = \"" + user + "\" and Password = \"" + pass + "\"";
+        System.out.println(chk);
+        PreparedStatement ps = DBConnection.getConnection().prepareStatement(chk);
+        ResultSet rs = ps.executeQuery();
+        String DBUser = null;
+        String DBPass = null;
+        while (rs.next()) {
+            DBUser = rs.getString("User_Name");
+            DBPass = rs.getString("Password");
+        }
+        if (user.equals(DBUser) && (pass.equals(DBPass))){
+            return true;
+        } else return false;
     }
 }
