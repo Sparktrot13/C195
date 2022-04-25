@@ -16,21 +16,23 @@ public class LoginController {
     public Button cancelButton;
     public TextField usernameField;
 
-    public void loginButton(ActionEvent actionEvent) throws IOException{
-        try{
-            if(chkCredentials(usernameField, passwordField)) {
-                System.out.println("Login Successful");
-                viewScreen(actionEvent,apptScreenURL,apptViewerTitle);
-            } else {
-                System.out.println("Invalid credentials, Login Unsuccessful");
-                alert(alertType.error,Username, incorrectCred);
+    public void loginButton(ActionEvent actionEvent) throws IOException {
+        if (usernameField.getText().isBlank() || (passwordField.getText().isBlank())) {
+            System.out.println("Username and/or password Blank");
+            alert(alertType.error, loginBlank, loginTitle);
+        } else {
+            try {
+                if (chkCredentials(usernameField, passwordField)) {
+                    System.out.println("Login Successful");
+                    viewScreen(actionEvent, apptScreenURL, apptViewerTitle);
+                } else {
+                    System.out.println("Invalid credentials, Login Unsuccessful");
+                    alert(alertType.error, Username, incorrectCred);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        } catch (SQLException e){
-            e.printStackTrace();
         }
-    }
-    public static void loginSuccessful(ActionEvent actionEvent) throws IOException {
-        viewScreen(actionEvent, apptScreenURL,apptViewerTitle);
     }
     public void cancelButton(ActionEvent actionEvent) {
         exitProgram(actionEvent);

@@ -26,6 +26,8 @@ public class Utility {
     public static final String confirm = "Do you wish to continue?";
     public static final String Username = "Username or password is incorrect, Please try again.";
     public static final String incorrectCred = "Invalid Credentials";
+    public static final String loginBlank ="Username and password required for login, please try again.";
+    public static final String loginTitle = "Credentials Required";
 
 
     // URL for viewScreens
