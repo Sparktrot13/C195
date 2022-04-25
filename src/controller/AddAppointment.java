@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 
 import static Utility.Utility.*;
+import static database.DBAppointments.insertUser;
 
 public class AddAppointment {
     public Label ID_addApptLabel;
@@ -35,6 +36,7 @@ public class AddAppointment {
     public Button Cancel_addApptButton;
 
     public void Save_addApptButton(ActionEvent actionEvent) {
+        insertUser();
     }
 
     public void Cancel_addApptButton(ActionEvent actionEvent) throws IOException {
