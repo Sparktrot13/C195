@@ -25,6 +25,7 @@ public class Utility {
     public static final String apptDelete = "You are about to delete an appointment for ";
     public static final String confirm = "Do you wish to continue?";
     public static final String Username = "Username or password is incorrect, Please try again.";
+    public static final String incorrectCred = "Invalid Credentials";
 
 
     // URL for viewScreens

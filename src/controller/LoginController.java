@@ -22,7 +22,8 @@ public class LoginController {
                 System.out.println("Login Successful");
                 viewScreen(actionEvent,apptScreenURL,apptViewerTitle);
             } else {
-                alert(alertType.error,"xxx", "xxx");
+                System.out.println("Invalid credentials, Login Unsuccessful");
+                alert(alertType.error,Username, incorrectCred);
             }
         } catch (SQLException e){
             e.printStackTrace();
