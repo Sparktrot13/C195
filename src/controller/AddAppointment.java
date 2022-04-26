@@ -1,14 +1,14 @@
 package controller;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import static Utility.Utility.*;
-import static database.DBAppointments.insertUser;
+import static database.DBAppointments.*;
 
 public class AddAppointment {
     public Label ID_addApptLabel;
@@ -34,9 +34,28 @@ public class AddAppointment {
     public Label ScreenTitle_ApptLabel;
     public Button Save_addApptButton;
     public Button Cancel_addApptButton;
+    public DatePicker Start_addApptDate;
+    public DatePicker End_addApptDate;
+    public ComboBox Start_addApptCombo;
+    public ComboBox End_addApptCombo;
 
     public void Save_addApptButton(ActionEvent actionEvent) {
-        insertUser();
+        String ts1 = "2022-04-25 09:55:10";
+        String ts2 = "2022-04-25 10:28:28";
+        String title = Title_addApptTextfield.getText().trim();
+        String Des = Description_addApptTextfield.getText().trim();
+        String Loc = Location_addApptTextfield.getText().trim();
+        String type = Type_addApptTextfield.getText().trim();
+        Timestamp start = Timestamp.valueOf(LocalDateTime.now());
+        Timestamp end = Timestamp.valueOf(ts2);
+        Timestamp create_Date = Timestamp.valueOf(ts1);
+        String creator = "Me";
+        Timestamp lastUpdate = Timestamp.valueOf(ts1);
+        String updatedBy = "Also me";
+        int cust_ID = 4;
+        int user_ID = 3;
+        int contact_ID = 2;
+        insertAppt(title,Des,Loc,type,start,end,create_Date,creator,lastUpdate,updatedBy,cust_ID,user_ID,contact_ID);
     }
 
     public void Cancel_addApptButton(ActionEvent actionEvent) throws IOException {

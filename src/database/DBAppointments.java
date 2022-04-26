@@ -35,6 +35,15 @@ public class DBAppointments {
             throwables.printStackTrace();
         } return apptList;
     }
+    public static void insertAppt(String title, String Des, String Loc, String type, Timestamp start, Timestamp end, Timestamp create_Date, String creator, Timestamp lastUpdate, String updatedBy, int cust_ID, int user_ID, int contact_ID){
+        try{
+            String query1 = "Insert into appointments (Title, Description, Location, Type, Start, End, Create_Date, Created_By, Last_Update, Last_Updated_By, Customer_ID, User_ID, Contact_ID)" +
+                    " values (\"" + title + "\", \"" + Des + "\", \"" + Loc + "\", \"" + type + "\", Timestamp(\"" + start + "\"), Timestamp (\"" + end + "\"), Timestamp(\"" + create_Date + "\"), \"" + creator + "\", Timestamp(\"" + lastUpdate + "\"), \"" + updatedBy + "\", " + cust_ID + ", " + user_ID + ", " + contact_ID +")";
+            System.out.println(query1);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     public static void insertUser (){
         String ts1 = "2022-04-25 09:55:10";
         String ts2 = "2022-04-25 10:28:28";
