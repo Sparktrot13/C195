@@ -13,10 +13,12 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 import static Utility.Utility.*;
 import static database.DBAppointments.*;
+import static Utility.Time.*;
 
 public class AddAppointment implements Initializable {
     public Label ID_addApptLabel;
@@ -48,6 +50,12 @@ public class AddAppointment implements Initializable {
     public ComboBox End_addApptCombo;
 
     public void Save_addApptButton(ActionEvent actionEvent) {
+        LocalDate ld = Start_addApptDate.getValue();
+        LocalTime lt = LocalTime.parse(Start_addApptCombo.getValue().toString());
+        LocalDateTime ldt = LocalDateTime.of(ld,lt);
+        System.out.println("test1 " + ldt);
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println("test2 " + now);
 
         String ts1 = "2022-04-25 09:55:10";
         String ts2 = "2022-04-25 10:28:28";
@@ -79,15 +87,9 @@ public class AddAppointment implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList times = FXCollections.observableArrayList();
-        Time a = new Time(04, 15, 00);
-        Time b = new Time(04, 30, 00);
-        Time c = new Time(04, 45, 00);
-        Time d = new Time(05, 00, 00);
-        times.add(a);
-        times.add(b);
-        times.add(c);
-        times.add(d);
-        Start_addApptCombo.setItems(times);
+        Start_addApptCombo.setItems(getTime());
+        Start_addApptCombo.getSelectionModel().selectFirst();
+        End_addApptCombo.setItems(getTime());
+        End_addApptCombo.getSelectionModel().selectFirst();
     }
 }
