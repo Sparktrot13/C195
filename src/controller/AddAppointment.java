@@ -1,16 +1,24 @@
 package controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.Date;
+import java.sql.Time;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ResourceBundle;
 
 import static Utility.Utility.*;
 import static database.DBAppointments.*;
 
-public class AddAppointment {
+public class AddAppointment implements Initializable {
     public Label ID_addApptLabel;
     public Label Title_addApptLabel;
     public Label Description_addApptLabel;
@@ -40,13 +48,14 @@ public class AddAppointment {
     public ComboBox End_addApptCombo;
 
     public void Save_addApptButton(ActionEvent actionEvent) {
+
         String ts1 = "2022-04-25 09:55:10";
         String ts2 = "2022-04-25 10:28:28";
         String title = Title_addApptTextfield.getText().trim();
         String Des = Description_addApptTextfield.getText().trim();
         String Loc = Location_addApptTextfield.getText().trim();
         String type = Type_addApptTextfield.getText().trim();
-        Timestamp start = Timestamp.valueOf(LocalDateTime.now());
+        Timestamp start = Timestamp.valueOf(ts1);
         Timestamp end = Timestamp.valueOf(ts2);
         Timestamp create_Date = Timestamp.valueOf(ts1);
         String creator = "Me";
@@ -60,5 +69,25 @@ public class AddAppointment {
 
     public void Cancel_addApptButton(ActionEvent actionEvent) throws IOException {
         viewScreen(actionEvent,apptScreenURL,apptViewerTitle);
+    }
+
+    public void Start_addApptCombo(ActionEvent actionEvent) {
+    }
+
+    public void End_addApptCombo(ActionEvent actionEvent) {
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList times = FXCollections.observableArrayList();
+        Time a = new Time(04, 15, 00);
+        Time b = new Time(04, 30, 00);
+        Time c = new Time(04, 45, 00);
+        Time d = new Time(05, 00, 00);
+        times.add(a);
+        times.add(b);
+        times.add(c);
+        times.add(d);
+        Start_addApptCombo.setItems(times);
     }
 }
