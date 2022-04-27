@@ -30,6 +30,17 @@ public class Utility {
     public static final String loginTitle = "Credentials Required";
     public static final String chkDateInv = "Start day and time need to be before End date and time, Please try again.";
     public static final String chkDateTitle = "Date Error";
+    public static final String titleBlank = "Title is required";
+    public static final String desBlank = "Appointment description is required";
+    public static final String locBlank = "Location is required";
+    public static final String typeBlank = "Appointment type is required";
+    public static final String startDateBlank = "Appointment start date is required";
+    public static final String endDateBlank = "Appointment end date is required";
+    public static final String startTimeBlank = "Appointment start Time is required";
+    public static final String endTimeBlank = "Appointment end Time is required";
+    public static final String contactBlank = "Contact's name is required";
+    public static final String customerBlank = "Customer's name is required";
+    public static final String userBlank = "Name of user creating appointment required";
 
     // URL for viewScreens
     public static final String apptScreenURL = "/view/ApptScreen.fxml";

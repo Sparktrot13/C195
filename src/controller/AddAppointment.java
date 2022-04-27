@@ -3,7 +3,6 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import model.Contacts;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,6 +15,7 @@ import static database.DBAppointments.*;
 import static utility.Time.*;
 
 import static model.Lists.*;
+import static utility.Validator.*;
 
 public class AddAppointment implements Initializable {
     public Label ID_addApptLabel;
@@ -46,7 +46,27 @@ public class AddAppointment implements Initializable {
     public ComboBox User_Combo;
     public ComboBox Cust_Combo;
 
+    public static void verifyFields(TextField title, TextField des, TextField loc, TextField type, DatePicker start,ComboBox st, DatePicker end,ComboBox et, ComboBox cust,ComboBox user, ComboBox contact){
+        chkBlank(title,titleBlank);
+        chkBlank(des,desBlank);
+        chkBlank(loc,locBlank);
+        chkBlank(type,typeBlank);
+        chkDatePicker(start, startDateBlank);
+        chkDatePicker(end, endDateBlank);
+        chkComboBoxBlank(st, startTimeBlank);
+        chkComboBoxBlank(et, endTimeBlank);
+        chkComboBoxBlank(cust,customerBlank);
+        chkComboBoxBlank(user, userBlank);
+        chkComboBoxBlank(contact, contactBlank);
+        alert(alertType.error,"The following errors were found, please fix before saving\n" + errors,"Error");
+
+    }
     public void Save_addApptButton(ActionEvent actionEvent) {
+        try {
+            verifyFields(Title_addApptTextfield, Description_addApptTextfield, Location_addApptTextfield, Type_addApptTextfield, Start_addApptDate, Start_addApptCombo, End_addApptDate, End_addApptCombo, Cust_Combo, User_Combo, Contact_Combo);
+        } catch (Exception d){
+            d.printStackTrace();
+        }
         String title = Title_addApptTextfield.getText().trim();
         String Des = Description_addApptTextfield.getText().trim();
         String Loc = Location_addApptTextfield.getText().trim();
@@ -70,9 +90,7 @@ public class AddAppointment implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Start_addApptCombo.setItems(getTime());
-        Start_addApptCombo.getSelectionModel().selectFirst();
         End_addApptCombo.setItems(getTime());
-        End_addApptCombo.getSelectionModel().selectFirst();
         Contact_Combo.setItems(getContacts());
         User_Combo.setItems(getUsers());
         Cust_Combo.setItems(getCustomers());
