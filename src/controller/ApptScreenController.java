@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static Utility.Utility.*;
+import static utility.Utility.*;
 import static database.DBAppointments.*;
 
 public class ApptScreenController implements Initializable {

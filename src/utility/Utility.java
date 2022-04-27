@@ -1,4 +1,4 @@
-package Utility;
+package utility;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 import model.Users;
 
 import java.io.IOException;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 

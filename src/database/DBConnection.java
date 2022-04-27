@@ -21,8 +21,7 @@ public class DBConnection {
     private static String password = "Passw0rd!"; // Password
     public static Connection connection;  // Connection Interface
 
-    public static void startConnection()
-    {
+    public static void startConnection() {
         try {
             Class.forName(driver); // Locate Driver
             connection = DriverManager.getConnection(jdbcUrl, userName, password); // Reference Connection object
@@ -36,7 +35,6 @@ public class DBConnection {
     public static Connection getConnection() {
         return connection;
     }
-
     public static void closeConnection() {
         try {
             connection.close();

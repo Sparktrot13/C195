@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import static Utility.Utility.*;
+import static utility.Utility.*;
 import static database.DBUsers.*;
 
 public class LoginController {

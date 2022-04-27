@@ -1,24 +1,18 @@
 package controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
-import java.sql.Time;
 import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ResourceBundle;
 
-import static Utility.Utility.*;
+import static utility.Utility.*;
 import static database.DBAppointments.*;
-import static Utility.Time.*;
+import static utility.Time.*;
+import static database.DBContacts.*;
 
 public class AddAppointment implements Initializable {
     public Label ID_addApptLabel;
@@ -37,7 +31,6 @@ public class AddAppointment implements Initializable {
     public TextField Title_addApptTextfield;
     public TextField Description_addApptTextfield;
     public TextField Location_addApptTextfield;
-    public TextField Contact_addApptTextfield;
     public TextField Type_addApptTextfield;
     public TextField CustomerID_addApptTextfield;
     public TextField UserID_addApptTextfield;
@@ -48,26 +41,18 @@ public class AddAppointment implements Initializable {
     public DatePicker End_addApptDate;
     public ComboBox Start_addApptCombo;
     public ComboBox End_addApptCombo;
+    public ComboBox Contact_Combo;
 
     public void Save_addApptButton(ActionEvent actionEvent) {
-        LocalDate ld = Start_addApptDate.getValue();
-        LocalTime lt = LocalTime.parse(Start_addApptCombo.getValue().toString());
-        LocalDateTime ldt = LocalDateTime.of(ld,lt);
-        System.out.println("test1 " + ldt);
-        LocalDateTime now = LocalDateTime.now();
-        System.out.println("test2 " + now);
-
-        String ts1 = "2022-04-25 09:55:10";
-        String ts2 = "2022-04-25 10:28:28";
         String title = Title_addApptTextfield.getText().trim();
         String Des = Description_addApptTextfield.getText().trim();
         String Loc = Location_addApptTextfield.getText().trim();
         String type = Type_addApptTextfield.getText().trim();
-        Timestamp start = Timestamp.valueOf(ts1);
-        Timestamp end = Timestamp.valueOf(ts2);
-        Timestamp create_Date = Timestamp.valueOf(ts1);
+        Timestamp start = Timestamp.valueOf(combineDateTime(Start_addApptDate,Start_addApptCombo));
+        Timestamp end = Timestamp.valueOf(combineDateTime(End_addApptDate,End_addApptCombo));
+        Timestamp create_Date = Timestamp.valueOf(LocalDateTime.now());
         String creator = "Me";
-        Timestamp lastUpdate = Timestamp.valueOf(ts1);
+        Timestamp lastUpdate = Timestamp.valueOf(LocalDateTime.now());
         String updatedBy = "Also me";
         int cust_ID = 4;
         int user_ID = 3;
@@ -79,17 +64,13 @@ public class AddAppointment implements Initializable {
         viewScreen(actionEvent,apptScreenURL,apptViewerTitle);
     }
 
-    public void Start_addApptCombo(ActionEvent actionEvent) {
-    }
-
-    public void End_addApptCombo(ActionEvent actionEvent) {
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Start_addApptCombo.setItems(getTime());
         Start_addApptCombo.getSelectionModel().selectFirst();
         End_addApptCombo.setItems(getTime());
         End_addApptCombo.getSelectionModel().selectFirst();
+        Contact_Combo.setItems(getContacts());
+
     }
 }

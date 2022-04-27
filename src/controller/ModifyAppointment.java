@@ -5,7 +5,7 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 
-import static Utility.Utility.*;
+import static utility.Utility.*;
 
 public class ModifyAppointment {
 
