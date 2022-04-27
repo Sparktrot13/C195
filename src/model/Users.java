@@ -1,5 +1,7 @@
 package model;
 
+import javafx.scene.control.ComboBox;
+
 import java.text.DateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -77,5 +79,10 @@ public class Users {
 
     public void setUser_Editor(String user_Editor) {
         User_Editor = user_Editor;
+    }
+
+    public static int getUserID(ComboBox c){
+        Users u = (Users) c.getSelectionModel().getSelectedItem();
+        return u.User_ID;
     }
 }

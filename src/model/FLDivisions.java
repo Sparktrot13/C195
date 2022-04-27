@@ -1,18 +1,19 @@
 package model;
 
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class FLDivisions {
     private int Div_ID;
     private String Division_Name;
-    private DateTimeFormatter Div_Created_Date;
+    private LocalDateTime Div_Created_Date;
     private String Div_Creator;
-    private DateTimeFormatter Div_TimeStamp;
+    private LocalDateTime Div_TimeStamp;
     private String Div_TimeStamp_User;
     private int Div_Country_ID;
 
-    public FLDivisions(int div_ID, String division_Name, DateTimeFormatter div_Created_Date, String div_Creator, DateTimeFormatter div_TimeStamp, String div_TimeStamp_User, int div_Country_ID) {
+    public FLDivisions(int div_ID, String division_Name, LocalDateTime div_Created_Date, String div_Creator, LocalDateTime div_TimeStamp, String div_TimeStamp_User, int div_Country_ID) {
         Div_ID = div_ID;
         Division_Name = division_Name;
         Div_Created_Date = div_Created_Date;
@@ -38,11 +39,11 @@ public class FLDivisions {
         Division_Name = division_Name;
     }
 
-    public DateTimeFormatter getDiv_Created_Date() {
+    public LocalDateTime getDiv_Created_Date() {
         return Div_Created_Date;
     }
 
-    public void setDiv_Created_Date(DateTimeFormatter div_Created_Date) {
+    public void setDiv_Created_Date(LocalDateTime div_Created_Date) {
         Div_Created_Date = div_Created_Date;
     }
 
@@ -54,11 +55,11 @@ public class FLDivisions {
         Div_Creator = div_Creator;
     }
 
-    public DateTimeFormatter getDiv_TimeStamp() {
+    public LocalDateTime getDiv_TimeStamp() {
         return Div_TimeStamp;
     }
 
-    public void setDiv_TimeStamp(DateTimeFormatter div_TimeStamp) {
+    public void setDiv_TimeStamp(LocalDateTime div_TimeStamp) {
         Div_TimeStamp = div_TimeStamp;
     }
 

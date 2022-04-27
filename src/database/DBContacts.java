@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBContacts {
-    public static ObservableList<Contacts> getContacts() {
+    public static ObservableList<Contacts> getAllContacts() {
         ObservableList<Contacts> allContacts = FXCollections.observableArrayList();
         try {
             String sql = "Select * from contacts";

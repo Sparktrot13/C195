@@ -136,9 +136,9 @@
                   <TextField fx:id="Description_addApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="Location_addApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <TextField fx:id="Type_addApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <TextField fx:id="CustomerID_addApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-                  <TextField fx:id="UserID_addApptTextfield" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-                  <ComboBox fx:id="Contact_Combo" prefHeight="25.0" prefWidth="267.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <ComboBox fx:id="Contact_Combo" prefHeight="25.0" prefWidth="267.0" promptText="Select Contact" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <ComboBox fx:id="Cust_Combo" prefHeight="25.0" prefWidth="288.0" promptText="Select Customer" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                  <ComboBox fx:id="User_Combo" prefHeight="25.0" prefWidth="264.0" promptText="Select User" GridPane.columnIndex="1" GridPane.rowIndex="11" />
                </children>
                <padding>
                   <Insets right="20.0" />

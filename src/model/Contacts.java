@@ -1,5 +1,9 @@
 package model;
 
+import javafx.collections.ObservableList;
+import javafx.scene.control.ComboBox;
+import static database.DBContacts.*;
+
 public class Contacts {
     private int Contact_ID;
     private String Contact_Name;
@@ -33,5 +37,14 @@ public class Contacts {
 
     public void setContact_Email(String contact_Email) {
         Contact_Email = contact_Email;
+    }
+    public static int getContactId(ComboBox c){
+        Contacts con = (Contacts) c.getSelectionModel().getSelectedItem();
+        return con.Contact_ID;
+    }
+
+    @Override
+    public String toString(){
+        return (Contact_Name);
     }
 }

@@ -3,6 +3,8 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import model.Contacts;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Timestamp;
@@ -12,7 +14,8 @@ import java.util.ResourceBundle;
 import static utility.Utility.*;
 import static database.DBAppointments.*;
 import static utility.Time.*;
-import static database.DBContacts.*;
+
+import static model.Lists.*;
 
 public class AddAppointment implements Initializable {
     public Label ID_addApptLabel;
@@ -32,8 +35,6 @@ public class AddAppointment implements Initializable {
     public TextField Description_addApptTextfield;
     public TextField Location_addApptTextfield;
     public TextField Type_addApptTextfield;
-    public TextField CustomerID_addApptTextfield;
-    public TextField UserID_addApptTextfield;
     public Label ScreenTitle_ApptLabel;
     public Button Save_addApptButton;
     public Button Cancel_addApptButton;
@@ -42,6 +43,8 @@ public class AddAppointment implements Initializable {
     public ComboBox Start_addApptCombo;
     public ComboBox End_addApptCombo;
     public ComboBox Contact_Combo;
+    public ComboBox User_Combo;
+    public ComboBox Cust_Combo;
 
     public void Save_addApptButton(ActionEvent actionEvent) {
         String title = Title_addApptTextfield.getText().trim();
@@ -54,9 +57,9 @@ public class AddAppointment implements Initializable {
         String creator = "Me";
         Timestamp lastUpdate = Timestamp.valueOf(LocalDateTime.now());
         String updatedBy = "Also me";
-        int cust_ID = 4;
-        int user_ID = 3;
-        int contact_ID = 2;
+        int cust_ID = getCustID(Cust_Combo);
+        int user_ID = getUserID(User_Combo);
+        int contact_ID = getContactID(Contact_Combo);
         insertAppt(title,Des,Loc,type,start,end,create_Date,creator,lastUpdate,updatedBy,cust_ID,user_ID,contact_ID);
     }
 
@@ -71,6 +74,8 @@ public class AddAppointment implements Initializable {
         End_addApptCombo.setItems(getTime());
         End_addApptCombo.getSelectionModel().selectFirst();
         Contact_Combo.setItems(getContacts());
+        User_Combo.setItems(getUsers());
+        Cust_Combo.setItems(getCustomers());
 
     }
 }
