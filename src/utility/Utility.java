@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import model.Users;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -27,7 +28,8 @@ public class Utility {
     public static final String incorrectCred = "Invalid Credentials";
     public static final String loginBlank ="Username and password required for login, please try again.";
     public static final String loginTitle = "Credentials Required";
-
+    public static final String chkDateInv = "Start day and time need to be before End date and time, Please try again.";
+    public static final String chkDateTitle = "Date Error";
 
     // URL for viewScreens
     public static final String apptScreenURL = "/view/ApptScreen.fxml";
@@ -40,6 +42,8 @@ public class Utility {
     public static final String updateApptTitle = "Update Appointment";
     public static final String customerTitle = "Customer Information";
     public static final String apptViewerTitle = "ABC Corporation Appointments";
+
+    public static LinkedList errors = new LinkedList();
 
 
     public enum alertType {confirmation, error, warning}
