@@ -3,9 +3,13 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import static model.Lists.*;
+import static utility.Utility.*;
 
 public class ModifyCustomer implements Initializable {
     public ComboBox Country_Combo;
@@ -37,6 +41,8 @@ public class ModifyCustomer implements Initializable {
     public Button Back_Screen;
 
     public void CountryCombo(ActionEvent actionEvent) {
+        Region_Combo.setItems(searchCountries(Country_Combo));
+        Region_Combo.getSelectionModel().selectFirst();
     }
 
     public void UpdateCust(ActionEvent actionEvent) {
@@ -51,11 +57,18 @@ public class ModifyCustomer implements Initializable {
     public void DeleteAppt(ActionEvent actionEvent) {
     }
 
-    public void BackScreen(ActionEvent actionEvent) {
+    public void BackScreen(ActionEvent actionEvent) throws IOException {
+        viewScreen(actionEvent,getLastURL,getLastTitle);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        ApptTable_Cust.setItems(getAppts());
+        ID_Col.setCellValueFactory(new PropertyValueFactory<>("Appointment_ID"));
+        Title_Col.setCellValueFactory(new PropertyValueFactory<>("Appt_Title"));
+        Location_Col.setCellValueFactory(new PropertyValueFactory<>("Appt_Location"));
+        Start_Col.setCellValueFactory(new PropertyValueFactory<>("Appt_StartTime"));
+        End_Col.setCellValueFactory(new PropertyValueFactory<>("Appt_EndTime"));
+        Country_Combo.setItems(getCountries());
     }
 }

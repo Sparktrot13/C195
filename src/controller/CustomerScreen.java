@@ -46,7 +46,10 @@ public class CustomerScreen implements Initializable {
     public void Save_CustomerButton(ActionEvent actionEvent) {
     }
 
-    public void Update_CustomerButton(ActionEvent actionEvent) {
+    public void Update_CustomerButton(ActionEvent actionEvent) throws IOException {
+        getLastURL = customerScreenURL;
+        getLastTitle = customerTitle;
+        viewScreen(actionEvent,updateCustomerURL,customerRecordTitle);
     }
 
     public void Create_CustomerApptButton(ActionEvent actionEvent) {

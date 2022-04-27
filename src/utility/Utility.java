@@ -49,12 +49,17 @@ public class Utility {
     public static final String customerScreenURL = "/view/CustomerScreen.fxml";
     public static final String addApptScreenURL = "/view/AddAppointment.fxml";
     public static final String updateApptScreenURL = "/view/ModifyAppointment.fxml";
+    public static final String updateCustomerURL = "/view/ModifyCustomer.fxml";
+
+    public static String getLastURL = null;
+    public static String getLastTitle = null;
 
     //Screen titles
     public static final String newApptTitle = "New Appointment Scheduler";
     public static final String updateApptTitle = "Update Appointment";
     public static final String customerTitle = "Customer Information";
     public static final String apptViewerTitle = "ABC Corporation Appointments";
+    public static final String customerRecordTitle = "Customer Record";
 
     public static LinkedList errors = new LinkedList();
 
