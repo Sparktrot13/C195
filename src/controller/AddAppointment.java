@@ -46,7 +46,7 @@ public class AddAppointment implements Initializable {
     public ComboBox User_Combo;
     public ComboBox Cust_Combo;
 
-    public static void verifyFields(TextField title, TextField des, TextField loc, TextField type, DatePicker start,ComboBox st, DatePicker end,ComboBox et, ComboBox cust,ComboBox user, ComboBox contact){
+    /*public static void verifyFields(TextField title, TextField des, TextField loc, TextField type, DatePicker start,ComboBox st, DatePicker end,ComboBox et, ComboBox cust,ComboBox user, ComboBox contact){
         chkBlank(title,titleBlank);
         chkBlank(des,desBlank);
         chkBlank(loc,locBlank);
@@ -58,16 +58,17 @@ public class AddAppointment implements Initializable {
         chkComboBoxBlank(cust,customerBlank);
         chkComboBoxBlank(user, userBlank);
         chkComboBoxBlank(contact, contactBlank);
-        alert(alertType.error,"The following errors were found, please fix before saving\n" + errors,"Error");
+        alert(alertType.error,"The following errors were found, please fix before saving\n" + errors,"Error");*/
 
-    }
     public void Save_addApptButton(ActionEvent actionEvent) {
         try {
-            verifyFields(Title_addApptTextfield, Description_addApptTextfield, Location_addApptTextfield, Type_addApptTextfield, Start_addApptDate, Start_addApptCombo, End_addApptDate, End_addApptCombo, Cust_Combo, User_Combo, Contact_Combo);
+            chkAppointments(Start_addApptDate,End_addApptDate, Start_addApptCombo,End_addApptCombo);
+            //verifyFields(Title_addApptTextfield, Description_addApptTextfield, Location_addApptTextfield, Type_addApptTextfield, Start_addApptDate, Start_addApptCombo, End_addApptDate, End_addApptCombo, Cust_Combo, User_Combo, Contact_Combo);
         } catch (Exception d){
             d.printStackTrace();
+            alert(alertType.error,"The following errors were found, please fix before saving\n\n".concat(errors.toString()),"Error");
         }
-        String title = Title_addApptTextfield.getText().trim();
+        /*String title = Title_addApptTextfield.getText().trim();
         String Des = Description_addApptTextfield.getText().trim();
         String Loc = Location_addApptTextfield.getText().trim();
         String type = Type_addApptTextfield.getText().trim();
@@ -81,7 +82,9 @@ public class AddAppointment implements Initializable {
         String updatedBy = getUserName(User_Combo);
         String creator = getUserName(User_Combo);
         insertAppt(title,Des,Loc,type,start,end,create_Date,creator,lastUpdate,updatedBy,cust_ID,user_ID,contact_ID);
+    */
     }
+
 
     public void Cancel_addApptButton(ActionEvent actionEvent) throws IOException {
         viewScreen(actionEvent,apptScreenURL,apptViewerTitle);
