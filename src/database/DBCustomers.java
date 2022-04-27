@@ -7,6 +7,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import static utility.Utility.*;
 
 public class DBCustomers {
     public static ObservableList<Customers> getAllCustomers(){
@@ -32,5 +33,8 @@ public class DBCustomers {
         } catch (SQLException e){
             e.printStackTrace();
         } return Cust_List;
+    }
+    public static void deleteCustomer(Customers c){
+        alert(alertType.confirmation,deleteCustomer + c.getCustomer_Name() + "'s record. " + confirm,confirmation);
     }
 }

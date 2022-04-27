@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.Customers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -52,6 +53,13 @@ public class CustomerScreen implements Initializable {
     }
 
     public void Delete_CustomerButton(ActionEvent actionEvent) {
+        Customers c = (Customers) CustomerTable.getSelectionModel().getSelectedItem();
+        if (c == null){
+            alert(alertType.error,selectionError, "Selection Error");
+        } else {
+            deleteCustomer(c);
+        }
+
     }
 
     public void BackToPrevious(ActionEvent actionEvent) throws IOException {
@@ -67,7 +75,8 @@ public class CustomerScreen implements Initializable {
         Cust_PostalColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Postal"));
         Cust_PhoneColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Phone"));
         Cust_RegionColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Div_ID"));
-        Cust_CountryColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Name"));
+        Cust_CountryColumn.setText("Country");
+
         Country_Combo.setItems(getCountries());
     }
 

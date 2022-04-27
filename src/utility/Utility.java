@@ -41,6 +41,8 @@ public class Utility {
     public static final String contactBlank = "Contact's name is required";
     public static final String customerBlank = "Customer's name is required";
     public static final String userBlank = "Name of user creating appointment required";
+    public static final String deleteCustomer = "You are about to delete ";
+    public static final String selectionError = "Selection needed, Please select from list to continue.";
 
     // URL for viewScreens
     public static final String apptScreenURL = "/view/ApptScreen.fxml";
