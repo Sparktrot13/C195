@@ -58,6 +58,7 @@ public class CustomerScreen implements Initializable {
             alert(alertType.error,selectionError, "Selection Error");
         } else {
             deleteCustomer(c);
+            CustomerTable.setItems(getCustomers());
         }
 
     }
