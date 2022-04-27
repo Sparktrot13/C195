@@ -16,7 +16,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerScreen">
    <children>
       <GridPane prefHeight="650.0" prefWidth="1000.0">
@@ -161,12 +160,12 @@
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <ComboBox fx:id="Cust_CountryComboBox" prefHeight="25.0" prefWidth="316.0" GridPane.columnIndex="1">
+                        <ComboBox fx:id="Country_Combo" onAction="#Country_Combo" prefHeight="25.0" prefWidth="316.0" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </ComboBox>
-                        <ComboBox fx:id="Cust_RegionComboBox" prefHeight="25.0" prefWidth="327.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <ComboBox fx:id="Region_Combo" prefHeight="25.0" prefWidth="327.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets right="20.0" />
                            </GridPane.margin>

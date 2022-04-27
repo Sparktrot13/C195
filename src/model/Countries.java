@@ -67,4 +67,8 @@ public class Countries {
     public void setCountry_Editor(String country_Editor) {
         Country_Editor = country_Editor;
     }
+    @Override
+    public String toString(){
+        return (Country_Name);
+    }
 }

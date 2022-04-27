@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 
 import static utility.Utility.*;
 import static database.DBCustomers.*;
+import static model.Lists.*;
 
 public class CustomerScreen implements Initializable {
     public TableView CustomerTable;
@@ -33,8 +34,8 @@ public class CustomerScreen implements Initializable {
     public TextField Cust_AddressTextfield;
     public TextField Cust_PostalTextfield;
     public TextField Cust_PhoneTextfield;
-    public ComboBox Cust_CountryComboBox;
-    public ComboBox Cust_RegionComboBox;
+    public ComboBox Country_Combo;
+    public ComboBox Region_Combo;
     public Button Cust_SaveButton;
     public Button Cust_UpdateButton;
     public Button Cust_CreateButton;
@@ -67,6 +68,11 @@ public class CustomerScreen implements Initializable {
         Cust_PhoneColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Phone"));
         Cust_RegionColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Div_ID"));
         Cust_CountryColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Name"));
+        Country_Combo.setItems(getCountries());
+    }
 
+    public void Country_Combo(ActionEvent actionEvent) {
+        Region_Combo.setItems(searchCountries(Country_Combo));
+        Region_Combo.getSelectionModel().selectFirst();
     }
 }

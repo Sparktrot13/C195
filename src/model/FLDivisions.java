@@ -78,4 +78,8 @@ public class FLDivisions {
     public void setDiv_Country_ID(int div_Country_ID) {
         Div_Country_ID = div_Country_ID;
     }
+    @Override
+    public String toString(){
+        return (Division_Name);
+    }
 }

@@ -1,5 +1,6 @@
 package model;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 
@@ -44,5 +45,17 @@ public class Lists {
     public static String getUserName(ComboBox c){
         Users user = (Users) c.getSelectionModel().getSelectedItem();
         return user.getUser_Name();
+    }
+    public static ObservableList<FLDivisions> searchCountries(ComboBox c){
+        ObservableList<FLDivisions> firstLevel = FXCollections.observableArrayList();
+        ObservableList<FLDivisions> gottenList = getDivisions();
+        Countries country = (Countries) c.getSelectionModel().getSelectedItem();
+        int country_ID = country.getCountry_ID();
+        for(int i = 0; i<gottenList.size(); i++){
+            if(gottenList.get(i).getDiv_Country_ID() == country_ID){
+                firstLevel.add(gottenList.get(i));
+                continue;
+            }
+        } return firstLevel;
     }
 }
