@@ -107,4 +107,8 @@ public class Customers {
     public void setCustomer_Div_ID(int customer_Div_ID) {
         Customer_Div_ID = customer_Div_ID;
     }
+    @Override
+    public String toString(){
+        return (Customer_Name);
+    }
 }

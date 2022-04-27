@@ -85,4 +85,8 @@ public class Users {
         Users u = (Users) c.getSelectionModel().getSelectedItem();
         return u.User_ID;
     }
+    @Override
+    public String toString(){
+        return (User_Name);
+    }
 }

@@ -54,12 +54,12 @@ public class AddAppointment implements Initializable {
         Timestamp start = Timestamp.valueOf(combineDateTime(Start_addApptDate,Start_addApptCombo));
         Timestamp end = Timestamp.valueOf(combineDateTime(End_addApptDate,End_addApptCombo));
         Timestamp create_Date = Timestamp.valueOf(LocalDateTime.now());
-        String creator = "Me";
         Timestamp lastUpdate = Timestamp.valueOf(LocalDateTime.now());
-        String updatedBy = "Also me";
         int cust_ID = getCustID(Cust_Combo);
         int user_ID = getUserID(User_Combo);
         int contact_ID = getContactID(Contact_Combo);
+        String updatedBy = getUserName(User_Combo);
+        String creator = getUserName(User_Combo);
         insertAppt(title,Des,Loc,type,start,end,create_Date,creator,lastUpdate,updatedBy,cust_ID,user_ID,contact_ID);
     }
 

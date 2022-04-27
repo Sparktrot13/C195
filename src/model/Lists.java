@@ -41,4 +41,8 @@ public class Lists {
         Users user = (Users) c.getSelectionModel().getSelectedItem();
         return user.getUser_ID();
     }
+    public static String getUserName(ComboBox c){
+        Users user = (Users) c.getSelectionModel().getSelectedItem();
+        return user.getUser_Name();
+    }
 }
