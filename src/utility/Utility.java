@@ -1,5 +1,7 @@
 package utility;
 
+import controller.ApptScreenController;
+import controller.ModifyAppointment;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.Appointments;
 import model.Users;
 
 import java.io.IOException;
@@ -144,6 +147,24 @@ public class Utility {
                 System.out.println("Cannot find User");
             }
         } return name;
+    }
+    public static void sendAppt(ApptScreenController controller, TableView<Appointments> table, ActionEvent actionEvent) throws IOException {
+        if (table.getSelectionModel().getSelectedItem() == null) {
+            alert(alertType.error, selectionError, "error");
+        } else {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(controller.getClass().getResource(updateApptScreenURL));
+            Scene newScene = new Scene(loader.load());
+            Stage newStage = new Stage();
+            ModifyAppointment MPSController = loader.getController();
+            MPSController.populateAppt(table.getSelectionModel().getSelectedItem());
+            newStage.setTitle(updateApptTitle);
+            newStage.setScene(newScene);
+            newStage.initModality(Modality.APPLICATION_MODAL);
+            newStage.showAndWait();
+            viewScreen(actionEvent,getLastURL,getLastTitle);
+
+        }
     }
 }
 

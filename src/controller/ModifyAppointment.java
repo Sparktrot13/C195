@@ -1,13 +1,22 @@
 package controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import model.Appointments;
 
 import java.io.IOException;
+import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
 
 import static utility.Utility.*;
+import static utility.Time.*;
 
-public class ModifyAppointment {
+public class ModifyAppointment implements Initializable {
 
     public Label ID_ModApptLabel;
     public Label Title_ModApptLabel;
@@ -41,6 +50,32 @@ public class ModifyAppointment {
     }
 
     public void Cancel_ModApptButton(ActionEvent actionEvent) throws IOException {
-        viewScreen(actionEvent, apptScreenURL,apptViewerTitle);
+        closeScreen(actionEvent);
+    }
+
+    public void populateAppt(Appointments appt) {
+        DateTimeFormatter combo = DateTimeFormatter.ofPattern("HH:mm");
+        LocalTime st = appt.getAppt_StartTime().toLocalTime();
+        LocalTime et = appt.getAppt_EndTime().toLocalTime();
+        LocalDate start = appt.getAppt_StartTime().toLocalDate();
+        LocalDate end = appt.getAppt_EndTime().toLocalDate();
+        ID_ModApptTextfield.setText(Integer.toString(appt.getAppointment_ID()));
+        Title_ModApptTextfield.setText(appt.getAppt_Title());
+        Description_ModApptTextfield.setText(appt.getAppt_Description());
+        Location_ModApptTextfield.setText(appt.getAppt_Location());
+        Type_ModApptTextfield.setText(appt.getAppt_Type());
+        Start_ModApptCombo.setItems(getTime());
+        Start_ModApptCombo.getSelectionModel().select(st.format(combo));
+        End_ModApptCombo.setItems(getTime());
+        End_ModApptCombo.getSelectionModel().select(et.format(combo));
+        Start_ModApptDate.setValue(start);
+        End_ModApptDate.setValue(end);
+        //Contact_ModApptTextfield.setText(appt.getAppt_Contact_ID());
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        //populateAppt();
     }
 }

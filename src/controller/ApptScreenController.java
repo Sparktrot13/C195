@@ -1,6 +1,7 @@
 package controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -73,9 +74,9 @@ public class ApptScreenController implements Initializable {
     }
 
     public void Update_Appt(ActionEvent actionEvent) throws IOException {
-        getLastURL = apptScreenURL;
-        getLastTitle = "Main Screen";
-        newScreen(actionEvent,updateApptScreenURL,updateApptTitle );
+            getLastURL = apptScreenURL;
+            getLastTitle = "Main Screen";
+            sendAppt(this,ApptTable,actionEvent);
     }
 
     public void Delete_Appt(ActionEvent actionEvent) {
