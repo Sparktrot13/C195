@@ -80,7 +80,7 @@ public class DBAppointments {
                     "    Last_Updated_By = '" + updatedBy + "',\n" +
                     "    Customer_ID = '" + cust_ID + "',\n" +
                     "    User_ID = '" + user_ID + "',\n" +
-                    "    Contact_ID = '" + contact_ID + "',\n" +
+                    "    Contact_ID = '" + contact_ID + "'\n" +
                     "where\n" +
                     "\tAppointment_ID = " + ID;
             System.out.println(query1);
