@@ -32,12 +32,18 @@ public class Validator {
             return true;
         }
     }
-    public static void chkDate(Timestamp start, Timestamp end){
+    public static void chkDate(Timestamp start, Timestamp end, Timestamp now){
         LocalDateTime st = start.toLocalDateTime();
         LocalDateTime et = end.toLocalDateTime();
+        LocalDateTime rn = now.toLocalDateTime();
+        errors.clear();
+        if(rn.isAfter(st)){
+            errors.add(chkDateInv2);
+            throw new NumberFormatException(chkDateTitle);
+        }
         if (st.isAfter(et)){
             errors.add(chkDateInv);
-            //alert(alertType.error,chkDateInv,chkDateTitle);
+            throw new NumberFormatException(chkDateTitle);
         }
     }
     public static void chkApptBlank(TextField title, TextField des, TextField loc, TextField type, DatePicker start, ComboBox st, DatePicker end, ComboBox et, ComboBox cust, ComboBox user, ComboBox contact){

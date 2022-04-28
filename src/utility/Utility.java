@@ -28,7 +28,8 @@ public class Utility {
     public static final String incorrectCred = "Invalid Credentials";
     public static final String loginBlank ="Username and password required for login, please try again.";
     public static final String loginTitle = "Credentials Required";
-    public static final String chkDateInv = "Start day and time need to be before End date and time, Please try again.";
+    public static final String chkDateInv = "Start day and time needs to be before End date and time, Please try again.";
+    public static final String chkDateInv2 = "Start day and time is in the past, Please select a date and time in the future.";
     public static final String chkDateTitle = "Date Error";
     public static final String desFieldBlank = "Appointment description is required";
     public static final String locFieldBlank = "Location is required";
@@ -102,6 +103,10 @@ public class Utility {
             Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
             stage.close();
         }
+    }
+    public static void closeScreen(ActionEvent actionEvent){
+        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        stage.close();
     }
     public static void viewScreen(ActionEvent event, String url, String title) throws IOException {
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();

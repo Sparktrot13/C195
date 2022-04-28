@@ -49,29 +49,33 @@ public class AddAppointment implements Initializable {
     public void Save_addApptButton(ActionEvent actionEvent) {
         try {
             chkApptBlank(Title_addApptTextfield, Description_addApptTextfield, Location_addApptTextfield, Type_addApptTextfield, Start_addApptDate, Start_addApptCombo, End_addApptDate, End_addApptCombo, Cust_Combo, User_Combo, Contact_Combo);
+            String title = Title_addApptTextfield.getText().trim();
+            String Des = Description_addApptTextfield.getText().trim();
+            String Loc = Location_addApptTextfield.getText().trim();
+            String type = Type_addApptTextfield.getText().trim();
+            Timestamp start = Timestamp.valueOf(combineDateTime(Start_addApptDate,Start_addApptCombo));
+            Timestamp end = Timestamp.valueOf(combineDateTime(End_addApptDate,End_addApptCombo));
+            Timestamp create_Date = Timestamp.valueOf(LocalDateTime.now());
+            Timestamp lastUpdate = Timestamp.valueOf(LocalDateTime.now());
+            int cust_ID = getCustID(Cust_Combo);
+            int user_ID = getUserID(User_Combo);
+            int contact_ID = getContactID(Contact_Combo);
+            String updatedBy = getUserName(User_Combo);
+            String creator = getUserName(User_Combo);
+            chkDate(start,end,create_Date);
+            insertAppt(title,Des,Loc,type,start,end,create_Date,creator,lastUpdate,updatedBy,cust_ID,user_ID,contact_ID);
+            closeScreen(actionEvent);
         } catch (NumberFormatException d){
             System.out.println(d);
             alert(alertType.error,errorsFound.concat(errors.toString()),"Error");
         }
-        String title = Title_addApptTextfield.getText().trim();
-        String Des = Description_addApptTextfield.getText().trim();
-        String Loc = Location_addApptTextfield.getText().trim();
-        String type = Type_addApptTextfield.getText().trim();
-        Timestamp start = Timestamp.valueOf(combineDateTime(Start_addApptDate,Start_addApptCombo));
-        Timestamp end = Timestamp.valueOf(combineDateTime(End_addApptDate,End_addApptCombo));
-        Timestamp create_Date = Timestamp.valueOf(LocalDateTime.now());
-        Timestamp lastUpdate = Timestamp.valueOf(LocalDateTime.now());
-        int cust_ID = getCustID(Cust_Combo);
-        int user_ID = getUserID(User_Combo);
-        int contact_ID = getContactID(Contact_Combo);
-        String updatedBy = getUserName(User_Combo);
-        String creator = getUserName(User_Combo);
-        insertAppt(title,Des,Loc,type,start,end,create_Date,creator,lastUpdate,updatedBy,cust_ID,user_ID,contact_ID);
+
     }
 
 
     public void Cancel_addApptButton(ActionEvent actionEvent) throws IOException {
-        viewScreen(actionEvent,apptScreenURL,apptViewerTitle);
+        closeScreen(actionEvent);
+        //viewScreen(actionEvent,apptScreenURL,apptViewerTitle);
     }
 
     @Override
