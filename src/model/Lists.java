@@ -51,18 +51,17 @@ public class Lists {
         ObservableList<FLDivisions> gottenList = getDivisions();
         Countries country = (Countries) c.getSelectionModel().getSelectedItem();
         int country_ID = country.getCountry_ID();
-        for(int i = 0; i<gottenList.size(); i++){
-            if(gottenList.get(i).getDiv_Country_ID() == country_ID){
-                firstLevel.add(gottenList.get(i));
-                continue;
+        for (FLDivisions flDivisions : gottenList) {
+            if (flDivisions.getDiv_Country_ID() == country_ID) {
+                firstLevel.add(flDivisions);
             }
-        } return firstLevel;
+        }
+        return firstLevel;
     }
     public static String lookupCust(int ID){
         ObservableList<Customers> allCust = getCustomers();
-        for( int i = 0; i < allCust.size(); i++){
-            Customers customers = allCust.get(i);
-            if(customers.getCustomer_ID() == ID){
+        for (Customers customers : allCust) {
+            if (customers.getCustomer_ID() == ID) {
                 return customers.getCustomer_Name();
             }
         }
@@ -98,14 +97,14 @@ public class Lists {
         }
         return ID;
     }
-    public static Appointments lookupAppt(int ID){
+    public static ObservableList<Appointments> lookupAppts(int ID){
         ObservableList<Appointments> allAppts = getAppts();
         for( int i = 0; i < allAppts.size(); i++){
             Appointments a = allAppts.get(i);
-            if(a.getAppointment_ID() == ID){
-                return a;
+            if(a.getAppt_Customer_ID() == ID){
+                allAppts.add(a);
             }
         }
-        return null;
+        return allAppts;
     }
 }

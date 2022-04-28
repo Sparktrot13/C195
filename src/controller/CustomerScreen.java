@@ -16,7 +16,7 @@ import static model.Lists.*;
 import static utility.Validator.*;
 
 public class CustomerScreen implements Initializable {
-    public TableView CustomerTable;
+    public TableView<Customers> CustomerTable;
     public TableColumn Cust_IDColumn;
     public TableColumn Cust_NameColumn;
     public TableColumn Cust_AddressColumn;
@@ -56,7 +56,7 @@ public class CustomerScreen implements Initializable {
     public void Update_CustomerButton(ActionEvent actionEvent) throws IOException {
         getLastURL = customerScreenURL;
         getLastTitle = customerTitle;
-        viewScreen(actionEvent,updateCustomerURL,customerRecordTitle);
+        sendCust(this,CustomerTable,actionEvent);
     }
 
     public void Create_CustomerApptButton(ActionEvent actionEvent) {

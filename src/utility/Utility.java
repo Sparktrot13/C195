@@ -1,7 +1,9 @@
 package utility;
 
 import controller.ApptScreenController;
+import controller.CustomerScreen;
 import controller.ModifyAppointment;
+import controller.ModifyCustomer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,6 +15,7 @@ import javafx.scene.layout.Region;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Appointments;
+import model.Customers;
 import model.Users;
 
 import java.io.IOException;
@@ -159,6 +162,24 @@ public class Utility {
             ModifyAppointment MPSController = loader.getController();
             MPSController.populateAppt(table.getSelectionModel().getSelectedItem());
             newStage.setTitle(updateApptTitle);
+            newStage.setScene(newScene);
+            newStage.initModality(Modality.APPLICATION_MODAL);
+            newStage.showAndWait();
+            viewScreen(actionEvent,getLastURL,getLastTitle);
+
+        }
+    }
+    public static void sendCust(CustomerScreen controller, TableView<Customers> table, ActionEvent actionEvent) throws IOException {
+        if (table.getSelectionModel().getSelectedItem() == null) {
+            alert(alertType.error, selectionError, "error");
+        } else {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(controller.getClass().getResource(updateCustomerURL));
+            Scene newScene = new Scene(loader.load());
+            Stage newStage = new Stage();
+            ModifyCustomer MPSController = loader.getController();
+            MPSController.populateCustomer(table.getSelectionModel().getSelectedItem());
+            newStage.setTitle(customerRecordTitle);
             newStage.setScene(newScene);
             newStage.initModality(Modality.APPLICATION_MODAL);
             newStage.showAndWait();

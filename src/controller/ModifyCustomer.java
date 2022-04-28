@@ -1,9 +1,11 @@
 package controller;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.Customers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -70,12 +72,23 @@ public class ModifyCustomer implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ApptTable_Cust.setItems(getAppts());
+       /* int custID = Integer.parseInt(ID_Cust.getText().trim());
+        ObservableList l = lookupAppts(custID);
+        ApptTable_Cust.setItems(l);
         ID_Col.setCellValueFactory(new PropertyValueFactory<>("Appointment_ID"));
         Title_Col.setCellValueFactory(new PropertyValueFactory<>("Appt_Title"));
         Location_Col.setCellValueFactory(new PropertyValueFactory<>("Appt_Location"));
         Start_Col.setCellValueFactory(new PropertyValueFactory<>("Appt_StartTime"));
         End_Col.setCellValueFactory(new PropertyValueFactory<>("Appt_EndTime"));
-        Country_Combo.setItems(getCountries());
+        Country_Combo.setItems(getCountries());*/
+    }
+
+    public void populateCustomer(Customers customer) {
+        ID_Cust.setText(Integer.toString(customer.getCustomer_ID()));
+        int custID = Integer.parseInt(ID_Cust.getText().trim());
+        System.out.println(custID);
+        ObservableList l = lookupAppts(custID);
+        //System.out.println(l);
+        //ApptTable_Cust.setItems(l);
     }
 }
