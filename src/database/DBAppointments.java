@@ -40,7 +40,9 @@ public class DBAppointments {
             String query1 = "Insert into appointments (Title, Description, Location, Type, Start, End, Create_Date, Created_By, Last_Update, Last_Updated_By, Customer_ID, User_ID, Contact_ID)" +
                     " values (\"" + title + "\", \"" + Des + "\", \"" + Loc + "\", \"" + type + "\", Timestamp(\"" + start + "\"), Timestamp (\"" + end + "\"), Timestamp(\"" + create_Date + "\"), \"" + creator + "\", Timestamp(\"" + lastUpdate + "\"), \"" + updatedBy + "\", " + cust_ID + ", " + user_ID + ", " + contact_ID +")";
             System.out.println(query1);
-        } catch (Exception e){
+            PreparedStatement ps = DBConnection.getConnection().prepareStatement(query1);
+            ps.executeUpdate(query1);
+        } catch (SQLException e){
             e.printStackTrace();
         }
     }

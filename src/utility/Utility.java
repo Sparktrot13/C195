@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Users;
 
@@ -116,14 +117,18 @@ public class Utility {
         stage.setTitle(title);
         stage.show();
     }
-    public static void newScreen(ActionEvent event, String url, String title) throws IOException {
+    public static void refreshScreen(){
+    }
+    public static void newScreen(ActionEvent actionEvent, String url, String title) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(Utility.class.getResource(url));
         Scene newScene = new Scene(fxmlLoader.load());
         Stage newStage = new Stage();
         newStage.setTitle(title);
         newStage.setScene(newScene);
-        newStage.show();
+        newStage.initModality(Modality.APPLICATION_MODAL);
+        newStage.showAndWait();
+        viewScreen(actionEvent,getLastURL,getLastTitle);
     }
     public static ObservableList<Users> lookupUsers (TextField username) {
         String user = username.getText().toString();

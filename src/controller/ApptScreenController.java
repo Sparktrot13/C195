@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -60,11 +62,15 @@ public class ApptScreenController implements Initializable {
     }
 
     public void New_Appt(ActionEvent actionEvent) throws IOException {
+        getLastURL = apptScreenURL;
+        getLastTitle = "Main Screen";
         newScreen(actionEvent,addApptScreenURL, newApptTitle);
     }
 
     public void Update_Appt(ActionEvent actionEvent) throws IOException {
-        newScreen(actionEvent,updateApptScreenURL,updateApptTitle);
+        getLastURL = apptScreenURL;
+        getLastTitle = "Main Screen";
+        newScreen(actionEvent,updateApptScreenURL,updateApptTitle );
     }
 
     public void Delete_Appt(ActionEvent actionEvent) {

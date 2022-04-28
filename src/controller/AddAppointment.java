@@ -64,6 +64,7 @@ public class AddAppointment implements Initializable {
             String creator = getUserName(User_Combo);
             chkDate(start,end,create_Date);
             insertAppt(title,Des,Loc,type,start,end,create_Date,creator,lastUpdate,updatedBy,cust_ID,user_ID,contact_ID);
+            getAppts();
             closeScreen(actionEvent);
         } catch (NumberFormatException d){
             System.out.println(d);
@@ -75,7 +76,7 @@ public class AddAppointment implements Initializable {
 
     public void Cancel_addApptButton(ActionEvent actionEvent) throws IOException {
         closeScreen(actionEvent);
-        //viewScreen(actionEvent,apptScreenURL,apptViewerTitle);
+
     }
 
     @Override
