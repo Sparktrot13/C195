@@ -68,35 +68,35 @@ public class Lists {
         }
         return null;
     }
-    public static Users lookupUser(int ID){
+    public static int lookupUser(int ID){
         ObservableList<Users> allUsers = getUsers();
         for( int i = 0; i < allUsers.size(); i++){
             Users u = allUsers.get(i);
             if(u.getUser_ID() == ID){
-                return u;
+                return allUsers.indexOf(u);
             }
         }
-        return null;
+        return ID;
     }
-    public static Customers lookupCustomer(int ID){
+    public static int lookupCustomer(int ID){
         ObservableList<Customers> allCust = getCustomers();
         for( int i = 0; i < allCust.size(); i++){
             Customers customers = allCust.get(i);
             if(customers.getCustomer_ID() == ID){
-                return customers;
+                return allCust.indexOf(customers);
             }
         }
-        return null;
+        return ID;
     }
-    public static Contacts lookupContact(int ID){
+    public static int lookupContact(int ID){
         ObservableList<Contacts> allContacts = getContacts();
         for( int i = 0; i < allContacts.size(); i++){
             Contacts c = allContacts.get(i);
             if(c.getContact_ID() == ID){
-                return c;
+                return allContacts.indexOf(c);
             }
         }
-        return null;
+        return ID;
     }
     public static Appointments lookupAppt(int ID){
         ObservableList<Appointments> allAppts = getAppts();

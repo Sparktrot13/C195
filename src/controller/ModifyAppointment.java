@@ -1,7 +1,6 @@
 package controller;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import model.Appointments;
 import model.Contacts;
@@ -9,20 +8,17 @@ import model.Customers;
 import model.Users;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ResourceBundle;
 
 import static database.DBAppointments.*;
 import static utility.Utility.*;
 import static utility.Time.*;
 import static model.Lists.*;
 import static utility.Validator.chkApptBlank;
-import static utility.Validator.chkDate;
 
 public class ModifyAppointment{
 
@@ -48,9 +44,9 @@ public class ModifyAppointment{
     public TextField Description_addApptTextfield;
     public TextField Location_addApptTextfield;
     public TextField Type_addApptTextfield;
-    public ComboBox Contact_Combo;
-    public ComboBox Cust_Combo;
-    public ComboBox User_Combo;
+    public ComboBox<Contacts> Contact_Combo;
+    public ComboBox<Customers> Cust_Combo;
+    public ComboBox<Users> User_Combo;
     public Label ScreenTitle_ApptLabel;
     public Button Save_addApptButton;
     public Button Cancel_addApptButton;
@@ -84,29 +80,31 @@ public class ModifyAppointment{
 
     public void populateAppt(Appointments appt) {
         DateTimeFormatter combo = DateTimeFormatter.ofPattern("HH:mm");
-        LocalTime st = appt.getAppt_StartTime().toLocalTime();
-        LocalTime et = appt.getAppt_EndTime().toLocalTime();
+        LocalTime st = LocalTime.parse(appt.getAppt_StartTime().toLocalTime().format(combo));
+        LocalTime et = LocalTime.parse(appt.getAppt_EndTime().toLocalTime().format(combo));
         LocalDate start = appt.getAppt_StartTime().toLocalDate();
         LocalDate end = appt.getAppt_EndTime().toLocalDate();
+        int startTime = lookupTime(st);
+        int endTime = lookupTime(et);
+        System.out.println(startTime);
         int user = appt.getAppt_User_ID();
         int cust = appt.getAppt_Customer_ID();
         int contact = appt.getAppt_Contact_ID();
-        Contacts c = lookupContact(contact);
-        Users u = lookupUser(user);
-        Customers customers = lookupCustomer(cust);
+        int c = lookupContact(contact);
+        int u = lookupUser(user);
+        int customers = lookupCustomer(cust);
         Start_addApptCombo.setItems(getTime());
         End_addApptCombo.setItems(getTime());
         Contact_Combo.setItems(getContacts());
         User_Combo.setItems(getUsers());
         Cust_Combo.setItems(getCustomers());
-
         ID_addApptTextfield.setText(Integer.toString(appt.getAppointment_ID()));
         Title_addApptTextfield.setText(appt.getAppt_Title());
         Description_addApptTextfield.setText(appt.getAppt_Description());
         Location_addApptTextfield.setText(appt.getAppt_Location());
         Type_addApptTextfield.setText(appt.getAppt_Type());
-        Start_addApptCombo.getSelectionModel().select(st.format(combo));
-        End_addApptCombo.getSelectionModel().select(et.format(combo));
+        Start_addApptCombo.getSelectionModel().select(startTime);
+        End_addApptCombo.getSelectionModel().select(endTime);
         Start_addApptDate.setValue(start);
         End_addApptDate.setValue(end);
         User_Combo.getSelectionModel().select(u);
