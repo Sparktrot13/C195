@@ -6,11 +6,16 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.Appointments;
+import model.Customers;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static database.DBCustomers.deleteCustomer;
+import static model.Lists.getAppts;
+import static model.Lists.getCustomers;
 import static utility.Utility.*;
 import static database.DBAppointments.*;
 
@@ -74,8 +79,13 @@ public class ApptScreenController implements Initializable {
     }
 
     public void Delete_Appt(ActionEvent actionEvent) {
-        alert(alertType.confirmation,apptDelete + "selected" + ". " + confirm,confirmation);
-        System.out.println("Delete confirmed");
+        Appointments a = (Appointments) ApptTable.getSelectionModel().getSelectedItem();
+        if (a == null){
+            alert(alertType.error,selectionError, "Selection Error");
+        } else {
+            deleteAppt(a);
+            ApptTable.setItems(getAppts());
+        }
     }
 
     public void Customer_Appt(ActionEvent actionEvent) throws IOException {

@@ -58,4 +58,14 @@ public class Lists {
             }
         } return firstLevel;
     }
+    public static String lookupCust(int ID){
+        ObservableList<Customers> allCust = getCustomers();
+        for( int i = 0; i < allCust.size(); i++){
+            Customers customers = allCust.get(i);
+            if(customers.getCustomer_ID() == ID){
+                return customers.getCustomer_Name();
+            }
+        }
+        return null;
+    }
 }

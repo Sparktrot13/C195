@@ -3,8 +3,15 @@ package database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Appointments;
+import utility.Utility;
+import static model.Lists.*;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import static utility.Utility.*;
+import static utility.Utility.confirmation;
 
 public class DBAppointments {
     public static ObservableList<Appointments> getAllAppointments(){
@@ -19,11 +26,11 @@ public class DBAppointments {
                 String description = rs.getString("Description");
                 String location = rs.getString("Location");
                 String type = rs.getString("Type");
-                Timestamp startTime = rs.getTimestamp("Start");
-                Timestamp end = rs.getTimestamp("End");
-                Timestamp created = rs.getTimestamp("Create_Date");
+                LocalDateTime startTime = rs.getTimestamp("Start").toLocalDateTime();
+                LocalDateTime end = rs.getTimestamp("End").toLocalDateTime();
+                LocalDateTime created = rs.getTimestamp("Create_Date").toLocalDateTime();
                 String creator = rs.getString("Created_By");
-                Timestamp updated = rs.getTimestamp("Last_Update");
+                LocalDateTime updated = rs.getTimestamp("Last_Update").toLocalDateTime();
                 String updater = rs.getString("Last_Updated_By");
                 int cust_ID = rs.getInt("Customer_ID");
                 int user_ID = rs.getInt("User_ID");
@@ -42,6 +49,19 @@ public class DBAppointments {
             System.out.println(query1);
             PreparedStatement ps = DBConnection.getConnection().prepareStatement(query1);
             ps.executeUpdate(query1);
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public static void deleteAppt(Appointments a){
+        int custID = a.getAppt_Customer_ID();
+        String custName = lookupCust(custID);
+        LocalDate ld = a.getAppt_StartTime().toLocalDate();
+        alert(Utility.alertType.confirmation,deleteAppt + a.getAppointment_ID()+ " for " + custName + " on " + ld + ". " + confirm,confirmation);
+        String delete = "Delete from appointments where Appointment_ID = " + a.getAppointment_ID();
+        try{
+            PreparedStatement ps = DBConnection.getConnection().prepareStatement(delete);
+            ps.executeUpdate(delete);
         } catch (SQLException e){
             e.printStackTrace();
         }

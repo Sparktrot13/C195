@@ -52,6 +52,7 @@ public class Utility {
     public static final String regionBoxBlank = "State/Region box is blank";
     public static final String countryBoxBlank = "Country box is blank";
     public static final String errorsFound = "The following errors were found, please fix before saving\n\n";
+    public static final String deleteAppt = "You are about to delete appointment #";
 
 
     // URL for viewScreens
