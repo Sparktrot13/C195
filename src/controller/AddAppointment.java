@@ -50,8 +50,8 @@ public class AddAppointment implements Initializable {
         try {
             chkApptBlank(Title_addApptTextfield, Description_addApptTextfield, Location_addApptTextfield, Type_addApptTextfield, Start_addApptDate, Start_addApptCombo, End_addApptDate, End_addApptCombo, Cust_Combo, User_Combo, Contact_Combo);
         } catch (NumberFormatException d){
-            d.printStackTrace();
-            alert(alertType.error,"The following errors were found, please fix before saving\n\n".concat(errors.toString()),"Error");
+            System.out.println(d);
+            alert(alertType.error,errorsFound.concat(errors.toString()),"Error");
         }
         String title = Title_addApptTextfield.getText().trim();
         String Des = Description_addApptTextfield.getText().trim();

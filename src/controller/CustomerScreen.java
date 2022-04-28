@@ -49,7 +49,7 @@ public class CustomerScreen implements Initializable {
             chkCustomerBlank(Cust_NameTextfield,Cust_AddressTextfield,Cust_PhoneTextfield,Cust_PostalTextfield,Region_Combo,Country_Combo);
         } catch (NumberFormatException e){
             System.out.println(e);
-            alert(alertType.error,errors.toString(),"error");
+            alert(alertType.error,errorsFound.concat(errors.toString()),"Error");
         }
     }
 

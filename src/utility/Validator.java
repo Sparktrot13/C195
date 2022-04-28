@@ -75,26 +75,31 @@ public class Validator {
         if(!chkBlank(type)){
             errors.add(typeFieldBlank+"\n");
         }
-        throw new NumberFormatException("Blank fields");
+        if((!chkDatePicker(start))||(!chkDatePicker(end))||(!chkComboBoxBlank(st))||(!chkComboBoxBlank(et))||(!chkComboBoxBlank(cust))||(!chkComboBoxBlank(user))||(!chkComboBoxBlank(contact))||(!chkBlank(des))||(!chkBlank(title))||(!chkBlank(loc))||(!chkBlank(type))){
+            throw new NumberFormatException("Blank fields");
+        }
     }
     public static void chkCustomerBlank(TextField name,TextField address,TextField phone,TextField postal,ComboBox region, ComboBox country){
+        errors.clear();
         if(!chkBlank(name)){
-            errors.add(custNameBlank+"\n");
+            errors.add(custNameBlank+"\n");}
+        if(!chkBlank(address)) {
+            errors.add(custAddressBlank + "\n");
         }
-        if(!chkBlank(address)){
-            errors.add(custAddressBlank+"\n");
+        if(!chkBlank(phone)) {
+            errors.add(custPhoneBlank + "\n");
         }
-        if(!chkBlank(phone)){
-            errors.add(custPhoneBlank+"\n");
+        if(!chkBlank(postal)) {
+            errors.add(custPostalBlank + "\n");
         }
-        if(!chkBlank(postal)){
-            errors.add(custPostalBlank+"\n");
+        if(!chkComboBoxBlank(region)) {
+            errors.add(regionBoxBlank + "\n");
         }
-        if(!chkComboBoxBlank(region)){
-            errors.add(regionBoxBlank+"\n");
+        if(!chkComboBoxBlank(country)) {
+            errors.add(countryBoxBlank + "\n");
         }
-        if(!chkComboBoxBlank(country)){
-            errors.add(countryBoxBlank+"\n");
+        if((!chkBlank(name))||(!chkBlank(address))||(!chkBlank(phone))||(!chkBlank(postal))||(!chkComboBoxBlank(region))||(!chkComboBoxBlank(country))){
+            throw new NumberFormatException("Blanks not good");
         }
     }
 }

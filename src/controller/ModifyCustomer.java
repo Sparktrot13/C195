@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import static model.Lists.*;
 import static utility.Utility.*;
+import static utility.Validator.*;
 
 public class ModifyCustomer implements Initializable {
     public ComboBox Country_Combo;
@@ -46,6 +47,12 @@ public class ModifyCustomer implements Initializable {
     }
 
     public void UpdateCust(ActionEvent actionEvent) {
+        try{
+            chkCustomerBlank(Name_Cust,Address_Cust,Phone_Cust,Postal_Cust,Region_Combo,Country_Combo);
+        } catch (NumberFormatException e){
+            System.out.println(e);
+            alert(alertType.error,errorsFound.concat(errors.toString()),"Error");
+        }
     }
 
     public void CreateAppt(ActionEvent actionEvent) {
