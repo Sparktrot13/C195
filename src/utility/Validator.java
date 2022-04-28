@@ -4,10 +4,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-import javax.xml.crypto.Data;
-import java.awt.*;
 import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
@@ -15,9 +12,11 @@ import static utility.Utility.*;
 
 public class Validator {
 
-    public static void chkBlank(TextField t, String s){
+    public static boolean chkBlank(TextField t){
         if (t.getText().isBlank()){
-            errors.add(s);
+            return false;
+        } else{
+            return true;
         }
     }
     public static boolean chkDatePicker(DatePicker dp) {
@@ -43,25 +42,41 @@ public class Validator {
             //alert(alertType.error,chkDateInv,chkDateTitle);
         }
     }
-    public static void chkAppointments(DatePicker start, DatePicker end,ComboBox st, ComboBox et){
+    public static void chkApptBlank(TextField title, TextField des, TextField loc, TextField type, DatePicker start, ComboBox st, DatePicker end, ComboBox et, ComboBox cust, ComboBox user, ComboBox contact){
         errors.clear();
         if (!chkDatePicker(start)){
             errors.add(startDateBlank+"\n");
-            if (!chkDatePicker(end)){
-                errors.add(endDateBlank+"\n");
-            }
-            throw new NumberFormatException("Date Null");
-        } else {
-            System.out.println("Date Good");
+        }
+        if (!chkDatePicker(end)){
+            errors.add(endDateBlank+"\n");
         }
         if (!chkComboBoxBlank(st)){
-            errors.add(startTimeBlank);
-            if(!chkComboBoxBlank(et)){
-                errors.add(endTimeBlank);
-            }
-            throw new NumberFormatException("Time null");
-        } else {
-            System.out.println("Time Good");
+            errors.add(startTimeBlank+"\n");
         }
+        if(!chkComboBoxBlank(et)){
+            errors.add(endTimeBlank+"\n");
+        }
+        if(!chkBlank(title)){
+            errors.add(titleFieldBlank +"\n");
+        }
+        if(!chkComboBoxBlank(cust)){
+            errors.add(custBoxBlank+"\n");
+        }
+        if(!chkComboBoxBlank(user)){
+            errors.add(userBoxBlank+"\n");
+        }
+        if(!chkComboBoxBlank(contact)){
+            errors.add(contBoxBlank+"\n");
+        }
+        if(!chkBlank(des)){
+            errors.add(desFieldBlank);
+        }
+        if(!chkBlank(loc)){
+            errors.add(locFieldBlank);
+        }
+        if(!chkBlank(type)){
+            errors.add(typeFieldBlank);
+        }
+        throw new NumberFormatException("Blank fields");
     }
 }

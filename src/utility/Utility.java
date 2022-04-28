@@ -43,6 +43,13 @@ public class Utility {
     public static final String userBlank = "Name of user creating appointment required";
     public static final String deleteCustomer = "You are about to delete ";
     public static final String selectionError = "Selection needed, Please select from list to continue.";
+    public static final String titleFieldBlank = "Name field is blank.";
+    public static final String userBoxBlank = "User box is blank.";
+    public static final String custBoxBlank = "Customer box is blank.";
+    public static final String contBoxBlank = "Contact box is blank.";
+    public static final String desFieldBlank = "Description field is blank.";
+    public static final String locFieldBlank = "Location field is blank.";
+    public static final String typeFieldBlank = "Type field is blank.";
 
     // URL for viewScreens
     public static final String apptScreenURL = "/view/ApptScreen.fxml";

@@ -6,12 +6,9 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 import static utility.Utility.*;
-import static database.DBAppointments.*;
 import static utility.Time.*;
 
 import static model.Lists.*;
@@ -62,9 +59,8 @@ public class AddAppointment implements Initializable {
 
     public void Save_addApptButton(ActionEvent actionEvent) {
         try {
-            chkAppointments(Start_addApptDate,End_addApptDate, Start_addApptCombo,End_addApptCombo);
-            //verifyFields(Title_addApptTextfield, Description_addApptTextfield, Location_addApptTextfield, Type_addApptTextfield, Start_addApptDate, Start_addApptCombo, End_addApptDate, End_addApptCombo, Cust_Combo, User_Combo, Contact_Combo);
-        } catch (Exception d){
+            chkApptBlank(Title_addApptTextfield, Description_addApptTextfield, Location_addApptTextfield, Type_addApptTextfield, Start_addApptDate, Start_addApptCombo, End_addApptDate, End_addApptCombo, Cust_Combo, User_Combo, Contact_Combo);
+        } catch (NumberFormatException d){
             d.printStackTrace();
             alert(alertType.error,"The following errors were found, please fix before saving\n\n".concat(errors.toString()),"Error");
         }
