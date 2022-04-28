@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 import static utility.Utility.*;
 import static database.DBCustomers.*;
 import static model.Lists.*;
+import static utility.Validator.*;
 
 public class CustomerScreen implements Initializable {
     public TableView CustomerTable;
@@ -44,6 +45,12 @@ public class CustomerScreen implements Initializable {
     public Button Cust_BackButton;
 
     public void Save_CustomerButton(ActionEvent actionEvent) {
+        try{
+            chkCustomerBlank(Cust_NameTextfield,Cust_AddressTextfield,Cust_PhoneTextfield,Cust_PostalTextfield,Region_Combo,Country_Combo);
+        } catch (NumberFormatException e){
+            System.out.println(e);
+            alert(alertType.error,errors.toString(),"error");
+        }
     }
 
     public void Update_CustomerButton(ActionEvent actionEvent) throws IOException {

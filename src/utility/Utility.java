@@ -30,26 +30,26 @@ public class Utility {
     public static final String loginTitle = "Credentials Required";
     public static final String chkDateInv = "Start day and time need to be before End date and time, Please try again.";
     public static final String chkDateTitle = "Date Error";
-    public static final String titleBlank = "Title is required";
-    public static final String desBlank = "Appointment description is required";
-    public static final String locBlank = "Location is required";
-    public static final String typeBlank = "Appointment type is required";
+    public static final String desFieldBlank = "Appointment description is required";
+    public static final String locFieldBlank = "Location is required";
+    public static final String typeFieldBlank = "Appointment type is required";
     public static final String startDateBlank = "Appointment start date is required";
     public static final String endDateBlank = "Appointment end date is required";
     public static final String startTimeBlank = "Appointment start Time is required";
     public static final String endTimeBlank = "Appointment end Time is required";
-    public static final String contactBlank = "Contact's name is required";
-    public static final String customerBlank = "Customer's name is required";
-    public static final String userBlank = "Name of user creating appointment required";
+    public static final String contBoxBlank = "Contact's name is required";
+    public static final String custBoxBlank = "Customer's name is required";
+    public static final String userBoxBlank = "Name of user creating appointment required";
     public static final String deleteCustomer = "You are about to delete ";
     public static final String selectionError = "Selection needed, Please select from list to continue.";
     public static final String titleFieldBlank = "Name field is blank.";
-    public static final String userBoxBlank = "User box is blank.";
-    public static final String custBoxBlank = "Customer box is blank.";
-    public static final String contBoxBlank = "Contact box is blank.";
-    public static final String desFieldBlank = "Description field is blank.";
-    public static final String locFieldBlank = "Location field is blank.";
-    public static final String typeFieldBlank = "Type field is blank.";
+    public static final String custNameBlank = "Customer's name required.";
+    public static final String custPhoneBlank = "Customer's phone number required.";
+    public static final String custAddressBlank = "Customer's address required.";
+    public static final String custPostalBlank = "Customer's postal code required";
+    public static final String regionBoxBlank = "State/Region box is blank";
+    public static final String countryBoxBlank = "Country box is blank";
+
 
     // URL for viewScreens
     public static final String apptScreenURL = "/view/ApptScreen.fxml";

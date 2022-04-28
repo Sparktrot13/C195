@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 
 
 import static utility.Utility.*;
-
 public class Validator {
 
     public static boolean chkBlank(TextField t){
@@ -33,7 +32,6 @@ public class Validator {
             return true;
         }
     }
-
     public static void chkDate(Timestamp start, Timestamp end){
         LocalDateTime st = start.toLocalDateTime();
         LocalDateTime et = end.toLocalDateTime();
@@ -69,14 +67,34 @@ public class Validator {
             errors.add(contBoxBlank+"\n");
         }
         if(!chkBlank(des)){
-            errors.add(desFieldBlank);
+            errors.add(desFieldBlank+"\n");
         }
         if(!chkBlank(loc)){
-            errors.add(locFieldBlank);
+            errors.add(locFieldBlank+"\n");
         }
         if(!chkBlank(type)){
-            errors.add(typeFieldBlank);
+            errors.add(typeFieldBlank+"\n");
         }
         throw new NumberFormatException("Blank fields");
+    }
+    public static void chkCustomerBlank(TextField name,TextField address,TextField phone,TextField postal,ComboBox region, ComboBox country){
+        if(!chkBlank(name)){
+            errors.add(custNameBlank+"\n");
+        }
+        if(!chkBlank(address)){
+            errors.add(custAddressBlank+"\n");
+        }
+        if(!chkBlank(phone)){
+            errors.add(custPhoneBlank+"\n");
+        }
+        if(!chkBlank(postal)){
+            errors.add(custPostalBlank+"\n");
+        }
+        if(!chkComboBoxBlank(region)){
+            errors.add(regionBoxBlank+"\n");
+        }
+        if(!chkComboBoxBlank(country)){
+            errors.add(countryBoxBlank+"\n");
+        }
     }
 }
