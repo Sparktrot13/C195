@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyAppointment">
+<AnchorPane prefHeight="600.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyAppointment">
     <children>
-        <GridPane prefHeight="650.0" prefWidth="400.0">
+        <GridPane prefHeight="600.0" prefWidth="385.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="197.0" />
             </columnConstraints>
@@ -37,7 +45,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Label fx:id="ID_ModApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Appointment ID">
+                        <Label fx:id="ID_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Appointment ID">
                             <GridPane.margin>
                                 <Insets />
                             </GridPane.margin>
@@ -45,7 +53,7 @@
                                 <Insets right="10.0" />
                             </padding>
                         </Label>
-                        <Label fx:id="Title_ModApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Title" GridPane.rowIndex="1">
+                        <Label fx:id="Title_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Title" GridPane.rowIndex="1">
                             <GridPane.margin>
                                 <Insets />
                             </GridPane.margin>
@@ -53,98 +61,98 @@
                                 <Insets right="10.0" />
                             </padding>
                         </Label>
-                        <Label fx:id="Description_ModApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Description" GridPane.rowIndex="2">
+                        <Label fx:id="Description_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Description" GridPane.rowIndex="2">
                             <padding>
                                 <Insets right="10.0" />
                             </padding>
                         </Label>
-                        <Label fx:id="Location_ModApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Location" GridPane.rowIndex="3">
+                        <Label fx:id="Location_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Location" GridPane.rowIndex="3">
                             <padding>
                                 <Insets right="10.0" />
                             </padding>
                         </Label>
-                        <Label fx:id="Contact_ModApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Contact" GridPane.rowIndex="4">
+                        <Label fx:id="Contact_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Contact" GridPane.rowIndex="4">
                             <padding>
                                 <Insets right="10.0" />
                             </padding>
                         </Label>
-                        <Label fx:id="Type_ModApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Type" GridPane.rowIndex="5">
+                        <Label fx:id="Type_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Type" GridPane.rowIndex="5">
                             <padding>
                                 <Insets right="10.0" />
                             </padding>
                         </Label>
-                        <Label fx:id="StartDate_ModApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Start Date" GridPane.rowIndex="6">
+                        <Label fx:id="StartDate_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Start Date" GridPane.rowIndex="6">
                             <padding>
                                 <Insets right="10.0" />
                             </padding>
                         </Label>
-                        <Label fx:id="StartTime_ModApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Start Time" GridPane.rowIndex="7">
+                        <Label fx:id="StartTime_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Start Time" GridPane.rowIndex="7">
                             <padding>
                                 <Insets right="10.0" />
                             </padding>
                         </Label>
-                        <Label fx:id="EndDate_ModApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="End Date" GridPane.rowIndex="8">
+                        <Label fx:id="EndDate_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="End Date" GridPane.rowIndex="8">
                             <padding>
                                 <Insets right="10.0" />
                             </padding>
                         </Label>
-                        <Label fx:id="EndTime_ModApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="End Time" GridPane.rowIndex="9">
+                        <Label fx:id="EndTime_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="End Time" GridPane.rowIndex="9">
                             <padding>
                                 <Insets right="10.0" />
                             </padding>
                         </Label>
-                        <Label fx:id="CustomerID_ModApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Customer ID" GridPane.rowIndex="10">
+                        <Label fx:id="CustomerID_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Customer ID" GridPane.rowIndex="10">
                             <padding>
                                 <Insets right="10.0" />
                             </padding>
                         </Label>
-                        <Label fx:id="User_ModApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="User ID" GridPane.rowIndex="11">
+                        <Label fx:id="User_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="User ID" GridPane.rowIndex="11">
                             <padding>
                                 <Insets right="10.0" />
                             </padding>
                         </Label>
-                        <DatePicker fx:id="Start_ModApptDate" prefHeight="25.0" prefWidth="308.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                            <GridPane.margin>
-                                <Insets />
-                            </GridPane.margin>
-                        </DatePicker>
-                        <DatePicker fx:id="End_ModApptDate" prefHeight="25.0" prefWidth="308.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                        <DatePicker fx:id="Start_addApptDate" prefHeight="25.0" prefWidth="308.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                             <GridPane.margin>
                                 <Insets />
                             </GridPane.margin>
                         </DatePicker>
-                        <ComboBox fx:id="Start_ModApptCombo" prefHeight="25.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                        <DatePicker fx:id="End_addApptDate" prefHeight="25.0" prefWidth="308.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                            <GridPane.margin>
+                                <Insets />
+                            </GridPane.margin>
+                        </DatePicker>
+                        <ComboBox fx:id="Start_addApptCombo" prefHeight="25.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                             <GridPane.margin>
                                 <Insets />
                             </GridPane.margin>
                         </ComboBox>
-                        <ComboBox fx:id="End_ModApptCombo" prefHeight="25.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                        <ComboBox fx:id="End_addApptCombo" prefHeight="25.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
                             <GridPane.margin>
                                 <Insets />
                             </GridPane.margin>
                         </ComboBox>
-                        <TextField fx:id="ID_ModApptTextfield" disable="true" editable="false" promptText="Auto Generated" GridPane.columnIndex="1" />
-                        <TextField fx:id="Title_ModApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="Description_ModApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField fx:id="Location_ModApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField fx:id="Contact_ModApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField fx:id="Type_ModApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <TextField fx:id="CustomerID_ModApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-                        <TextField fx:id="UserID_ModApptTextfield" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                        <TextField fx:id="ID_addApptTextfield" disable="true" editable="false" promptText="Auto Generated" GridPane.columnIndex="1" />
+                        <TextField fx:id="Title_addApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="Description_addApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="Location_addApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="Type_addApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <ComboBox fx:id="Contact_Combo" prefHeight="25.0" prefWidth="267.0" promptText="Select Contact" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="Cust_Combo" prefHeight="25.0" prefWidth="288.0" promptText="Select Customer" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                        <ComboBox fx:id="User_Combo" prefHeight="25.0" prefWidth="264.0" promptText="Select User" GridPane.columnIndex="1" GridPane.rowIndex="11" />
                     </children>
                     <padding>
                         <Insets right="20.0" />
                     </padding>
                 </GridPane>
-                <Label fx:id="ScreenTitle_ModApptLabel" alignment="CENTER" prefHeight="17.0" prefWidth="491.0" text="Update Appointment Form">
+                <Label fx:id="ScreenTitle_ApptLabel" alignment="CENTER" prefHeight="17.0" prefWidth="491.0" text="Add Appointment Form">
                     <font>
                         <Font name="System Bold Italic" size="24.0" />
                     </font>
                 </Label>
                 <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="2">
                     <buttons>
-                        <Button fx:id="Save_modApptButton" mnemonicParsing="false" onAction="#Save_modApptButton" text="Save" />
-                        <Button fx:id="Cancel_ModApptButton" mnemonicParsing="false" onAction="#Cancel_ModApptButton" text="Cancel" />
+                        <Button fx:id="Save_addApptButton" mnemonicParsing="false" onAction="#Save_addApptButton" text="Save" />
+                        <Button fx:id="Cancel_addApptButton" mnemonicParsing="false" onAction="#Cancel_addApptButton" text="Cancel" />
                     </buttons>
                     <padding>
                         <Insets bottom="20.0" right="20.0" />

@@ -70,7 +70,6 @@ public class AddAppointment implements Initializable {
             System.out.println(d);
             alert(alertType.error,errorsFound.concat(errors.toString()),"Error");
         }
-
     }
 
 

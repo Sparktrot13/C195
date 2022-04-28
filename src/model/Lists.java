@@ -68,4 +68,44 @@ public class Lists {
         }
         return null;
     }
+    public static Users lookupUser(int ID){
+        ObservableList<Users> allUsers = getUsers();
+        for( int i = 0; i < allUsers.size(); i++){
+            Users u = allUsers.get(i);
+            if(u.getUser_ID() == ID){
+                return u;
+            }
+        }
+        return null;
+    }
+    public static Customers lookupCustomer(int ID){
+        ObservableList<Customers> allCust = getCustomers();
+        for( int i = 0; i < allCust.size(); i++){
+            Customers customers = allCust.get(i);
+            if(customers.getCustomer_ID() == ID){
+                return customers;
+            }
+        }
+        return null;
+    }
+    public static Contacts lookupContact(int ID){
+        ObservableList<Contacts> allContacts = getContacts();
+        for( int i = 0; i < allContacts.size(); i++){
+            Contacts c = allContacts.get(i);
+            if(c.getContact_ID() == ID){
+                return c;
+            }
+        }
+        return null;
+    }
+    public static Appointments lookupAppt(int ID){
+        ObservableList<Appointments> allAppts = getAppts();
+        for( int i = 0; i < allAppts.size(); i++){
+            Appointments a = allAppts.get(i);
+            if(a.getAppointment_ID() == ID){
+                return a;
+            }
+        }
+        return null;
+    }
 }
