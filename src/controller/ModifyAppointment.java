@@ -17,7 +17,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-import static database.DBAppointments.insertAppt;
+import static database.DBAppointments.*;
 import static utility.Utility.*;
 import static utility.Time.*;
 import static model.Lists.*;
@@ -59,23 +59,18 @@ public class ModifyAppointment{
         try {
             chkApptBlank(Title_addApptTextfield, Description_addApptTextfield, Location_addApptTextfield, Type_addApptTextfield, Start_addApptDate, Start_addApptCombo, End_addApptDate, End_addApptCombo, Cust_Combo, User_Combo, Contact_Combo);
             int appt = Integer.parseInt(ID_addApptTextfield.getText());
-            Timestamp created = Timestamp.valueOf(lookupAppt(appt).getAppt_Created_Date());
             String title = Title_addApptTextfield.getText().trim();
             String Des = Description_addApptTextfield.getText().trim();
             String Loc = Location_addApptTextfield.getText().trim();
             String type = Type_addApptTextfield.getText().trim();
             Timestamp start = Timestamp.valueOf(combineDateTime(Start_addApptDate,Start_addApptCombo));
             Timestamp end = Timestamp.valueOf(combineDateTime(End_addApptDate,End_addApptCombo));
-            Timestamp create_Date = created;
             Timestamp lastUpdate = Timestamp.valueOf(LocalDateTime.now());
             int cust_ID = getCustID(Cust_Combo);
             int user_ID = getUserID(User_Combo);
             int contact_ID = getContactID(Contact_Combo);
             String updatedBy = getUserName(User_Combo);
-            String creator = lookupAppt(appt).getAppt_Creator();
-            chkDate(start,end,create_Date);
-            insertAppt(title,Des,Loc,type,start,end,create_Date,creator,lastUpdate,updatedBy,cust_ID,user_ID,contact_ID);
-            getAppts();
+            UpdateAppt(appt,title,Des,Loc,type,start,end,lastUpdate,updatedBy,cust_ID,user_ID,contact_ID);
             closeScreen(actionEvent);
         } catch (NumberFormatException d){
             System.out.println(d);

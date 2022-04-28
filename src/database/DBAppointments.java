@@ -66,6 +66,30 @@ public class DBAppointments {
             e.printStackTrace();
         }
     }
+    public static void UpdateAppt(int ID,String title, String Des, String Loc, String type, Timestamp start, Timestamp end, Timestamp lastUpdate, String updatedBy, int cust_ID, int user_ID, int contact_ID){
+        try{
+            String query1 = "Update appointments\n" +
+                    "set\n" +
+                    "\tTitle = '" + title + "',\n" +
+                    "    Description = '" + Des + "',\n" +
+                    "    Location = '" + Loc + "',\n" +
+                    "    Type = '" + type + "',\n" +
+                    "    Start = '" + start + "',\n" +
+                    "    End = '" + end + "',\n" +
+                    "    Last_Update = '" + lastUpdate + "',\n" +
+                    "    Last_Updated_By = '" + updatedBy + "',\n" +
+                    "    Customer_ID = '" + cust_ID + "',\n" +
+                    "    User_ID = '" + user_ID + "',\n" +
+                    "    Contact_ID = '" + contact_ID + "',\n" +
+                    "where\n" +
+                    "\tAppointment_ID = " + ID;
+            System.out.println(query1);
+            PreparedStatement ps = DBConnection.getConnection().prepareStatement(query1);
+            ps.executeUpdate(query1);
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
     public static void insertUser (){
         String ts1 = "2022-04-25 09:55:10";
         String ts2 = "2022-04-25 10:28:28";
