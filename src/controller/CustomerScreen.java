@@ -6,9 +6,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Countries;
 import model.Customers;
+import model.Users;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 import static utility.Utility.*;
@@ -44,10 +47,22 @@ public class CustomerScreen implements Initializable {
     public Button Cust_CreateButton;
     public Button Cust_DeleteButton;
     public Button Cust_BackButton;
+    public Label user_Label;
+    public ComboBox User_Combo;
 
     public void Save_CustomerButton(ActionEvent actionEvent) {
         try{
             chkCustomerBlank(Cust_NameTextfield,Cust_AddressTextfield,Cust_PhoneTextfield,Cust_PostalTextfield,Region_Combo,Country_Combo);
+            String name = Cust_NameTextfield.getText().trim();
+            String address = Cust_AddressTextfield.getText().trim();
+            String postal = Cust_PostalTextfield.getText().trim();
+            String phone = Cust_PhoneColumn.getText().trim();
+            Timestamp created = Timestamp.valueOf(LocalDateTime.now());
+            String creator = currentUser.getUser_Name();
+            Timestamp updated = Timestamp.valueOf(LocalDateTime.now());
+            String updater = currentUser.getUser_Name();
+            int divID = ((Customers) Region_Combo.getSelectionModel().getSelectedItem()).getCustomer_Div_ID();
+            insertCustomer(name,address,postal,phone,created,creator,updated,updater,divID);
 
         } catch (NumberFormatException e){
             System.out.println(e);
@@ -90,6 +105,7 @@ public class CustomerScreen implements Initializable {
         Cust_RegionColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Div_ID"));
         Cust_CountryColumn.setText("Country");
         Country_Combo.setItems(getCountries());
+        User_Combo.setItems(getUsers());
     }
 
     public void Country_Combo(ActionEvent actionEvent) {

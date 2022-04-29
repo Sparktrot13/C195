@@ -106,6 +106,17 @@ public class Lists {
         }
         return ID;
     }
+    public static int findUser(String name){
+        int index = 0;
+        ObservableList<Users> allUsers = getUsers();
+        for( int i = 0; i < allUsers.size(); i++){
+            Users u = allUsers.get(i);
+            if(u.getUser_Name() == name){
+                index = allUsers.indexOf(u);
+            }
+        }
+        return index;
+    }
     public static int lookupCustomer(int ID){
         ObservableList<Customers> allCust = getCustomers();
         for( int i = 0; i < allCust.size(); i++){

@@ -19,13 +19,17 @@ import model.Customers;
 import model.Users;
 
 import java.io.IOException;
+import java.net.UnknownServiceException;
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Optional;
 
 import static database.DBUsers.*;
+import static model.Lists.*;
 
 public class Utility {
+
+    public static Users currentUser = null;
     //Strings for alerts
     public static final String exit = "Are you sure you want to exit the program?";
     public static final String confirmation = "Confirmation Needed";
@@ -80,7 +84,9 @@ public class Utility {
 
     public static LinkedList errors = new LinkedList();
 
-
+    public static void setCurrentUser(String name){
+        currentUser = getUsers().get(findUser(name));
+    }
     public enum alertType {confirmation, error, warning}
     public static boolean alert (alertType type, String contentText, String title){
         if (type == alertType.confirmation) {

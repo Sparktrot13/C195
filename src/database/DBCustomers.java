@@ -48,9 +48,9 @@ public class DBCustomers {
                     "where\n" +
                     "\tAppointment_ID = " + ID;
             System.out.println(query1);
-            PreparedStatement ps = DBConnection.getConnection().prepareStatement(query1);
-            ps.executeUpdate(query1);
-        } catch (SQLException e){
+            //PreparedStatement ps = DBConnection.getConnection().prepareStatement(query1);
+            //ps.executeUpdate(query1);
+        } catch (Exception e){
             e.printStackTrace();
         }
     }

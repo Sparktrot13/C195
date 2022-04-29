@@ -97,6 +97,7 @@
                       <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="137.0" minHeight="10.0" prefHeight="118.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
@@ -170,7 +171,7 @@
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </ComboBox>
-                        <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="7">
+                        <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="8">
                           <buttons>
                               <Button fx:id="Cust_SaveButton" mnemonicParsing="false" onAction="#Save_CustomerButton" text="Save" />
                           </buttons>
@@ -178,6 +179,16 @@
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </ButtonBar>
+                        <ComboBox fx:id="User_Combo" prefHeight="25.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets right="20.0" />
+                           </GridPane.margin>
+                        </ComboBox>
+                        <Label fx:id="user_Label" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="206.0" text="User" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
+                        </Label>
                      </children>
                   </GridPane>
                </children>
