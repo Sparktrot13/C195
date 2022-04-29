@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Countries;
 import model.Customers;
+import model.FLDivisions;
 import model.Users;
 
 import java.io.IOException;
@@ -61,7 +62,7 @@ public class CustomerScreen implements Initializable {
             String creator = currentUser.getUser_Name();
             Timestamp updated = Timestamp.valueOf(LocalDateTime.now());
             String updater = currentUser.getUser_Name();
-            int divID = ((Customers) Region_Combo.getSelectionModel().getSelectedItem()).getCustomer_Div_ID();
+            int divID = ((FLDivisions) Region_Combo.getSelectionModel().getSelectedItem()).getDiv_ID();
             insertCustomer(name,address,postal,phone,created,creator,updated,updater,divID);
 
         } catch (NumberFormatException e){

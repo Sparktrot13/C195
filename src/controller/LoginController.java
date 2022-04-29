@@ -37,6 +37,7 @@ public class LoginController implements Initializable {
             try {
                 if (chkCredentials(usernameField, passwordField)) {
                     System.out.println("Login Successful");
+                    setCurrentUser(usernameField.getText().trim());
                     viewScreen(actionEvent, apptScreenURL, apptViewerTitle);
                 } else {
                     System.out.println("Invalid credentials, Login Unsuccessful");
