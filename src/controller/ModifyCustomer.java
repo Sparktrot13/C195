@@ -5,12 +5,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.Appointments;
 import model.Countries;
 import model.Customers;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static database.DBAppointments.deleteAppt;
 import static model.Lists.*;
 import static utility.Utility.*;
 import static utility.Validator.*;
@@ -45,10 +48,10 @@ public class ModifyCustomer {
     public Button Back_Screen;
 
     public void CountryCombo(ActionEvent actionEvent) {
-        Countries c = (Countries) Country_Combo.getSelectionModel().getSelectedItem();
+       /* Countries c = (Countries) Country_Combo.getSelectionModel().getSelectedItem();
         int country_ID = c.getCountry_ID();
         Region_Combo.setItems(searchCountries(country_ID));
-        Region_Combo.getSelectionModel().selectFirst();
+        Region_Combo.getSelectionModel().selectFirst();*/
     }
 
     public void UpdateCust(ActionEvent actionEvent) {
@@ -60,13 +63,24 @@ public class ModifyCustomer {
         }
     }
 
-    public void CreateAppt(ActionEvent actionEvent) {
+    public void CreateAppt(ActionEvent actionEvent) throws IOException {
+        viewScreen(actionEvent,addApptScreenURL,addApptScreenURL);
     }
 
-    public void UpdateAppt(ActionEvent actionEvent) {
+    public void UpdateAppt(ActionEvent actionEvent) throws IOException {
+        getLastURL = apptScreenURL;
+        getLastTitle = "Main Screen";
+        sendAppt(ApptTable_Cust,actionEvent);
     }
 
     public void DeleteAppt(ActionEvent actionEvent) {
+        Appointments a = (Appointments) ApptTable_Cust.getSelectionModel().getSelectedItem();
+        if (a == null){
+            alert(alertType.error,selectionError, "Selection Error");
+        } else {
+            deleteAppt(a);
+            ApptTable_Cust.setItems(getAppts());
+        }
     }
 
     public void BackScreen(ActionEvent actionEvent) throws IOException {
@@ -82,11 +96,12 @@ public class ModifyCustomer {
         Postal_Cust.setText(customer.getCustomer_Postal());
         int rc1 = lookupCountry(customer.getCustomer_Div_ID());
         int cs1 = countryIndex(rc1);
+        Region_Combo.setItems(searchCountries(rc1));
+        Region_Combo.getSelectionModel().select(regionIndex(customer.getCustomer_Div_ID(), rc1));
         Country_Combo.setItems(getCountries());
         Country_Combo.getSelectionModel().select(cs1);
-        //Region_Combo.setItems(searchCountries(rc1));
-        //Region_Combo.getSelectionModel().select(regionIndex(customer.getCustomer_Div_ID(), rc1));
-
+        System.out.println(cs1);
+        System.out.println(rc1);
 
         int custID = Integer.parseInt(ID_Cust.getText().trim());
         ObservableList l = lookupAppts(custID);
@@ -96,6 +111,5 @@ public class ModifyCustomer {
         Location_Col.setCellValueFactory(new PropertyValueFactory<>("Appt_Location"));
         Start_Col.setCellValueFactory(new PropertyValueFactory<>("Appt_StartTime"));
         End_Col.setCellValueFactory(new PropertyValueFactory<>("Appt_EndTime"));
-        Country_Combo.setItems(getCountries());
     }
 }

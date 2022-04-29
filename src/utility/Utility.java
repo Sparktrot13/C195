@@ -151,12 +151,13 @@ public class Utility {
             }
         } return name;
     }
-    public static void sendAppt(ApptScreenController controller, TableView<Appointments> table, ActionEvent actionEvent) throws IOException {
+    public static void sendAppt(TableView<Appointments> table, ActionEvent actionEvent) throws IOException {
         if (table.getSelectionModel().getSelectedItem() == null) {
             alert(alertType.error, selectionError, "error");
         } else {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(controller.getClass().getResource(updateApptScreenURL));
+            loader.setLocation(Utility.class.getResource(updateApptScreenURL));
+            //loader.setLocation(controller.getClass().getResource(updateApptScreenURL));
             Scene newScene = new Scene(loader.load());
             Stage newStage = new Stage();
             ModifyAppointment MPSController = loader.getController();

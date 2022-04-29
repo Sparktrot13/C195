@@ -79,9 +79,9 @@ public class Lists {
     }
     public static int countryIndex(int ID){
         int index = 0;
-        ObservableList<Countries> country = getCountries();
+        ObservableList<Countries> country = getAllCountries();
         for(Countries c: country){
-            if(c.getCountry_ID()==ID){
+            if(c.getCountry_ID() == ID){
                 index = country.indexOf(c);
             }
         } return index;

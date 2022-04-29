@@ -76,7 +76,7 @@ public class ApptScreenController implements Initializable {
     public void Update_Appt(ActionEvent actionEvent) throws IOException {
             getLastURL = apptScreenURL;
             getLastTitle = "Main Screen";
-            sendAppt(this,ApptTable,actionEvent);
+            sendAppt(ApptTable,actionEvent);
     }
 
     public void Delete_Appt(ActionEvent actionEvent) {
