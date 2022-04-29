@@ -1,20 +1,33 @@
 package controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.util.ResourceBundle;
+import java.util.TimeZone;
 
 import static utility.Utility.*;
 import static database.DBUsers.*;
 
-public class LoginController {
+public class LoginController implements Initializable {
     public TextField passwordField;
     public Button loginButton;
     public Button cancelButton;
     public TextField usernameField;
+    public Label UsernameLabel;
+    public Label PasswordLabel;
+    public Label TitleLabel;
+    public Label LocationLabel;
+    public Label ZoneLabel;
 
     public void loginButton(ActionEvent actionEvent) throws IOException {
         if (usernameField.getText().isBlank() || (passwordField.getText().isBlank())) {
@@ -36,5 +49,15 @@ public class LoginController {
     }
     public void cancelButton(ActionEvent actionEvent) {
         exitProgram(actionEvent);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ZoneId zone = TimeZone.getDefault().toZoneId();
+        System.out.println("Zone ID = " +zone);
+        TimeZone est = TimeZone.getTimeZone("est");
+        //ZoneId estID = ZoneId.of("est", ZoneOffset(-7:00));
+        //System.out.println("Zone ID = "+ estID);
+
     }
 }

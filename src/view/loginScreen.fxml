@@ -18,34 +18,35 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.19999999999993" minWidth="10.0" prefWidth="300.19999999999993" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="114.8" minHeight="10.0" prefHeight="104.8" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="114.8" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="114.8" minHeight="10.0" prefHeight="17.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="54.0" minHeight="-Infinity" prefHeight="43.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="41.0" minHeight="-Infinity" prefHeight="41.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="47.0" minHeight="-Infinity" prefHeight="43.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="44.0" minHeight="-Infinity" prefHeight="37.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="169.0" text="Username:" GridPane.rowIndex="1">
+            <Label fx:id="UsernameLabel" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="169.0" text="Username:" GridPane.rowIndex="2">
                <padding>
                   <Insets right="5.0" />
                </padding>
             </Label>
-            <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="180.0" text="Password:" GridPane.rowIndex="2">
+            <Label fx:id="PasswordLabel" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="180.0" text="Password:" GridPane.rowIndex="3">
                <padding>
                   <Insets right="5.0" />
                </padding>
             </Label>
-            <TextField fx:id="usernameField" promptText="Username" text="test" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="usernameField" promptText="Username" text="test" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="passwordField" promptText="Password" text="test" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="passwordField" promptText="Password" text="test" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
             </TextField>
-            <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP">
+            <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="TOP">
               <buttons>
                 <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButton" text="Login" />
                   <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButton" text="Cancel" />
@@ -54,7 +55,17 @@
                   <Insets bottom="20.0" right="20.0" />
                </GridPane.margin>
             </ButtonBar>
-            <Label prefHeight="18.0" prefWidth="514.0" text="Real Appointment Scheduler" GridPane.columnIndex="1" />
+            <Label fx:id="TitleLabel" alignment="BOTTOM_CENTER" prefHeight="110.0" prefWidth="400.0" text="Real Appointment Scheduler" GridPane.columnSpan="2" />
+            <Label fx:id="LocationLabel" prefHeight="18.0" prefWidth="514.0" text="Location" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="ZoneLabel" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="514.0" text="Zone:" GridPane.rowIndex="4">
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </Label>
          </children>
       </GridPane>
    </children>
