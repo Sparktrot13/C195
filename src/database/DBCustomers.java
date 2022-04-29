@@ -2,10 +2,7 @@ package database;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.ComboBox;
 import model.Customers;
-
-import java.awt.*;
 import java.sql.*;
 
 import static utility.Utility.*;
