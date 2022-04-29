@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.Countries;
 import model.Customers;
 
 import java.io.IOException;
@@ -87,12 +88,13 @@ public class CustomerScreen implements Initializable {
         Cust_PhoneColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Phone"));
         Cust_RegionColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Div_ID"));
         Cust_CountryColumn.setText("Country");
-
         Country_Combo.setItems(getCountries());
     }
 
     public void Country_Combo(ActionEvent actionEvent) {
-        Region_Combo.setItems(searchCountries(Country_Combo));
+        Countries c = (Countries) Country_Combo.getSelectionModel().getSelectedItem();
+        int country_ID = c.getCountry_ID();
+        Region_Combo.setItems(searchCountries(country_ID));
         Region_Combo.getSelectionModel().selectFirst();
     }
 }

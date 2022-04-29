@@ -46,11 +46,11 @@ public class Lists {
         Users user = (Users) c.getSelectionModel().getSelectedItem();
         return user.getUser_Name();
     }
-    public static ObservableList<FLDivisions> searchCountries(ComboBox c){
+    public static ObservableList<FLDivisions> searchCountries(int country_ID){
         ObservableList<FLDivisions> firstLevel = FXCollections.observableArrayList();
         ObservableList<FLDivisions> gottenList = getDivisions();
-        Countries country = (Countries) c.getSelectionModel().getSelectedItem();
-        int country_ID = country.getCountry_ID();
+        //Countries country = (Countries) c.getSelectionModel().getSelectedItem();
+        //int country_ID = country.getCountry_ID();
         for (FLDivisions flDivisions : gottenList) {
             if (flDivisions.getDiv_Country_ID() == country_ID) {
                 firstLevel.add(flDivisions);
@@ -58,6 +58,35 @@ public class Lists {
         }
         return firstLevel;
     }
+    public static int lookupCountry(int regID) {
+        int C_ID = 0;
+        ObservableList<FLDivisions> regions = getDivisions();
+        ObservableList<FLDivisions> regList = FXCollections.observableArrayList();
+        for(FLDivisions d : regions){
+            if(d.getDiv_ID()== regID){
+                C_ID = d.getDiv_Country_ID();
+            }
+        } return  C_ID;
+    }
+    public static int regionIndex(int regID, int cID){
+        int index = 0;
+        ObservableList<FLDivisions> div = searchCountries(cID);
+        for(FLDivisions d : div){
+            if(d.getDiv_ID()==regID){
+                index = div.indexOf(d);
+            }
+        }return index;
+    }
+    public static int countryIndex(int ID){
+        int index = 0;
+        ObservableList<Countries> country = getCountries();
+        for(Countries c: country){
+            if(c.getCountry_ID()==ID){
+                index = country.indexOf(c);
+            }
+        } return index;
+    }
+
     public static String lookupCust(int ID){
         ObservableList<Customers> allCust = getCustomers();
         for (Customers customers : allCust) {
@@ -97,14 +126,13 @@ public class Lists {
         }
         return ID;
     }
-    public static ObservableList<Appointments> lookupAppts(int ID){
+    public static ObservableList<Appointments> lookupAppts(int custID){
         ObservableList<Appointments> allAppts = getAppts();
-        for( int i = 0; i < allAppts.size(); i++){
-            Appointments a = allAppts.get(i);
-            if(a.getAppt_Customer_ID() == ID){
-                allAppts.add(a);
+        ObservableList<Appointments> custAppts = FXCollections.observableArrayList();
+        for(Appointments a : allAppts){
+            if (a.getAppt_Customer_ID() == custID){
+                custAppts.add(a);
             }
-        }
-        return allAppts;
+        } return custAppts;
     }
 }

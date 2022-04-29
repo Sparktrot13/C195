@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.Countries;
 import model.Customers;
 
 import java.io.IOException;
@@ -14,7 +15,7 @@ import static model.Lists.*;
 import static utility.Utility.*;
 import static utility.Validator.*;
 
-public class ModifyCustomer implements Initializable {
+public class ModifyCustomer {
     public ComboBox Country_Combo;
     public ComboBox Region_Combo;
     public Label Country_Label;
@@ -44,7 +45,9 @@ public class ModifyCustomer implements Initializable {
     public Button Back_Screen;
 
     public void CountryCombo(ActionEvent actionEvent) {
-        Region_Combo.setItems(searchCountries(Country_Combo));
+        Countries c = (Countries) Country_Combo.getSelectionModel().getSelectedItem();
+        int country_ID = c.getCountry_ID();
+        Region_Combo.setItems(searchCountries(country_ID));
         Region_Combo.getSelectionModel().selectFirst();
     }
 
@@ -67,12 +70,25 @@ public class ModifyCustomer implements Initializable {
     }
 
     public void BackScreen(ActionEvent actionEvent) throws IOException {
-        viewScreen(actionEvent,getLastURL,getLastTitle);
+        closeScreen(actionEvent);
+        // viewScreen(actionEvent,getLastURL,getLastTitle);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-       /* int custID = Integer.parseInt(ID_Cust.getText().trim());
+    public void populateCustomer(Customers customer) {
+        ID_Cust.setText(Integer.toString(customer.getCustomer_ID()));
+        Name_Cust.setText(customer.getCustomer_Name());
+        Address_Cust.setText(customer.getCustomer_Address());
+        Phone_Cust.setText(customer.getCustomer_Phone());
+        Postal_Cust.setText(customer.getCustomer_Postal());
+        int rc1 = lookupCountry(customer.getCustomer_Div_ID());
+        int cs1 = countryIndex(rc1);
+        Country_Combo.setItems(getCountries());
+        Country_Combo.getSelectionModel().select(cs1);
+        //Region_Combo.setItems(searchCountries(rc1));
+        //Region_Combo.getSelectionModel().select(regionIndex(customer.getCustomer_Div_ID(), rc1));
+
+
+        int custID = Integer.parseInt(ID_Cust.getText().trim());
         ObservableList l = lookupAppts(custID);
         ApptTable_Cust.setItems(l);
         ID_Col.setCellValueFactory(new PropertyValueFactory<>("Appointment_ID"));
@@ -80,15 +96,6 @@ public class ModifyCustomer implements Initializable {
         Location_Col.setCellValueFactory(new PropertyValueFactory<>("Appt_Location"));
         Start_Col.setCellValueFactory(new PropertyValueFactory<>("Appt_StartTime"));
         End_Col.setCellValueFactory(new PropertyValueFactory<>("Appt_EndTime"));
-        Country_Combo.setItems(getCountries());*/
-    }
-
-    public void populateCustomer(Customers customer) {
-        ID_Cust.setText(Integer.toString(customer.getCustomer_ID()));
-        int custID = Integer.parseInt(ID_Cust.getText().trim());
-        System.out.println(custID);
-        ObservableList l = lookupAppts(custID);
-        //System.out.println(l);
-        //ApptTable_Cust.setItems(l);
+        Country_Combo.setItems(getCountries());
     }
 }
