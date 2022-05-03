@@ -15,17 +15,22 @@ import static database.DBConnection.*;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/loginScreen.fxml"));
-        primaryStage.setTitle("Main Screen");
+        Locale.setDefault(new Locale("fr"));
+        ResourceBundle rb = ResourceBundle.getBundle("utility/propRB", Locale.getDefault());
+        Parent root = FXMLLoader.load(getClass().getResource("/view/loginScreen.fxml"), rb);
+        primaryStage.setTitle(rb.getString("screenTitle"));
         primaryStage.setScene(new Scene(root, 400, 250));
         primaryStage.show();
         primaryStage.setOnCloseRequest(null);
     }
     public static void main(String[] args){
-        Locale.setDefault(new Locale("fr"));
-        ResourceBundle rb = ResourceBundle.getBundle("utility/propRB", Locale.getDefault());
+        //Locale.setDefault(new Locale("fr"));
+        //ResourceBundle rb = ResourceBundle.getBundle("utility/propRB", Locale.getDefault());
         if (Locale.getDefault().getLanguage().equals("fr")) {
-            System.out.println(rb.getString("Username") + rb.getString("Password"));
+            System.out.println("fr");
+            //System.out.println(rb.getString("username") + rb.getString("password"));
+        } else {
+            System.out.println("other");
         }
         startConnection();
         launch(args);

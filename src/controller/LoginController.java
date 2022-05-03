@@ -56,7 +56,7 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        //Locale.getDefault();
         ZoneId zone = TimeZone.getDefault().toZoneId();
         LocationLabel.setText(zone.toString());
     }

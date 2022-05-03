@@ -31,37 +31,37 @@
                   <Insets right="5.0" />
                </padding>
             </Label>
-            <Label fx:id="PasswordLabel" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="180.0" text="\%password" GridPane.rowIndex="3">
+            <Label fx:id="PasswordLabel" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="180.0" text="%password" GridPane.rowIndex="3">
                <padding>
                   <Insets right="5.0" />
                </padding>
             </Label>
-            <TextField fx:id="usernameField" promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="usernameField" promptText="%username" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="passwordField" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="passwordField" promptText="%password" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
             </TextField>
             <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="TOP">
               <buttons>
-                <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButton" text="Login" />
-                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButton" text="Cancel" />
+                <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButton" text="%login" />
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButton" text="%cancel" />
               </buttons>
                <GridPane.margin>
                   <Insets bottom="20.0" right="20.0" />
                </GridPane.margin>
             </ButtonBar>
-            <Label fx:id="TitleLabel" alignment="BOTTOM_CENTER" prefHeight="110.0" prefWidth="400.0" text="Real Appointment Scheduler" GridPane.columnSpan="2" />
-            <Label fx:id="LocationLabel" prefHeight="18.0" prefWidth="514.0" text="Location" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Label fx:id="TitleLabel" alignment="BOTTOM_CENTER" prefHeight="110.0" prefWidth="400.0" text="%loginTitle" GridPane.columnSpan="2" />
+            <Label fx:id="LocationLabel" prefHeight="18.0" prefWidth="514.0" text="%location" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </Label>
-            <Label fx:id="ZoneLabel" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="514.0" text="\%zone" GridPane.rowIndex="4">
+            <Label fx:id="ZoneLabel" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="514.0" text="%zone" GridPane.rowIndex="4">
                <padding>
                   <Insets right="10.0" />
                </padding>
