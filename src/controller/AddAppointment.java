@@ -3,6 +3,7 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import model.Customers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -86,5 +87,9 @@ public class AddAppointment implements Initializable {
         User_Combo.setItems(getUsers());
         Cust_Combo.setItems(getCustomers());
 
+    }
+
+    public void populateCustomer(int Index) {
+        Cust_Combo.getSelectionModel().select(Index);
     }
 }

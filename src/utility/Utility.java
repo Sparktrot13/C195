@@ -1,9 +1,6 @@
 package utility;
 
-import controller.ApptScreenController;
-import controller.CustomerScreen;
-import controller.ModifyAppointment;
-import controller.ModifyCustomer;
+import controller.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -176,12 +173,12 @@ public class Utility {
 
         }
     }
-    public static void sendCust(CustomerScreen controller, TableView<Customers> table, ActionEvent actionEvent) throws IOException {
+    public static void sendCust(TableView<Customers> table, ActionEvent actionEvent) throws IOException {
         if (table.getSelectionModel().getSelectedItem() == null) {
             alert(alertType.error, selectionError, "error");
         } else {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(controller.getClass().getResource(updateCustomerURL));
+            loader.setLocation(Utility.class.getResource(updateCustomerURL));
             Scene newScene = new Scene(loader.load());
             Stage newStage = new Stage();
             ModifyCustomer MPSController = loader.getController();
@@ -194,5 +191,20 @@ public class Utility {
 
         }
     }
-}
+    public static void sendCustAppt(int CustID, ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Utility.class.getResource(addApptScreenURL));
+        Scene newScene = new Scene(loader.load());
+        Stage newStage = new Stage();
+        AddAppointment MPSController = loader.getController();
+        MPSController.populateCustomer(CustID);
+            newStage.setTitle(customerRecordTitle);
+            newStage.setScene(newScene);
+            newStage.initModality(Modality.APPLICATION_MODAL);
+            newStage.showAndWait();
+            viewScreen(actionEvent,getLastURL,getLastTitle);
+
+        }
+
+    }
 

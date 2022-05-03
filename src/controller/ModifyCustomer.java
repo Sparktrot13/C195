@@ -8,15 +8,19 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.Appointments;
 import model.Countries;
 import model.Customers;
+import model.FLDivisions;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 import static database.DBAppointments.deleteAppt;
 import static model.Lists.*;
 import static utility.Utility.*;
 import static utility.Validator.*;
+import static database.DBCustomers.*;
 
 public class ModifyCustomer {
     public ComboBox Country_Combo;
@@ -48,15 +52,23 @@ public class ModifyCustomer {
     public Button Back_Screen;
 
     public void CountryCombo(ActionEvent actionEvent) {
-       /* Countries c = (Countries) Country_Combo.getSelectionModel().getSelectedItem();
+        Countries c = (Countries) Country_Combo.getSelectionModel().getSelectedItem();
         int country_ID = c.getCountry_ID();
         Region_Combo.setItems(searchCountries(country_ID));
-        Region_Combo.getSelectionModel().selectFirst();*/
+        Region_Combo.getSelectionModel().selectFirst();
     }
 
     public void UpdateCust(ActionEvent actionEvent) {
         try{
             chkCustomerBlank(Name_Cust,Address_Cust,Phone_Cust,Postal_Cust,Region_Combo,Country_Combo);
+            int ID = Integer.parseInt(ID_Cust.getText());
+            String name = Name_Cust.getText().trim();
+            String address = Address_Cust.getText().trim();
+            String postal = Postal_Cust.getText().trim();
+            String phone = Phone_Cust.getText().trim();
+            Timestamp updated = Timestamp.valueOf(LocalDateTime.now());
+            String updater = currentUser.getUser_Name();
+            updateCustomer(name,address,phone, postal,updated,updater,ID);
         } catch (NumberFormatException e){
             System.out.println(e);
             alert(alertType.error,errorsFound.concat(errors.toString()),"Error");
@@ -64,7 +76,12 @@ public class ModifyCustomer {
     }
 
     public void CreateAppt(ActionEvent actionEvent) throws IOException {
-        viewScreen(actionEvent,addApptScreenURL,addApptScreenURL);
+        int chkID = Integer.parseInt(ID_Cust.getText().trim());
+        int index = lookupCustomer(chkID);
+        getLastURL = updateCustomerURL;
+        getLastTitle = updateCustomerURL;
+        sendCustAppt(index, actionEvent);
+        //viewScreen(actionEvent,addApptScreenURL,addApptScreenURL);
     }
 
     public void UpdateAppt(ActionEvent actionEvent) throws IOException {
