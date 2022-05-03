@@ -16,6 +16,7 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
+import static utility.Locales.bundle;
 import static utility.Utility.*;
 import static database.DBCustomers.*;
 import static model.Lists.*;

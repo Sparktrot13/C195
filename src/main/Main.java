@@ -7,25 +7,32 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 import static database.DBConnection.*;
+import static utility.Locales.*;
+import static utility.Utility.*;
 
 public class Main extends Application {
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        Locale.setDefault(new Locale("fr"));
-        ResourceBundle rb = ResourceBundle.getBundle("utility/propRB", Locale.getDefault());
-        Parent root = FXMLLoader.load(getClass().getResource("/view/loginScreen.fxml"), rb);
-        primaryStage.setTitle(rb.getString("screenTitle"));
-        primaryStage.setScene(new Scene(root, 400, 250));
-        primaryStage.show();
-        primaryStage.setOnCloseRequest(null);
+    public void start(Stage primaryStage) throws IOException {
+        try {
+            Locale.setDefault(new Locale("fr"));
+            ResourceBundle rb = bundle();
+            Parent root = FXMLLoader.load(getClass().getResource("/view/loginScreen.fxml"), rb);
+            primaryStage.setTitle(rb.getString("screenTitle"));
+            primaryStage.setScene(new Scene(root, 400, 250));
+            primaryStage.show();
+            primaryStage.setOnCloseRequest(null);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
     public static void main(String[] args){
         //Locale.setDefault(new Locale("fr"));
-        //ResourceBundle rb = ResourceBundle.getBundle("utility/propRB", Locale.getDefault());
+        //ResourceBundle rb = bundle();
         if (Locale.getDefault().getLanguage().equals("fr")) {
             System.out.println("fr");
             //System.out.println(rb.getString("username") + rb.getString("password"));
@@ -36,4 +43,5 @@ public class Main extends Application {
         launch(args);
         closeConnection();
     }
+
     }

@@ -138,7 +138,7 @@
                   <Insets right="20.0" />
                </padding>
             </GridPane>
-            <Label fx:id="ScreenTitle_ApptLabel" alignment="CENTER" prefHeight="17.0" prefWidth="491.0" text="Add Appointment Form">
+            <Label fx:id="ScreenTitle_ApptLabel" alignment="CENTER" prefHeight="17.0" prefWidth="491.0" text="%addApptTitle">
                <font>
                   <Font name="System Bold Italic" size="24.0" />
                </font>

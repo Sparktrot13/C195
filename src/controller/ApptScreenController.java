@@ -17,6 +17,7 @@ import java.util.ResourceBundle;
 import static database.DBCustomers.deleteCustomer;
 import static model.Lists.getAppts;
 import static model.Lists.getCustomers;
+import static utility.Locales.bundle;
 import static utility.Utility.*;
 import static database.DBAppointments.*;
 

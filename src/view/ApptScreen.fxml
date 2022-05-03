@@ -87,7 +87,7 @@
                 </ButtonBar>
                 <ButtonBar buttonMinWidth="120.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="276.0" prefWidth="942.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                     <buttons>
-                        <Button fx:id="NewAppt" graphicTextGap="3.0" mnemonicParsing="false" onAction="#New_Appt" prefHeight="24.0" prefWidth="156.0" text="New Appointment" />
+                        <Button fx:id="NewAppt" graphicTextGap="3.0" mnemonicParsing="false" onAction="#New_Appt" prefHeight="24.0" prefWidth="156.0" text="%newAppt" />
                         <Button fx:id="UpdateAppt" graphicTextGap="0.0" mnemonicParsing="false" onAction="#Update_Appt" text=" Update Appointment" />
                         <Button fx:id="DeleteAppt" mnemonicParsing="false" onAction="#Delete_Appt" text="Delete Appointment" />
                   <Button fx:id="CustomerAppt" mnemonicParsing="false" onAction="#Customer_Appt" text="Customers" />
