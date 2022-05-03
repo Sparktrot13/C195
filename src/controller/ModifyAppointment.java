@@ -34,7 +34,6 @@ public class ModifyAppointment{
     public Label EndDate_addApptLabel;
     public Label EndTime_addApptLabel;
     public Label CustomerID_addApptLabel;
-    public Label User_addApptLabel;
     public DatePicker Start_addApptDate;
     public DatePicker End_addApptDate;
     public ComboBox Start_addApptCombo;
@@ -46,7 +45,6 @@ public class ModifyAppointment{
     public TextField Type_addApptTextfield;
     public ComboBox<Contacts> Contact_Combo;
     public ComboBox<Customers> Cust_Combo;
-    public ComboBox<Users> User_Combo;
     public Label ScreenTitle_ApptLabel;
     public Button Save_addApptButton;
     public Button Cancel_addApptButton;
@@ -87,11 +85,9 @@ public class ModifyAppointment{
         int startTime = lookupTime(st);
         int endTime = lookupTime(et);
         System.out.println(startTime);
-        int user = appt.getAppt_User_ID();
         int cust = appt.getAppt_Customer_ID();
         int contact = appt.getAppt_Contact_ID();
         int c = lookupContact(contact);
-        int u = lookupUser(user);
         int customers = lookupCustomer(cust);
         Start_addApptCombo.setItems(getTime());
         End_addApptCombo.setItems(getTime());
@@ -106,7 +102,6 @@ public class ModifyAppointment{
         End_addApptCombo.getSelectionModel().select(endTime);
         Start_addApptDate.setValue(start);
         End_addApptDate.setValue(end);
-        User_Combo.getSelectionModel().select(u);
         Contact_Combo.getSelectionModel().select(c);
         Cust_Combo.getSelectionModel().select(customers);
 

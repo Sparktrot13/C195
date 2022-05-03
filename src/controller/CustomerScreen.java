@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -77,7 +78,12 @@ public class CustomerScreen implements Initializable {
         sendCust(CustomerTable,actionEvent);
     }
 
-    public void Create_CustomerApptButton(ActionEvent actionEvent) {
+    public void Create_CustomerApptButton(ActionEvent actionEvent) throws IOException {
+        int chkID = Integer.parseInt(Cust_IDTextfield.getText().trim());
+        int index = lookupCustomer(chkID);
+        sendCustAppt(index, actionEvent);
+        //ObservableList l = lookupAppts(chkID);
+        //ApptTable_Cust.setItems(l);
     }
 
     public void Delete_CustomerButton(ActionEvent actionEvent) {
@@ -106,7 +112,6 @@ public class CustomerScreen implements Initializable {
         Cust_RegionColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Div_ID"));
         Cust_CountryColumn.setText("Country");
         Country_Combo.setItems(getCountries());
-        User_Combo.setItems(getUsers());
     }
 
     public void Country_Combo(ActionEvent actionEvent) {
