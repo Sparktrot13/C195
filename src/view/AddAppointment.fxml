@@ -106,39 +106,33 @@
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="User_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="User ID" GridPane.rowIndex="11">
-                     <padding>
-                        <Insets right="10.0" />
-                     </padding>
-                  </Label>
-                  <DatePicker fx:id="Start_addApptDate" prefHeight="25.0" prefWidth="308.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <DatePicker fx:id="Start_addApptDate" prefHeight="25.0" prefWidth="308.0" promptText="Appointment Start Date" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                   </DatePicker>
-                  <DatePicker fx:id="End_addApptDate" prefHeight="25.0" prefWidth="308.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                  <DatePicker fx:id="End_addApptDate" prefHeight="25.0" prefWidth="308.0" promptText="Appointment End Date" GridPane.columnIndex="1" GridPane.rowIndex="8">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                   </DatePicker>
-                  <ComboBox fx:id="Start_addApptCombo" prefHeight="25.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                  <ComboBox fx:id="Start_addApptCombo" prefHeight="25.0" prefWidth="247.0" promptText="Appointment Start Time" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                   </ComboBox>
-                  <ComboBox fx:id="End_addApptCombo" prefHeight="25.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                  <ComboBox fx:id="End_addApptCombo" prefHeight="25.0" prefWidth="270.0" promptText="Appointment End Time" GridPane.columnIndex="1" GridPane.rowIndex="9">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                   </ComboBox>
                   <TextField fx:id="ID_addApptTextfield" disable="true" editable="false" promptText="Auto Generated" GridPane.columnIndex="1" />
-                  <TextField fx:id="Title_addApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="Description_addApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="Location_addApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField fx:id="Type_addApptTextfield" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="Title_addApptTextfield" promptText="Appointment title" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="Description_addApptTextfield" promptText="Description" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="Location_addApptTextfield" promptText="Location" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="Type_addApptTextfield" promptText="Appointment Type" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                   <ComboBox fx:id="Contact_Combo" prefHeight="25.0" prefWidth="267.0" promptText="Select Contact" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <ComboBox fx:id="Cust_Combo" prefHeight="25.0" prefWidth="288.0" promptText="Select Customer" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-                  <ComboBox fx:id="User_Combo" prefHeight="25.0" prefWidth="264.0" promptText="Select User" GridPane.columnIndex="1" GridPane.rowIndex="11" />
                </children>
                <padding>
                   <Insets right="20.0" />

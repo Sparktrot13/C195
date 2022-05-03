@@ -2,7 +2,6 @@ package controller;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Appointments;
@@ -11,10 +10,8 @@ import model.Customers;
 import model.FLDivisions;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.ResourceBundle;
 
 import static database.DBAppointments.deleteAppt;
 import static model.Lists.*;
@@ -68,7 +65,8 @@ public class ModifyCustomer {
             String phone = Phone_Cust.getText().trim();
             Timestamp updated = Timestamp.valueOf(LocalDateTime.now());
             String updater = currentUser.getUser_Name();
-            updateCustomer(name,address,phone, postal,updated,updater,ID);
+            int regID = ((FLDivisions) Region_Combo.getSelectionModel().getSelectedItem()).getDiv_ID();
+            updateCustomer(name,address,phone, postal,updated,updater,regID,ID);
         } catch (NumberFormatException e){
             System.out.println(e);
             alert(alertType.error,errorsFound.concat(errors.toString()),"Error");
@@ -78,10 +76,9 @@ public class ModifyCustomer {
     public void CreateAppt(ActionEvent actionEvent) throws IOException {
         int chkID = Integer.parseInt(ID_Cust.getText().trim());
         int index = lookupCustomer(chkID);
-        getLastURL = updateCustomerURL;
-        getLastTitle = updateCustomerURL;
         sendCustAppt(index, actionEvent);
-        //viewScreen(actionEvent,addApptScreenURL,addApptScreenURL);
+        ObservableList l = lookupAppts(chkID);
+        ApptTable_Cust.setItems(l);
     }
 
     public void UpdateAppt(ActionEvent actionEvent) throws IOException {

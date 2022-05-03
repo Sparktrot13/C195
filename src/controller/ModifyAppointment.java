@@ -53,7 +53,7 @@ public class ModifyAppointment{
 
     public void Save_addApptButton(ActionEvent actionEvent) {
         try {
-            chkApptBlank(Title_addApptTextfield, Description_addApptTextfield, Location_addApptTextfield, Type_addApptTextfield, Start_addApptDate, Start_addApptCombo, End_addApptDate, End_addApptCombo, Cust_Combo, User_Combo, Contact_Combo);
+            chkApptBlank(Title_addApptTextfield, Description_addApptTextfield, Location_addApptTextfield, Type_addApptTextfield, Start_addApptDate, Start_addApptCombo, End_addApptDate, End_addApptCombo, Cust_Combo, Contact_Combo);
             int appt = Integer.parseInt(ID_addApptTextfield.getText());
             String title = Title_addApptTextfield.getText().trim();
             String Des = Description_addApptTextfield.getText().trim();
@@ -63,9 +63,9 @@ public class ModifyAppointment{
             Timestamp end = Timestamp.valueOf(combineDateTime(End_addApptDate,End_addApptCombo));
             Timestamp lastUpdate = Timestamp.valueOf(LocalDateTime.now());
             int cust_ID = getCustID(Cust_Combo);
-            int user_ID = getUserID(User_Combo);
             int contact_ID = getContactID(Contact_Combo);
-            String updatedBy = getUserName(User_Combo);
+            String updatedBy = currentUser.getUser_Name();
+            int user_ID = currentUser.getUser_ID();
             UpdateAppt(appt,title,Des,Loc,type,start,end,lastUpdate,updatedBy,cust_ID,user_ID,contact_ID);
             closeScreen(actionEvent);
         } catch (NumberFormatException d){
@@ -96,7 +96,6 @@ public class ModifyAppointment{
         Start_addApptCombo.setItems(getTime());
         End_addApptCombo.setItems(getTime());
         Contact_Combo.setItems(getContacts());
-        User_Combo.setItems(getUsers());
         Cust_Combo.setItems(getCustomers());
         ID_addApptTextfield.setText(Integer.toString(appt.getAppointment_ID()));
         Title_addApptTextfield.setText(appt.getAppt_Title());

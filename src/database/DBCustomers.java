@@ -32,7 +32,7 @@ public class DBCustomers {
             e.printStackTrace();
         } return Cust_List;
     }
-    public static void updateCustomer(String name, String address, String phone, String postal, Timestamp lastUpdate, String updatedBy, int ID){
+    public static void updateCustomer(String name, String address, String phone, String postal, Timestamp lastUpdate, String updatedBy,int regID, int ID){
         try{
             String query1 = "Update customers\n" +
                     "set\n" +
@@ -41,9 +41,10 @@ public class DBCustomers {
                     "    Phone = '" + phone + "',\n" +
                     "    Postal_Code = '" + postal + "',\n" +
                     "    Last_Update = '" + lastUpdate + "',\n" +
-                    "    Last_Updated_By = '" + updatedBy + "'\n" +
+                    "    Last_Updated_By = '" + updatedBy + "',\n" +
+                    "    Division_ID = '" + regID + "'\n" +
                     "where\n" +
-                    "\tAppointment_ID = " + ID;
+                    "\tCustomer_ID = " + ID;
             System.out.println(query1);
             PreparedStatement ps = DBConnection.getConnection().prepareStatement(query1);
             ps.executeUpdate(query1);

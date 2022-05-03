@@ -202,7 +202,7 @@ public class Utility {
             newStage.setScene(newScene);
             newStage.initModality(Modality.APPLICATION_MODAL);
             newStage.showAndWait();
-            viewScreen(actionEvent,getLastURL,getLastTitle);
+            //viewScreen(actionEvent,getLastURL,getLastTitle);
 
         }
 

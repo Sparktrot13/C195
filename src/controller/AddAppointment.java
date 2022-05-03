@@ -49,7 +49,7 @@ public class AddAppointment implements Initializable {
 
     public void Save_addApptButton(ActionEvent actionEvent) {
         try {
-            chkApptBlank(Title_addApptTextfield, Description_addApptTextfield, Location_addApptTextfield, Type_addApptTextfield, Start_addApptDate, Start_addApptCombo, End_addApptDate, End_addApptCombo, Cust_Combo, User_Combo, Contact_Combo);
+            chkApptBlank(Title_addApptTextfield, Description_addApptTextfield, Location_addApptTextfield, Type_addApptTextfield, Start_addApptDate, Start_addApptCombo, End_addApptDate, End_addApptCombo, Cust_Combo, Contact_Combo);
             String title = Title_addApptTextfield.getText().trim();
             String Des = Description_addApptTextfield.getText().trim();
             String Loc = Location_addApptTextfield.getText().trim();
@@ -59,12 +59,11 @@ public class AddAppointment implements Initializable {
             Timestamp create_Date = Timestamp.valueOf(LocalDateTime.now());
             Timestamp lastUpdate = Timestamp.valueOf(LocalDateTime.now());
             int cust_ID = getCustID(Cust_Combo);
-            int user_ID = getUserID(User_Combo);
+            int user_ID = currentUser.getUser_ID();
             int contact_ID = getContactID(Contact_Combo);
-            String updatedBy = getUserName(User_Combo);
-            String creator = getUserName(User_Combo);
+            String creator = currentUser.getUser_Name();
             chkDate(start,end,create_Date);
-            insertAppt(title,Des,Loc,type,start,end,create_Date,creator,lastUpdate,updatedBy,cust_ID,user_ID,contact_ID);
+            insertAppt(title,Des,Loc,type,start,end,create_Date,creator,lastUpdate,creator,cust_ID,user_ID,contact_ID);
             getAppts();
             closeScreen(actionEvent);
         } catch (NumberFormatException d){
@@ -84,7 +83,6 @@ public class AddAppointment implements Initializable {
         Start_addApptCombo.setItems(getTime());
         End_addApptCombo.setItems(getTime());
         Contact_Combo.setItems(getContacts());
-        User_Combo.setItems(getUsers());
         Cust_Combo.setItems(getCustomers());
 
     }

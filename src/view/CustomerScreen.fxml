@@ -179,23 +179,13 @@
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </ButtonBar>
-                        <ComboBox fx:id="User_Combo" prefHeight="25.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                           <GridPane.margin>
-                              <Insets right="20.0" />
-                           </GridPane.margin>
-                        </ComboBox>
-                        <Label fx:id="user_Label" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="206.0" text="User" GridPane.rowIndex="7">
-                           <GridPane.margin>
-                              <Insets right="10.0" />
-                           </GridPane.margin>
-                        </Label>
                      </children>
                   </GridPane>
                </children>
             </GridPane>
             <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="2">
               <buttons>
-                  <Button fx:id="Cust_UpdateButton" mnemonicParsing="false" onAction="#Update_CustomerButton" text="Update Customer" />
+                  <Button fx:id="Cust_UpdateButton" mnemonicParsing="false" onAction="#Update_CustomerButton" text="View Customer Record" />
                 <Button fx:id="Cust_CreateButton" mnemonicParsing="false" onAction="#Create_CustomerApptButton" text="Create Appointment" />
                   <Button fx:id="Cust_DeleteButton" mnemonicParsing="false" onAction="#Delete_CustomerButton" text="Delete Customer" />
               </buttons>

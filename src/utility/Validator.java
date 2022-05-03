@@ -46,7 +46,7 @@ public class Validator {
             throw new NumberFormatException(chkDateTitle);
         }
     }
-    public static void chkApptBlank(TextField title, TextField des, TextField loc, TextField type, DatePicker start, ComboBox st, DatePicker end, ComboBox et, ComboBox cust, ComboBox user, ComboBox contact){
+    public static void chkApptBlank(TextField title, TextField des, TextField loc, TextField type, DatePicker start, ComboBox st, DatePicker end, ComboBox et, ComboBox cust, ComboBox contact){
         errors.clear();
         if (!chkDatePicker(start)){
             errors.add(startDateBlank+"\n");
@@ -66,9 +66,6 @@ public class Validator {
         if(!chkComboBoxBlank(cust)){
             errors.add(custBoxBlank+"\n");
         }
-        if(!chkComboBoxBlank(user)){
-            errors.add(userBoxBlank+"\n");
-        }
         if(!chkComboBoxBlank(contact)){
             errors.add(contBoxBlank+"\n");
         }
@@ -81,7 +78,7 @@ public class Validator {
         if(!chkBlank(type)){
             errors.add(typeFieldBlank+"\n");
         }
-        if((!chkDatePicker(start))||(!chkDatePicker(end))||(!chkComboBoxBlank(st))||(!chkComboBoxBlank(et))||(!chkComboBoxBlank(cust))||(!chkComboBoxBlank(user))||(!chkComboBoxBlank(contact))||(!chkBlank(des))||(!chkBlank(title))||(!chkBlank(loc))||(!chkBlank(type))){
+        if((!chkDatePicker(start))||(!chkDatePicker(end))||(!chkComboBoxBlank(st))||(!chkComboBoxBlank(et))||(!chkComboBoxBlank(cust))||(!chkComboBoxBlank(contact))||(!chkBlank(des))||(!chkBlank(title))||(!chkBlank(loc))||(!chkBlank(type))){
             throw new NumberFormatException("Blank fields");
         }
     }
