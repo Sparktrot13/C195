@@ -142,7 +142,7 @@ public class Utility {
         stage.show();
     }
     public static void newScreen(ActionEvent actionEvent, String url, String title) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader();
+        //FXMLLoader fxmlLoader = new FXMLLoader();
         //fxmlLoader.setLocation(Utility.class.getResource(url), bundle());
         Scene newScene = new Scene(FXMLLoader.load(Utility.class.getResource(url), bundle()));
         Stage newStage = new Stage();
@@ -158,7 +158,7 @@ public class Utility {
         } else {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Utility.class.getResource(updateApptScreenURL));
-            //loader.setLocation(controller.getClass().getResource(updateApptScreenURL));
+            loader.setResources(bundle());
             Scene newScene = new Scene(loader.load());
             Stage newStage = new Stage();
             ModifyAppointment MPSController = loader.getController();
@@ -177,6 +177,7 @@ public class Utility {
         } else {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Utility.class.getResource(updateCustomerURL));
+            loader.setResources(bundle());
             Scene newScene = new Scene(loader.load());
             Stage newStage = new Stage();
             ModifyCustomer MPSController = loader.getController();
