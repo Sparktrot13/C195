@@ -90,6 +90,8 @@ public class CustomerScreen implements Initializable {
         Customers c = (Customers) CustomerTable.getSelectionModel().getSelectedItem();
         if (c == null){
             alert(alertType.error,selectionError, "Selection Error");
+        } else if(lookupAppts(c.getCustomer_ID()).size()>0) {
+            alert(alertType.error, c.getCustomer_Name().trim() + " has " + lookupAppts(c.getCustomer_ID()).size() + customerHasAppt, customerApptError);
         } else {
             deleteCustomer(c);
             CustomerTable.setItems(getCustomers());
@@ -110,7 +112,6 @@ public class CustomerScreen implements Initializable {
         Cust_PostalColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Postal"));
         Cust_PhoneColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Phone"));
         Cust_RegionColumn.setCellValueFactory(new PropertyValueFactory<>("Customer_Div_ID"));
-        Cust_CountryColumn.setText("Country");
         Country_Combo.setItems(getCountries());
     }
 

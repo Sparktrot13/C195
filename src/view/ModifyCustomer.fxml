@@ -14,7 +14,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyCustomer">
    <children>
       <GridPane layoutY="-14.0" prefHeight="600.0" prefWidth="1000.0">
@@ -52,16 +51,6 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ComboBox fx:id="Country_Combo" onAction="#CountryCombo" prefHeight="25.0" prefWidth="344.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                           <GridPane.margin>
-                              <Insets right="10.0" />
-                           </GridPane.margin>
-                        </ComboBox>
-                        <ComboBox fx:id="Region_Combo" prefHeight="25.0" prefWidth="341.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                           <GridPane.margin>
-                              <Insets right="10.0" />
-                           </GridPane.margin>
-                        </ComboBox>
                         <Label fx:id="Country_Label" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="182.0" text="Country" GridPane.rowIndex="6">
                            <padding>
                               <Insets right="10.0" />
@@ -122,6 +111,16 @@
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </TextField>
+                        <ComboBox fx:id="Region_Combo" prefHeight="25.0" prefWidth="341.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
+                        </ComboBox>
+                        <ComboBox fx:id="Country_Combo" onAction="#CountryCombo" prefHeight="25.0" prefWidth="344.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
+                        </ComboBox>
                         <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="7">
                           <buttons>
                             <Button fx:id="Update_Cust" mnemonicParsing="false" onAction="#UpdateCust" text="Update Customer" />

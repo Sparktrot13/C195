@@ -36,12 +36,12 @@
                   <Insets right="5.0" />
                </padding>
             </Label>
-            <TextField fx:id="usernameField" promptText="Username" text="test" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="usernameField" promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="passwordField" promptText="Password" text="test" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="passwordField" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>

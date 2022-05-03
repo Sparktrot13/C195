@@ -25,8 +25,6 @@ import static database.DBUsers.*;
 import static model.Lists.*;
 
 public class Utility {
-
-    public static Users currentUser = null;
     //Strings for alerts
     public static final String exit = "Are you sure you want to exit the program?";
     public static final String confirmation = "Confirmation Needed";
@@ -60,6 +58,8 @@ public class Utility {
     public static final String countryBoxBlank = "Country box is blank";
     public static final String errorsFound = "The following errors were found, please fix before saving\n\n";
     public static final String deleteAppt = "You are about to delete appointment #";
+    public static final String customerHasAppt = " appointment, please delete all appointments before removing customer.";
+    public static final String customerApptError = "Appointment error";
 
 
     // URL for viewScreens
@@ -81,8 +81,22 @@ public class Utility {
 
     public static LinkedList errors = new LinkedList();
 
+    public static Users currentUser = null;
     public static void setCurrentUser(String name){
-        currentUser = getUsers().get(findUser(name));
+        int index = 0;
+        ObservableList<Users> allUser = getUsers();
+        for (Users u : allUser) {
+            if (u.getUser_Name().trim().equals(name.trim())) {
+                index = allUser.indexOf(u);
+            }
+        }
+        currentUser = getUsers().get(index);
+        if (currentUser == null){
+            System.out.println("currentUser is null");
+        } else {
+            System.out.println("welcome " + currentUser.getUser_Name() + ". Lets get to work!");
+            System.out.println("User ID is " + currentUser.getUser_ID());
+        }
     }
     public enum alertType {confirmation, error, warning}
     public static boolean alert (alertType type, String contentText, String title){

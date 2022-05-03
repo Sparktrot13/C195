@@ -5,9 +5,6 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -30,25 +27,6 @@
           <RowConstraints maxHeight="58.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <MenuBar GridPane.columnSpan="2">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
             <GridPane GridPane.rowIndex="1">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -61,12 +39,11 @@
                   <TableView fx:id="CustomerTable" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                     <columns>
                       <TableColumn fx:id="Cust_IDColumn" prefWidth="31.0" text="ID" />
-                      <TableColumn fx:id="Cust_NameColumn" prefWidth="109.0" text="Name" />
-                        <TableColumn fx:id="Cust_AddressColumn" prefWidth="126.0" text="Address" />
-                        <TableColumn fx:id="Cust_PostalColumn" prefWidth="72.0" text="Postal Code" />
-                        <TableColumn fx:id="Cust_PhoneColumn" prefWidth="93.0" text="Phone Number" />
-                        <TableColumn fx:id="Cust_RegionColumn" prefWidth="73.0" text="Region" />
-                        <TableColumn fx:id="Cust_CountryColumn" prefWidth="75.0" text="Country" />
+                      <TableColumn fx:id="Cust_NameColumn" prefWidth="120.0" text="Name" />
+                        <TableColumn fx:id="Cust_PhoneColumn" prefWidth="121.0" text="Phone Number" />
+                        <TableColumn fx:id="Cust_AddressColumn" prefWidth="136.0" text="Address" />
+                        <TableColumn fx:id="Cust_RegionColumn" prefWidth="81.0" text="Region" />
+                        <TableColumn fx:id="Cust_PostalColumn" prefWidth="90.0" text="Postal Code" />
                     </columns>
                      <GridPane.margin>
                         <Insets left="20.0" right="20.0" />
@@ -101,72 +78,72 @@
                         <RowConstraints maxHeight="137.0" minHeight="10.0" prefHeight="118.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label fx:id="Cust_CountryLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="180.0" text="Country">
+                        <Label fx:id="Cust_CountryLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="180.0" text="Country" GridPane.rowIndex="6">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="Cust_RegionLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Region" GridPane.rowIndex="1">
+                        <Label fx:id="Cust_RegionLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Region" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="Cust_IDLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Customer ID" GridPane.rowIndex="2">
+                        <Label fx:id="Cust_IDLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Customer ID">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="Cust_NameLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Name" GridPane.rowIndex="3">
+                        <Label fx:id="Cust_NameLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Name" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="Cust_AddressLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Address" GridPane.rowIndex="4">
+                        <Label fx:id="Cust_AddressLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Address" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="Cust_PostalLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Postal Code" GridPane.rowIndex="5">
+                        <Label fx:id="Cust_PostalLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Postal Code" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="Cust_PhoneLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Phone Number" GridPane.rowIndex="6">
+                        <Label fx:id="Cust_PhoneLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Phone Number" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="Cust_IDTextfield" disable="true" editable="false" promptText=" Auto Generated ID" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <TextField fx:id="Cust_IDTextfield" disable="true" editable="false" promptText=" Auto Generated ID" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="Cust_NameTextfield" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <TextField fx:id="Cust_NameTextfield" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="Cust_AddressTextfield" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <TextField fx:id="Cust_PhoneTextfield" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="Cust_PostalTextfield" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                        <TextField fx:id="Cust_AddressTextfield" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="Cust_PhoneTextfield" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                        <TextField fx:id="Cust_PostalTextfield" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <ComboBox fx:id="Country_Combo" onAction="#Country_Combo" prefHeight="25.0" prefWidth="316.0" GridPane.columnIndex="1">
+                        <ComboBox fx:id="Region_Combo" prefHeight="25.0" prefWidth="327.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </ComboBox>
-                        <ComboBox fx:id="Region_Combo" prefHeight="25.0" prefWidth="327.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <ComboBox fx:id="Country_Combo" onAction="#Country_Combo" prefHeight="25.0" prefWidth="316.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                            <GridPane.margin>
                               <Insets right="20.0" />
                            </GridPane.margin>

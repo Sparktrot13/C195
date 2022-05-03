@@ -55,6 +55,7 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ZoneId zone = TimeZone.getDefault().toZoneId();
+        ZoneLabel.setText(zone.toString());
         System.out.println("Zone ID = " +zone);
         TimeZone est = TimeZone.getTimeZone("est");
         //ZoneId estID = ZoneId.of("est", ZoneOffset(-7:00));
