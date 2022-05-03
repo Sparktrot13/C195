@@ -45,7 +45,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="ID_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Appointment ID">
+                  <Label fx:id="ID_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="%apptID">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
@@ -53,7 +53,7 @@
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="Title_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Title" GridPane.rowIndex="1">
+                  <Label fx:id="Title_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="%apptTitle" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
@@ -61,78 +61,78 @@
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="Description_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Description" GridPane.rowIndex="2">
+                  <Label fx:id="Description_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="%description" GridPane.rowIndex="2">
                      <padding>
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="Location_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Location" GridPane.rowIndex="3">
+                  <Label fx:id="Location_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="%location" GridPane.rowIndex="3">
                      <padding>
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="Contact_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Contact" GridPane.rowIndex="4">
+                  <Label fx:id="Contact_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="%contact" GridPane.rowIndex="4">
                      <padding>
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="Type_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Type" GridPane.rowIndex="5">
+                  <Label fx:id="Type_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="%type" GridPane.rowIndex="5">
                      <padding>
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="StartDate_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Start Date" GridPane.rowIndex="6">
+                  <Label fx:id="StartDate_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="%startDate" GridPane.rowIndex="6">
                      <padding>
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="StartTime_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Start Time" GridPane.rowIndex="7">
+                  <Label fx:id="StartTime_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="%startTime" GridPane.rowIndex="7">
                      <padding>
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="EndDate_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="End Date" GridPane.rowIndex="8">
+                  <Label fx:id="EndDate_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="%endDate" GridPane.rowIndex="8">
                      <padding>
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="EndTime_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="End Time" GridPane.rowIndex="9">
+                  <Label fx:id="EndTime_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="%endTime" GridPane.rowIndex="9">
                      <padding>
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="CustomerID_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="Customer ID" GridPane.rowIndex="10">
+                  <Label fx:id="CustomerID_addApptLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="214.0" text="%custID" GridPane.rowIndex="10">
                      <padding>
                         <Insets right="10.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="ID_addApptTextfield" disable="true" editable="false" promptText="Auto Generated" GridPane.columnIndex="1" />
-                  <TextField fx:id="Title_addApptTextfield" promptText="Appointment title" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="Description_addApptTextfield" promptText="Description" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="Location_addApptTextfield" promptText="Location" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <ComboBox fx:id="Contact_Combo" prefHeight="25.0" prefWidth="267.0" promptText="Select Contact" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <TextField fx:id="Type_addApptTextfield" promptText="Appointment Type" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <DatePicker fx:id="Start_addApptDate" prefHeight="25.0" prefWidth="308.0" promptText="Appointment Start Date" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </DatePicker>
-                  <ComboBox fx:id="Start_addApptCombo" prefHeight="25.0" prefWidth="247.0" promptText="Appointment Start Time" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </ComboBox>
-                  <DatePicker fx:id="End_addApptDate" prefHeight="25.0" prefWidth="308.0" promptText="Appointment End Date" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                  <TextField fx:id="ID_addApptTextfield" disable="true" editable="false" promptText="%autogen" GridPane.columnIndex="1" />
+                  <TextField fx:id="Title_addApptTextfield" promptText="%apptTitle" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="Description_addApptTextfield" promptText="%description" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="Location_addApptTextfield" promptText="%location" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="Contact_Combo" prefHeight="25.0" prefWidth="267.0" promptText="%selectContact" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="Type_addApptTextfield" promptText="%apptType" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <DatePicker fx:id="Start_addApptDate" prefHeight="25.0" prefWidth="308.0" promptText="%apptStartDate" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                   </DatePicker>
-                  <ComboBox fx:id="End_addApptCombo" prefHeight="25.0" prefWidth="270.0" promptText="Appointment End Time" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                  <ComboBox fx:id="Start_addApptCombo" prefHeight="25.0" prefWidth="247.0" promptText="%apptStartTime" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                   </ComboBox>
-                  <ComboBox fx:id="Cust_Combo" prefHeight="25.0" prefWidth="288.0" promptText="Select Customer" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                  <DatePicker fx:id="End_addApptDate" prefHeight="25.0" prefWidth="308.0" promptText="%apptEndDate" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </DatePicker>
+                  <ComboBox fx:id="End_addApptCombo" prefHeight="25.0" prefWidth="270.0" promptText="%apptEndTime" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </ComboBox>
+                  <ComboBox fx:id="Cust_Combo" prefHeight="25.0" prefWidth="288.0" promptText="%selectCustomer" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                </children>
                <padding>
                   <Insets right="20.0" />
@@ -145,8 +145,8 @@
             </Label>
             <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="2">
               <buttons>
-                <Button fx:id="Save_addApptButton" mnemonicParsing="false" onAction="#Save_addApptButton" text="Save" />
-                  <Button fx:id="Cancel_addApptButton" mnemonicParsing="false" onAction="#Cancel_addApptButton" text="Cancel" />
+                <Button fx:id="Save_addApptButton" mnemonicParsing="false" onAction="#Save_addApptButton" text="%save" />
+                  <Button fx:id="Cancel_addApptButton" mnemonicParsing="false" onAction="#Cancel_addApptButton" text="%cancel" />
               </buttons>
                <padding>
                   <Insets bottom="20.0" right="20.0" />
