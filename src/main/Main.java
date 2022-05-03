@@ -6,6 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 import static database.DBConnection.*;
 
 public class Main extends Application {
@@ -18,6 +22,10 @@ public class Main extends Application {
         primaryStage.setOnCloseRequest(null);
     }
     public static void main(String[] args){
+        ResourceBundle rb = ResourceBundle.getBundle("utility/prop", Locale.getDefault());
+        if (Locale.getDefault().getLanguage().equals("fr")) {
+            System.out.println(rb.getString("Username") + rb.getString("Password"));
+        }
         startConnection();
         launch(args);
         closeConnection();
