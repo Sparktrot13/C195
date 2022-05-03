@@ -144,7 +144,7 @@ public class Utility {
     public static void newScreen(ActionEvent actionEvent, String url, String title) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         //fxmlLoader.setLocation(Utility.class.getResource(url), bundle());
-        Scene newScene = new Scene(fxmlLoader.load(Utility.class.getResource(url), bundle()));
+        Scene newScene = new Scene(FXMLLoader.load(Utility.class.getResource(url), bundle()));
         Stage newStage = new Stage();
         newStage.setTitle(title);
         newStage.setScene(newScene);
