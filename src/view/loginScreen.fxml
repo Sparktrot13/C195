@@ -26,12 +26,12 @@
             <RowConstraints maxHeight="44.0" minHeight="-Infinity" prefHeight="37.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="UsernameLabel" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="169.0" text="Username:" GridPane.rowIndex="2">
+            <Label fx:id="UsernameLabel" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="169.0" text="%username" GridPane.rowIndex="2">
                <padding>
                   <Insets right="5.0" />
                </padding>
             </Label>
-            <Label fx:id="PasswordLabel" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="180.0" text="Password:" GridPane.rowIndex="3">
+            <Label fx:id="PasswordLabel" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="180.0" text="\%password" GridPane.rowIndex="3">
                <padding>
                   <Insets right="5.0" />
                </padding>
@@ -61,7 +61,7 @@
                   <Insets />
                </GridPane.margin>
             </Label>
-            <Label fx:id="ZoneLabel" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="514.0" text="Zone:" GridPane.rowIndex="4">
+            <Label fx:id="ZoneLabel" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="514.0" text="\%zone" GridPane.rowIndex="4">
                <padding>
                   <Insets right="10.0" />
                </padding>

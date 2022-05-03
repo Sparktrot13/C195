@@ -22,7 +22,8 @@ public class Main extends Application {
         primaryStage.setOnCloseRequest(null);
     }
     public static void main(String[] args){
-        ResourceBundle rb = ResourceBundle.getBundle("utility/prop", Locale.getDefault());
+        Locale.setDefault(new Locale("fr"));
+        ResourceBundle rb = ResourceBundle.getBundle("utility/propRB", Locale.getDefault());
         if (Locale.getDefault().getLanguage().equals("fr")) {
             System.out.println(rb.getString("Username") + rb.getString("Password"));
         }
