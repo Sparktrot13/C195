@@ -67,9 +67,9 @@
                     <buttons>
                         <Button fx:id="NewAppt" graphicTextGap="3.0" mnemonicParsing="false" onAction="#New_Appt" prefHeight="24.0" prefWidth="156.0" text="%newAppt" />
                         <Button fx:id="UpdateAppt" graphicTextGap="0.0" mnemonicParsing="false" onAction="#Update_Appt" text="%modAppt" />
-                        <Button fx:id="DeleteAppt" mnemonicParsing="false" onAction="#Delete_Appt" text="%deleteAppt" />
+                        <Button fx:id="DeleteAppt" mnemonicParsing="false" onAction="#Delete_Appt" text="%delete_Appt" />
                   <Button fx:id="CustomerAppt" mnemonicParsing="false" onAction="#Customer_Appt" text="%customers" />
-                  <Button fx:id="ExitAppt" mnemonicParsing="false" onAction="#Appt_Exit" text="%exit" />
+                  <Button fx:id="ExitAppt" mnemonicParsing="false" onAction="#Appt_Exit" text="%Exit" />
                     </buttons>
                     <GridPane.margin>
                         <Insets />
