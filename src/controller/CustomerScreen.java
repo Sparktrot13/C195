@@ -85,7 +85,7 @@ public class CustomerScreen implements Initializable {
             alert(alertType.error, selectionError, "Selection Error");
         } else {
             int index = lookupCustomer(c.getCustomer_ID());
-            sendCustAppt(index, actionEvent);
+            sendCustAppt(index);
         }
         // ObservableList l = lookupAppts(chkID); ApptTable_Cust.setItems(l);
     }

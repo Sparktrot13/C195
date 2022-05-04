@@ -92,23 +92,4 @@ public class DBAppointments {
             e.printStackTrace();
         }
     }
-    public static void insertUser (){
-        String ts1 = "2022-04-25 09:55:10";
-        String ts2 = "2022-04-25 10:28:28";
-        String username = "myUser";
-        String password = "Secure";
-        Timestamp dateCreated = Timestamp.valueOf(ts1);
-        String creator = "Me";
-        Timestamp lastUpdated = Timestamp.valueOf(ts2);
-        String updater = "also me";
-
-        try{
-            String sqlAdd = "Insert into users" + "(User_Name,Password,Create_Date,Created_By,Last_Update,Last_Updated_By)" + " values (\"" + username + "\", \"" + password + "\", timestamp(\"" + dateCreated + "\"), \"" + creator + "\",  timestamp(\"" + lastUpdated + "\"), \"" + updater + "\")";
-            System.out.println(sqlAdd);
-            PreparedStatement ps = DBConnection.getConnection().prepareStatement(sqlAdd);
-            ps.executeUpdate(sqlAdd);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 }

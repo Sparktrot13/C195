@@ -1,8 +1,6 @@
 package utility;
 
-import com.mysql.cj.Messages;
 import controller.*;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -17,19 +15,14 @@ import model.Customers;
 import model.Users;
 
 import java.io.IOException;
-import java.net.UnknownServiceException;
 import java.util.*;
-
-import static database.DBUsers.*;
 import static model.Lists.*;
-import static main.Main.*;
 import static utility.Locales.*;
 
 public class Utility {
 
     public static final String exit = bundle().getString("exit"); //"Are you sure you want to exit the program?";
     public static final String confirmation = bundle().getString("confirmation"); //"Confirmation Needed";
-    public static final String apptDelete = bundle().getString("apptDelete");//"You are about to delete an appointment for ";
     public static final String confirm = bundle().getString("confirm");//"Do you wish to continue?";
     public static final String Username = bundle().getString("User_name");//"Username or password is incorrect, Please try again.";
     public static final String incorrectCred = bundle().getString("incorrectCred");//"Invalid Credentials";
@@ -135,14 +128,14 @@ public class Utility {
     }
     public static void viewScreen(ActionEvent event, String url, String title) throws IOException {
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        Parent scene = FXMLLoader.load(Utility.class.getResource(url), bundle());
+        Parent scene = FXMLLoader.load(Objects.requireNonNull(Utility.class.getResource(url)), bundle());
         stage.setScene(new Scene(scene));
         stage.centerOnScreen();
         stage.setTitle(title);
         stage.show();
     }
     public static void newScreen(ActionEvent actionEvent, String url, String title) throws IOException {
-        Scene newScene = new Scene(FXMLLoader.load(Utility.class.getResource(url), bundle()));
+        Scene newScene = new Scene(FXMLLoader.load(Objects.requireNonNull(Utility.class.getResource(url)), bundle()));
         Stage newStage = new Stage();
         newStage.setTitle(title);
         newStage.setScene(newScene);
@@ -188,7 +181,7 @@ public class Utility {
 
         }
     }
-    public static void sendCustAppt(int CustID, ActionEvent actionEvent) throws IOException {
+    public static void sendCustAppt(int CustID) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Utility.class.getResource(addApptScreenURL));
         loader.setResources(bundle());
