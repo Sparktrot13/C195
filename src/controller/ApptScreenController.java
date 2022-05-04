@@ -1,23 +1,16 @@
 package controller;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import model.Appointments;
-import model.Customers;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static database.DBCustomers.deleteCustomer;
-import static model.Lists.getAppts;
-import static model.Lists.getCustomers;
-import static utility.Locales.bundle;
+import static model.Lists.*;
 import static utility.Utility.*;
 import static database.DBAppointments.*;
 
@@ -42,7 +35,6 @@ public class ApptScreenController implements Initializable {
     public Button DeleteAppt;
     public Button CustomerAppt;
     public Button ExitAppt;
-    public MenuBar Appt_MenuBar;
     public TableView<model.Appointments> ApptTable;
 
     @Override
@@ -60,12 +52,15 @@ public class ApptScreenController implements Initializable {
         Appt_UserColumn.setCellValueFactory(new PropertyValueFactory<>("Appt_User_ID"));
     }
     public void AllRadio_Appt(ActionEvent actionEvent) {
+        ApptTable.setItems(getAppts());
     }
 
     public void MonthRadio_Appt(ActionEvent actionEvent) {
+        ApptTable.setItems(getMonthAppts());
     }
 
     public void WeekRadio_Appt(ActionEvent actionEvent) {
+        ApptTable.setItems(getWeekAppts());
     }
 
     public void New_Appt(ActionEvent actionEvent) throws IOException {

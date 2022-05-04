@@ -4,12 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import model.Contacts;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+import java.time.*;
 
 public class Time {
     public static ObservableList getTime(){
@@ -37,5 +33,17 @@ public class Time {
         LocalTime lt = LocalTime.parse(t.getValue().toString());
         LocalDateTime ldt = LocalDateTime.of(ld,lt);
         return ldt;
+    }
+    public static boolean getMonth(LocalDateTime ldt){
+        LocalDate now = LocalDate.now();
+        LocalDate month = now.plusMonths(1);
+        LocalDate chkDate = ldt.toLocalDate();
+        return chkDate.isAfter(now) && chkDate.isBefore(month);
+    }
+    public static boolean getWeek(LocalDateTime ldt){
+        LocalDate now = LocalDate.now();
+        LocalDate week = now.plusDays(7);
+        LocalDate chkDate = ldt.toLocalDate();
+        return chkDate.isAfter(now) && chkDate.isBefore(week);
     }
 }

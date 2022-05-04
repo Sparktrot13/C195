@@ -10,6 +10,7 @@ import static database.DBContacts.*;
 import static database.DBCustomers.*;
 import static database.DBCountries.*;
 import static database.DBFLDivision.*;
+import static utility.Time.*;
 
 public class Lists {
     public static ObservableList<Appointments> getAppts(){
@@ -145,5 +146,21 @@ public class Lists {
                 custAppts.add(a);
             }
         } return custAppts;
+    }
+    public static ObservableList<Appointments> getMonthAppts() {
+        ObservableList<Appointments> thisMonth = FXCollections.observableArrayList();
+        for (Appointments a : getAppts()) {
+            if (getMonth(a.getAppt_StartTime())) {
+                thisMonth.add(a);
+            }
+        } return thisMonth;
+    }
+    public static ObservableList<Appointments> getWeekAppts() {
+        ObservableList<Appointments> thisWeek = FXCollections.observableArrayList();
+        for (Appointments a : getAppts()) {
+            if (getWeek(a.getAppt_StartTime())) {
+                thisWeek.add(a);
+            }
+        } return thisWeek;
     }
 }
