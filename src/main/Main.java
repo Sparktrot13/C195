@@ -19,7 +19,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         try {
-            Locale.setDefault(new Locale("fr"));
+            Locale.setDefault(new Locale("en"));
             ResourceBundle rb = bundle();
             Parent root = FXMLLoader.load(getClass().getResource("/view/loginScreen.fxml"), rb);
             primaryStage.setTitle(rb.getString("screenTitle"));

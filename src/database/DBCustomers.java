@@ -82,13 +82,14 @@ public class DBCustomers {
         }
     }
     public static void deleteCustomer(Customers c){
-        alert(alertType.confirmation,deleteCustomer + c.getCustomer_Name() + "'s record. " + confirm,confirmation);
-        String delete = "Delete from customers where Customer_ID = " + c.getCustomer_ID();
-        try{
-            PreparedStatement ps = DBConnection.getConnection().prepareStatement(delete);
-            ps.executeUpdate(delete);
-        } catch (SQLException e){
-            e.printStackTrace();
+        if(alert(alertType.confirmation,deleteCustomer + c.getCustomer_Name() + "'s record. " + confirm,confirmation)){
+            String delete = "Delete from customers where Customer_ID = " + c.getCustomer_ID();
+            try{
+                PreparedStatement ps = DBConnection.getConnection().prepareStatement(delete);
+                ps.executeUpdate(delete);
+            } catch (SQLException e){
+                e.printStackTrace();
+            }
         }
     }
 }

@@ -57,14 +57,16 @@ public class DBAppointments {
         int custID = a.getAppt_Customer_ID();
         String custName = lookupCust(custID);
         LocalDate ld = a.getAppt_StartTime().toLocalDate();
-        alert(Utility.alertType.confirmation,deleteAppt + a.getAppointment_ID()+ " for " + custName + " on " + ld + ". " + confirm,confirmation);
-        String delete = "Delete from appointments where Appointment_ID = " + a.getAppointment_ID();
-        try{
-            PreparedStatement ps = DBConnection.getConnection().prepareStatement(delete);
-            ps.executeUpdate(delete);
-        } catch (SQLException e){
-            e.printStackTrace();
+        if (alert(Utility.alertType.confirmation,deleteAppt + a.getAppointment_ID()+ " for " + custName + " on " + ld + ". " + confirm,confirmation)){
+            String delete = "Delete from appointments where Appointment_ID = " + a.getAppointment_ID();
+            try{
+                PreparedStatement ps = DBConnection.getConnection().prepareStatement(delete);
+                ps.executeUpdate(delete);
+            } catch (SQLException e){
+                e.printStackTrace();
+            }
         }
+
     }
     public static void UpdateAppt(int ID,String title, String Des, String Loc, String type, Timestamp start, Timestamp end, Timestamp lastUpdate, String updatedBy, int cust_ID, int user_ID, int contact_ID){
         try{
