@@ -1,6 +1,5 @@
 package controller;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -8,15 +7,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.Countries;
 import model.Customers;
 import model.FLDivisions;
-import model.Users;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
-import static utility.Locales.bundle;
 import static utility.Utility.*;
 import static database.DBCustomers.*;
 import static model.Lists.*;
@@ -24,13 +20,12 @@ import static utility.Validator.*;
 
 public class CustomerScreen implements Initializable {
     public TableView<Customers> CustomerTable;
-    public TableColumn Cust_IDColumn;
-    public TableColumn Cust_NameColumn;
-    public TableColumn Cust_AddressColumn;
-    public TableColumn Cust_PostalColumn;
-    public TableColumn Cust_PhoneColumn;
-    public TableColumn Cust_RegionColumn;
-    public TableColumn Cust_CountryColumn;
+    public TableColumn<Object, Object> Cust_IDColumn;
+    public TableColumn<Object, Object> Cust_NameColumn;
+    public TableColumn<Object, Object> Cust_AddressColumn;
+    public TableColumn<Object, Object> Cust_PostalColumn;
+    public TableColumn<Object, Object> Cust_PhoneColumn;
+    public TableColumn<Object, Object> Cust_RegionColumn;
     public Label Cust_CountryLabel;
     public Label Cust_RegionLabel;
     public Label Cust_IDLabel;
@@ -43,17 +38,15 @@ public class CustomerScreen implements Initializable {
     public TextField Cust_AddressTextfield;
     public TextField Cust_PostalTextfield;
     public TextField Cust_PhoneTextfield;
-    public ComboBox Country_Combo;
-    public ComboBox Region_Combo;
+    public ComboBox<Countries> Country_Combo;
+    public ComboBox<FLDivisions> Region_Combo;
     public Button Cust_SaveButton;
     public Button Cust_UpdateButton;
     public Button Cust_CreateButton;
     public Button Cust_DeleteButton;
     public Button Cust_BackButton;
-    public Label user_Label;
-    public ComboBox User_Combo;
 
-    public void Save_CustomerButton(ActionEvent actionEvent) {
+    public void Save_CustomerButton() {
         try{
             chkCustomerBlank(Cust_NameTextfield,Cust_AddressTextfield,Cust_PhoneTextfield,Cust_PostalTextfield,Region_Combo,Country_Combo);
             String name = Cust_NameTextfield.getText().trim();
@@ -64,11 +57,11 @@ public class CustomerScreen implements Initializable {
             String creator = currentUser.getUser_Name();
             Timestamp updated = Timestamp.valueOf(LocalDateTime.now());
             String updater = currentUser.getUser_Name();
-            int divID = ((FLDivisions) Region_Combo.getSelectionModel().getSelectedItem()).getDiv_ID();
+            int divID = (Region_Combo.getSelectionModel().getSelectedItem()).getDiv_ID();
             insertCustomer(name,address,postal,phone,created,creator,updated,updater,divID);
 
         } catch (NumberFormatException e){
-            System.out.println(e);
+            e.printStackTrace();
             alert(alertType.error,errorsFound.concat(errors.toString()),"Error");
         }
     }
@@ -79,7 +72,7 @@ public class CustomerScreen implements Initializable {
         sendCust(CustomerTable,actionEvent);
     }
 
-    public void Create_CustomerApptButton(ActionEvent actionEvent) throws IOException {
+    public void Create_CustomerApptButton() throws IOException {
         Customers c = CustomerTable.getSelectionModel().getSelectedItem();
         if (c == null) {
             alert(alertType.error, selectionError, "Selection Error");
@@ -90,8 +83,8 @@ public class CustomerScreen implements Initializable {
         // ObservableList l = lookupAppts(chkID); ApptTable_Cust.setItems(l);
     }
 
-    public void Delete_CustomerButton(ActionEvent actionEvent) {
-        Customers c = (Customers) CustomerTable.getSelectionModel().getSelectedItem();
+    public void Delete_CustomerButton() {
+        Customers c = CustomerTable.getSelectionModel().getSelectedItem();
         if (c == null){
             alert(alertType.error,selectionError, "Selection Error");
         } else if(lookupAppts(c.getCustomer_ID()).size()>0) {
@@ -100,7 +93,6 @@ public class CustomerScreen implements Initializable {
             deleteCustomer(c);
             CustomerTable.setItems(getCustomers());
         }
-
     }
 
     public void BackToPrevious(ActionEvent actionEvent) throws IOException {
@@ -119,8 +111,8 @@ public class CustomerScreen implements Initializable {
         Country_Combo.setItems(getCountries());
     }
 
-    public void Country_Combo(ActionEvent actionEvent) {
-        Countries c = (Countries) Country_Combo.getSelectionModel().getSelectedItem();
+    public void Country_Combo() {
+        Countries c = Country_Combo.getSelectionModel().getSelectedItem();
         int country_ID = c.getCountry_ID();
         Region_Combo.setItems(searchCountries(country_ID));
         Region_Combo.getSelectionModel().selectFirst();
