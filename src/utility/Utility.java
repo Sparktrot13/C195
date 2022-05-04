@@ -142,8 +142,6 @@ public class Utility {
         stage.show();
     }
     public static void newScreen(ActionEvent actionEvent, String url, String title) throws IOException {
-        //FXMLLoader fxmlLoader = new FXMLLoader();
-        //fxmlLoader.setLocation(Utility.class.getResource(url), bundle());
         Scene newScene = new Scene(FXMLLoader.load(Utility.class.getResource(url), bundle()));
         Stage newStage = new Stage();
         newStage.setTitle(title);
@@ -201,7 +199,6 @@ public class Utility {
             newStage.setScene(newScene);
             newStage.initModality(Modality.APPLICATION_MODAL);
             newStage.showAndWait();
-            //viewScreen(actionEvent,getLastURL,getLastTitle);
 
         }
 

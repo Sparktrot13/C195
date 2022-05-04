@@ -4,9 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -30,37 +27,18 @@
                 <RowConstraints maxHeight="490.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <MenuBar fx:id="Appt_MenuBar" prefHeight="25.0" prefWidth="593.0" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.valignment="TOP">
-                    <menus>
-                        <Menu mnemonicParsing="false" text="File">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="Close" />
-                            </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Edit">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="Delete" />
-                            </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Help">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="About" />
-                            </items>
-                        </Menu>
-                    </menus>
-                </MenuBar>
                 <TableView fx:id="ApptTable" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                     <columns>
                         <TableColumn fx:id="Appt_IDColumn" prefWidth="29.0" text="ID" />
-                        <TableColumn fx:id="Appt_TitleColumn" prefWidth="121.0" text="Title" />
-                        <TableColumn fx:id="Appt_DescriptionColumn" prefWidth="242.0" text="Description" />
-                        <TableColumn fx:id="Appt_LocationColumn" prefWidth="71.0" text="Location" />
-                        <TableColumn fx:id="Appt_ContactColumn" prefWidth="60.0" text="Contact" />
-                        <TableColumn fx:id="Appt_TypeColumn" prefWidth="67.0" text="Type" />
-                        <TableColumn fx:id="Appt_StartColumn" prefWidth="124.0" text="Start Date and Time" />
-                        <TableColumn fx:id="Appt_EndColumn" prefWidth="113.0" text="End Date and Time" />
-                        <TableColumn fx:id="Appt_CustomerColumn" prefWidth="81.0" text="Customer ID" />
-                        <TableColumn fx:id="Appt_UserColumn" prefWidth="51.0" text="User ID" />
+                        <TableColumn fx:id="Appt_TitleColumn" prefWidth="121.0" text="%title" />
+                        <TableColumn fx:id="Appt_DescriptionColumn" prefWidth="242.0" text="%description" />
+                        <TableColumn fx:id="Appt_LocationColumn" prefWidth="71.0" text="%location" />
+                        <TableColumn fx:id="Appt_ContactColumn" prefWidth="60.0" text="%contact" />
+                        <TableColumn fx:id="Appt_TypeColumn" prefWidth="67.0" text="%type" />
+                        <TableColumn fx:id="Appt_StartColumn" prefWidth="124.0" text="%startDateTime" />
+                        <TableColumn fx:id="Appt_EndColumn" prefWidth="113.0" text="%endDateTime" />
+                        <TableColumn fx:id="Appt_CustomerColumn" prefWidth="81.0" text="%custID" />
+                        <TableColumn fx:id="Appt_UserColumn" prefWidth="51.0" text="%userID" />
                     </columns>
                     <GridPane.margin>
                         <Insets left="20.0" right="20.0" />
@@ -73,13 +51,13 @@
                 </DatePicker>
                 <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                     <buttons>
-                        <RadioButton fx:id="Appt_AllRadio" mnemonicParsing="false" onAction="#AllRadio_Appt" text="All">
+                        <RadioButton fx:id="Appt_AllRadio" mnemonicParsing="false" onAction="#AllRadio_Appt" text="%all">
                             <toggleGroup>
                                 <ToggleGroup fx:id="Appt_Selections" />
                             </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="Appt_MonthRadio" mnemonicParsing="false" onAction="#MonthRadio_Appt" text="Month" toggleGroup="$Appt_Selections" />
-                        <RadioButton fx:id="Appt_WeekRadio" mnemonicParsing="false" onAction="#WeekRadio_Appt" selected="true" text="Week" toggleGroup="$Appt_Selections" />
+                        <RadioButton fx:id="Appt_MonthRadio" mnemonicParsing="false" onAction="#MonthRadio_Appt" text="%month" toggleGroup="$Appt_Selections" />
+                        <RadioButton fx:id="Appt_WeekRadio" mnemonicParsing="false" onAction="#WeekRadio_Appt" selected="true" text="%week" toggleGroup="$Appt_Selections" />
                     </buttons>
                     <GridPane.margin>
                         <Insets left="20.0" />
@@ -88,10 +66,10 @@
                 <ButtonBar buttonMinWidth="120.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="276.0" prefWidth="942.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                     <buttons>
                         <Button fx:id="NewAppt" graphicTextGap="3.0" mnemonicParsing="false" onAction="#New_Appt" prefHeight="24.0" prefWidth="156.0" text="%newAppt" />
-                        <Button fx:id="UpdateAppt" graphicTextGap="0.0" mnemonicParsing="false" onAction="#Update_Appt" text=" Update Appointment" />
-                        <Button fx:id="DeleteAppt" mnemonicParsing="false" onAction="#Delete_Appt" text="Delete Appointment" />
-                  <Button fx:id="CustomerAppt" mnemonicParsing="false" onAction="#Customer_Appt" text="Customers" />
-                  <Button fx:id="ExitAppt" mnemonicParsing="false" onAction="#Appt_Exit" text="Exit" />
+                        <Button fx:id="UpdateAppt" graphicTextGap="0.0" mnemonicParsing="false" onAction="#Update_Appt" text="%modAppt" />
+                        <Button fx:id="DeleteAppt" mnemonicParsing="false" onAction="#Delete_Appt" text="%deleteAppt" />
+                  <Button fx:id="CustomerAppt" mnemonicParsing="false" onAction="#Customer_Appt" text="%customers" />
+                  <Button fx:id="ExitAppt" mnemonicParsing="false" onAction="#Appt_Exit" text="%exit" />
                     </buttons>
                     <GridPane.margin>
                         <Insets />
