@@ -39,19 +39,9 @@ public class Lists {
         Customers cust = (Customers) c.getSelectionModel().getSelectedItem();
         return cust.getCustomer_ID();
     }
-    public static int getUserID(ComboBox c){
-        Users user = (Users) c.getSelectionModel().getSelectedItem();
-        return user.getUser_ID();
-    }
-    public static String getUserName(ComboBox c){
-        Users user = (Users) c.getSelectionModel().getSelectedItem();
-        return user.getUser_Name();
-    }
     public static ObservableList<FLDivisions> searchCountries(int country_ID){
         ObservableList<FLDivisions> firstLevel = FXCollections.observableArrayList();
         ObservableList<FLDivisions> gottenList = getDivisions();
-        //Countries country = (Countries) c.getSelectionModel().getSelectedItem();
-        //int country_ID = country.getCountry_ID();
         for (FLDivisions flDivisions : gottenList) {
             if (flDivisions.getDiv_Country_ID() == country_ID) {
                 firstLevel.add(flDivisions);
@@ -62,7 +52,6 @@ public class Lists {
     public static int lookupCountry(int regID) {
         int C_ID = 0;
         ObservableList<FLDivisions> regions = getDivisions();
-        ObservableList<FLDivisions> regList = FXCollections.observableArrayList();
         for(FLDivisions d : regions){
             if(d.getDiv_ID()== regID){
                 C_ID = d.getDiv_Country_ID();
@@ -96,27 +85,6 @@ public class Lists {
             }
         }
         return null;
-    }
-    public static int lookupUser(int ID){
-        ObservableList<Users> allUsers = getUsers();
-        for( int i = 0; i < allUsers.size(); i++){
-            Users u = allUsers.get(i);
-            if(u.getUser_ID() == ID){
-                return allUsers.indexOf(u);
-            }
-        }
-        return ID;
-    }
-    public static int findUser(String name){
-        int index = 0;
-        ObservableList<Users> allUsers = getUsers();
-        for( int i = 0; i < allUsers.size(); i++){
-            Users u = allUsers.get(i);
-            if(u.getUser_Name() == name){
-                index = allUsers.indexOf(u);
-            }
-        }
-        return index;
     }
     public static int lookupCustomer(int ID){
         ObservableList<Customers> allCust = getCustomers();

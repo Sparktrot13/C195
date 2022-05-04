@@ -51,15 +51,15 @@ public class ApptScreenController implements Initializable {
         Appt_CustomerColumn.setCellValueFactory(new PropertyValueFactory<>("Appt_Customer_ID"));
         Appt_UserColumn.setCellValueFactory(new PropertyValueFactory<>("Appt_User_ID"));
     }
-    public void AllRadio_Appt(ActionEvent actionEvent) {
+    public void AllRadio_Appt() {
         ApptTable.setItems(getAppts());
     }
 
-    public void MonthRadio_Appt(ActionEvent actionEvent) {
+    public void MonthRadio_Appt() {
         ApptTable.setItems(getMonthAppts());
     }
 
-    public void WeekRadio_Appt(ActionEvent actionEvent) {
+    public void WeekRadio_Appt() {
         ApptTable.setItems(getWeekAppts());
     }
 
@@ -75,8 +75,8 @@ public class ApptScreenController implements Initializable {
             sendAppt(ApptTable,actionEvent);
     }
 
-    public void Delete_Appt(ActionEvent actionEvent) {
-        Appointments a = (Appointments) ApptTable.getSelectionModel().getSelectedItem();
+    public void Delete_Appt() {
+        Appointments a = ApptTable.getSelectionModel().getSelectedItem();
         if (a == null){
             alert(alertType.error,selectionError, "Selection Error");
         } else {

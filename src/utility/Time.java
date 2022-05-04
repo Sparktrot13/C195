@@ -9,9 +9,9 @@ import java.time.*;
 
 public class Time {
     public static ObservableList getTime(){
-        ObservableList businessHours = FXCollections.observableArrayList();
-        LocalTime start = LocalTime.of(5, 00);
-        LocalTime end = LocalTime.of(23,00);
+        ObservableList<LocalTime> businessHours = FXCollections.observableArrayList();
+        LocalTime start = LocalTime.of(5, 0);
+        LocalTime end = LocalTime.of(23,0);
         while (start.isBefore(end.plusSeconds(1))){
             businessHours.add(start);
             start = start.plusMinutes(15);
@@ -31,8 +31,7 @@ public class Time {
     public static LocalDateTime combineDateTime(DatePicker d, ComboBox t){
         LocalDate ld = d.getValue();
         LocalTime lt = LocalTime.parse(t.getValue().toString());
-        LocalDateTime ldt = LocalDateTime.of(ld,lt);
-        return ldt;
+        return LocalDateTime.of(ld,lt);
     }
     public static boolean getMonth(LocalDateTime ldt){
         LocalDate now = LocalDate.now();
