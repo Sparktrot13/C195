@@ -80,11 +80,14 @@ public class CustomerScreen implements Initializable {
     }
 
     public void Create_CustomerApptButton(ActionEvent actionEvent) throws IOException {
-        int chkID = Integer.parseInt(Cust_IDTextfield.getText().trim());
-        int index = lookupCustomer(chkID);
-        sendCustAppt(index, actionEvent);
-        //ObservableList l = lookupAppts(chkID);
-        //ApptTable_Cust.setItems(l);
+        Customers c = CustomerTable.getSelectionModel().getSelectedItem();
+        if (c == null) {
+            alert(alertType.error, selectionError, "Selection Error");
+        } else {
+            int index = lookupCustomer(c.getCustomer_ID());
+            sendCustAppt(index, actionEvent);
+        }
+        // ObservableList l = lookupAppts(chkID); ApptTable_Cust.setItems(l);
     }
 
     public void Delete_CustomerButton(ActionEvent actionEvent) {

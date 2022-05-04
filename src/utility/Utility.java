@@ -191,6 +191,7 @@ public class Utility {
     public static void sendCustAppt(int CustID, ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Utility.class.getResource(addApptScreenURL));
+        loader.setResources(bundle());
         Scene newScene = new Scene(loader.load());
         Stage newStage = new Stage();
         AddAppointment MPSController = loader.getController();
