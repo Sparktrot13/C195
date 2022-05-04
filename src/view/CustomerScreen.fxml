@@ -39,11 +39,11 @@
                   <TableView fx:id="CustomerTable" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                     <columns>
                       <TableColumn fx:id="Cust_IDColumn" prefWidth="31.0" text="ID" />
-                      <TableColumn fx:id="Cust_NameColumn" prefWidth="120.0" text="Name" />
-                        <TableColumn fx:id="Cust_PhoneColumn" prefWidth="121.0" text="Phone Number" />
-                        <TableColumn fx:id="Cust_AddressColumn" prefWidth="136.0" text="Address" />
-                        <TableColumn fx:id="Cust_RegionColumn" prefWidth="81.0" text="Region" />
-                        <TableColumn fx:id="Cust_PostalColumn" prefWidth="90.0" text="Postal Code" />
+                      <TableColumn fx:id="Cust_NameColumn" prefWidth="120.0" text="%name" />
+                        <TableColumn fx:id="Cust_PhoneColumn" prefWidth="121.0" text="%phone" />
+                        <TableColumn fx:id="Cust_AddressColumn" prefWidth="136.0" text="%address" />
+                        <TableColumn fx:id="Cust_RegionColumn" prefWidth="81.0" text="%region" />
+                        <TableColumn fx:id="Cust_PostalColumn" prefWidth="90.0" text="%postal" />
                     </columns>
                      <GridPane.margin>
                         <Insets left="20.0" right="20.0" />
@@ -78,79 +78,79 @@
                         <RowConstraints maxHeight="137.0" minHeight="10.0" prefHeight="118.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label fx:id="Cust_CountryLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="180.0" text="Country" GridPane.rowIndex="6">
+                        <Label fx:id="Cust_CountryLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="180.0" text="%country" GridPane.rowIndex="6">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="Cust_RegionLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Region" GridPane.rowIndex="5">
+                        <Label fx:id="Cust_RegionLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="%region" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="Cust_IDLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Customer ID">
+                        <Label fx:id="Cust_IDLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="%customerID">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="Cust_NameLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Name" GridPane.rowIndex="1">
+                        <Label fx:id="Cust_NameLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="%name" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="Cust_AddressLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Address" GridPane.rowIndex="3">
+                        <Label fx:id="Cust_AddressLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="%address" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="Cust_PostalLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Postal Code" GridPane.rowIndex="4">
+                        <Label fx:id="Cust_PostalLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="%postal" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="Cust_PhoneLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="Phone Number" GridPane.rowIndex="2">
+                        <Label fx:id="Cust_PhoneLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="148.0" text="%phone" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="Cust_IDTextfield" disable="true" editable="false" promptText=" Auto Generated ID" GridPane.columnIndex="1">
+                        <TextField fx:id="Cust_IDTextfield" disable="true" editable="false" promptText="%autogen" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="Cust_NameTextfield" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="Cust_NameTextfield" promptText="%name" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="Cust_PhoneTextfield" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <TextField fx:id="Cust_PhoneTextfield" promptText="%phoneKey" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="Cust_AddressTextfield" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <TextField fx:id="Cust_AddressTextfield" promptText="%addressKey" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="Cust_PostalTextfield" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <TextField fx:id="Cust_PostalTextfield" promptText="%postalKey" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <ComboBox fx:id="Region_Combo" prefHeight="25.0" prefWidth="327.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                        <ComboBox fx:id="Region_Combo" prefHeight="25.0" prefWidth="327.0" promptText="%selectRegion" GridPane.columnIndex="1" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </ComboBox>
-                        <ComboBox fx:id="Country_Combo" onAction="#Country_Combo" prefHeight="25.0" prefWidth="316.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                        <ComboBox fx:id="Country_Combo" onAction="#Country_Combo" prefHeight="25.0" prefWidth="316.0" promptText="%selectCountry" GridPane.columnIndex="1" GridPane.rowIndex="6">
                            <GridPane.margin>
                               <Insets right="20.0" />
                            </GridPane.margin>
                         </ComboBox>
                         <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="8">
                           <buttons>
-                              <Button fx:id="Cust_SaveButton" mnemonicParsing="false" onAction="#Save_CustomerButton" text="Save" />
+                              <Button fx:id="Cust_SaveButton" mnemonicParsing="false" onAction="#Save_CustomerButton" text="%save" />
                           </buttons>
                            <GridPane.margin>
                               <Insets right="20.0" />
@@ -162,9 +162,9 @@
             </GridPane>
             <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="2">
               <buttons>
-                  <Button fx:id="Cust_UpdateButton" mnemonicParsing="false" onAction="#Update_CustomerButton" text="View Customer Record" />
-                <Button fx:id="Cust_CreateButton" mnemonicParsing="false" onAction="#Create_CustomerApptButton" text="Create Appointment" />
-                  <Button fx:id="Cust_DeleteButton" mnemonicParsing="false" onAction="#Delete_CustomerButton" text="Delete Customer" />
+                  <Button fx:id="Cust_UpdateButton" mnemonicParsing="false" onAction="#Update_CustomerButton" text="%custRecord" />
+                <Button fx:id="Cust_CreateButton" mnemonicParsing="false" onAction="#Create_CustomerApptButton" text="%createAppt" />
+                  <Button fx:id="Cust_DeleteButton" mnemonicParsing="false" onAction="#Delete_CustomerButton" text="%deleteCust" />
               </buttons>
                <opaqueInsets>
                   <Insets />
@@ -173,7 +173,7 @@
                   <Insets right="20.0" />
                </GridPane.margin>
             </ButtonBar>
-            <Button fx:id="Cust_BackButton" mnemonicParsing="false" onAction="#BackToPrevious" text="Back" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+            <Button fx:id="Cust_BackButton" mnemonicParsing="false" onAction="#BackToPrevious" text="%back" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
