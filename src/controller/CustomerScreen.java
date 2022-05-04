@@ -59,6 +59,7 @@ public class CustomerScreen implements Initializable {
             String updater = currentUser.getUser_Name();
             int divID = (Region_Combo.getSelectionModel().getSelectedItem()).getDiv_ID();
             insertCustomer(name,address,postal,phone,created,creator,updated,updater,divID);
+            CustomerTable.setItems(getCustomers());
 
         } catch (NumberFormatException e){
             e.printStackTrace();
