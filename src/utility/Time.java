@@ -6,8 +6,25 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 
 import java.time.*;
+import java.util.TimeZone;
+
+import static java.time.ZoneOffset.UTC;
 
 public class Time {
+    public static ObservableList<LocalTime> getBusinessHours(){
+        ObservableList<LocalTime> businessHours = FXCollections.observableArrayList();
+        LocalDate ld = LocalDate.now();
+        LocalTime slt = LocalTime.of(8,0);
+        LocalTime elt = LocalTime.of(22, 0);
+        ZonedDateTime st = ZonedDateTime.of(LocalDateTime.of(ld,slt),ZoneId.of("EST5EDT"));
+        ZonedDateTime et = ZonedDateTime.of(LocalDateTime.of(ld,elt),ZoneId.of("EST5EDT"));
+        LocalTime start = st.withZoneSameInstant(ZoneId.systemDefault()).toLocalTime();
+        LocalTime end = et.withZoneSameInstant(ZoneId.systemDefault()).toLocalTime();
+        while(start.isBefore(end.plusSeconds(1))){
+            businessHours.add(start);
+            start = start.plusMinutes(15);
+        } return businessHours;
+    }
     public static ObservableList getTime(){
         ObservableList<LocalTime> businessHours = FXCollections.observableArrayList();
         LocalTime start = LocalTime.of(5, 0);

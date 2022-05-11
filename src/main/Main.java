@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Locale;
 import java.util.Objects;
@@ -19,6 +20,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             Locale.setDefault(new Locale("en"));
+            LocalTime localTime = LocalTime.now(ZoneId.of("GMT-00:00"));
             ResourceBundle rb = bundle();
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/loginScreen.fxml")), rb);
             primaryStage.setTitle(rb.getString("screenTitle"));

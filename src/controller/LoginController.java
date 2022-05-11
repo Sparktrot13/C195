@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import utility.Time;
 
 import java.io.IOException;
 import java.net.URL;
@@ -57,7 +58,9 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ZoneId zone = TimeZone.getDefault().toZoneId();
+        ZoneId zone = ZoneId.systemDefault();
+        //TimeZone tz = TimeZone.getTimeZone(zone);
+        //ZoneId zone = TimeZone.getDefault().toZoneId();
         LocationLabel.setText(zone.toString());
     }
 }
