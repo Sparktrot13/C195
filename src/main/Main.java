@@ -20,7 +20,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             Locale.setDefault(new Locale("en"));
-            LocalTime localTime = LocalTime.now(ZoneId.of("GMT-00:00"));
+            //LocalTime localTime = LocalTime.now(ZoneId.of("GMT-00:00"));
             ResourceBundle rb = bundle();
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/loginScreen.fxml")), rb);
             primaryStage.setTitle(rb.getString("screenTitle"));
@@ -37,7 +37,8 @@ public class Main extends Application {
         } else {
             System.out.println("other");
         }
-        ZoneId.getAvailableZoneIds().forEach(System.out::println);
+        //ZoneId.getAvailableZoneIds().stream().filter(c -> c.contains("America")).forEach(System.out::println);
+        //ZoneId.getAvailableZoneIds().forEach(System.out::println);
         startConnection();
         launch(args);
         closeConnection();

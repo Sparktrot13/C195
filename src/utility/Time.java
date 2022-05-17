@@ -11,20 +11,31 @@ import java.util.TimeZone;
 import static java.time.ZoneOffset.UTC;
 
 public class Time {
+    public static LocalDate today = LocalDate.now();
+    public static LocalTime businessStart = LocalTime.of(8,0);
+    public static LocalTime businessEnd = LocalTime.of(22,0);
+    public static ZoneId est = ZoneId.of("America/New_York");
+    public static ZonedDateTime estBusinessStart = ZonedDateTime.of(today,businessStart,est);
+    public static ZonedDateTime estBusinessEnd = ZonedDateTime.of(today,businessEnd,est);
+    public static ZoneId localID = ZoneId.of(TimeZone.getDefault().getID());
+
     public static ObservableList<LocalTime> getBusinessHours(){
+        System.out.println(estBusinessStart + "\n" + estBusinessEnd);
+        //Instant estToGMTStart = estBusinessStart.toInstant();
+        //Instant estToGMTEnd = estBusinessEnd.toInstant();
+
+        ZonedDateTime estToLocalStart = estBusinessStart.withZoneSameInstant(localID);
+        ZonedDateTime estToLocalEnd = estBusinessEnd.withZoneSameLocal(localID);
+        LocalTime start = estToLocalStart.toLocalTime();
+        LocalTime end = estToLocalEnd.toLocalTime();
+        System.out.println("Business hour are between " + start + " and " + end);
         ObservableList<LocalTime> businessHours = FXCollections.observableArrayList();
-        LocalDate ld = LocalDate.now();
-        LocalTime slt = LocalTime.of(8,0);
-        LocalTime elt = LocalTime.of(22, 0);
-        ZonedDateTime st = ZonedDateTime.of(LocalDateTime.of(ld,slt),ZoneId.of("EST5EDT"));
-        ZonedDateTime et = ZonedDateTime.of(LocalDateTime.of(ld,elt),ZoneId.of("EST5EDT"));
-        LocalTime start = st.withZoneSameInstant(ZoneId.systemDefault()).toLocalTime();
-        LocalTime end = et.withZoneSameInstant(ZoneId.systemDefault()).toLocalTime();
-        while(start.isBefore(end.plusSeconds(1))){
+        while (start.isBefore(end.plusSeconds(1))){
             businessHours.add(start);
             start = start.plusMinutes(15);
         } return businessHours;
     }
+
     public static ObservableList getTime(){
         ObservableList<LocalTime> businessHours = FXCollections.observableArrayList();
         LocalTime start = LocalTime.of(5, 0);

@@ -30,7 +30,6 @@ public class AddAppointment implements Initializable {
     public Label EndDate_addApptLabel;
     public Label EndTime_addApptLabel;
     public Label CustomerID_addApptLabel;
-    public Label User_addApptLabel;
     public TextField ID_addApptTextfield;
     public TextField Title_addApptTextfield;
     public TextField Description_addApptTextfield;
@@ -44,7 +43,6 @@ public class AddAppointment implements Initializable {
     public ComboBox Start_addApptCombo;
     public ComboBox End_addApptCombo;
     public ComboBox Contact_Combo;
-    public ComboBox User_Combo;
     public ComboBox Cust_Combo;
 
     public void Save_addApptButton(ActionEvent actionEvent) {
