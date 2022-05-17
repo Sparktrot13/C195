@@ -11,27 +11,25 @@ import java.util.TimeZone;
 import static java.time.ZoneOffset.UTC;
 
 public class Time {
-    public static LocalDate today = LocalDate.now();
-    public static LocalTime businessStart = LocalTime.of(8,0);
-    public static LocalTime businessEnd = LocalTime.of(22,0);
+    public static ZonedDateTime businessStart = ZonedDateTime.of(LocalDate.now(),LocalTime.of(8,0),ZoneId.of("America/New_York"));
+    public static ZonedDateTime businessEnd = ZonedDateTime.of(LocalDate.now(),LocalTime.of(22,0),ZoneId.of("America/New_York"));
     public static ZoneId est = ZoneId.of("America/New_York");
-    public static ZonedDateTime estBusinessStart = ZonedDateTime.of(today,businessStart,est);
-    public static ZonedDateTime estBusinessEnd = ZonedDateTime.of(today,businessEnd,est);
     public static ZoneId localID = ZoneId.of(TimeZone.getDefault().getID());
+    public static LocalTime convertTime(LocalTime lt, ZoneId current, ZoneId converted){
+        ZonedDateTime zdt = ZonedDateTime.of(LocalDate.now(),lt,current);
+        ZonedDateTime convertedZDT = zdt.withZoneSameInstant(converted);
+        LocalTime newTime = convertedZDT.toLocalTime();
+        return newTime;
+    }
 
     public static ObservableList<LocalTime> getBusinessHours(){
-        System.out.println(estBusinessStart + "\n" + estBusinessEnd);
-        //Instant estToGMTStart = estBusinessStart.toInstant();
-        //Instant estToGMTEnd = estBusinessEnd.toInstant();
-
-        ZonedDateTime estToLocalStart = estBusinessStart.withZoneSameInstant(localID);
-        ZonedDateTime estToLocalEnd = estBusinessEnd.withZoneSameLocal(localID);
-        LocalTime start = estToLocalStart.toLocalTime();
-        LocalTime end = estToLocalEnd.toLocalTime();
-        System.out.println("Business hour are between " + start + " and " + end);
+        ZonedDateTime startLocal = businessStart.withZoneSameInstant(localID);
+        ZonedDateTime endLocal = businessEnd.withZoneSameInstant(localID);
+        LocalDateTime start = startLocal.toLocalDateTime();
+        LocalDateTime end = endLocal.toLocalDateTime();
         ObservableList<LocalTime> businessHours = FXCollections.observableArrayList();
         while (start.isBefore(end.plusSeconds(1))){
-            businessHours.add(start);
+            businessHours.add(start.toLocalTime());
             start = start.plusMinutes(15);
         } return businessHours;
     }
@@ -43,7 +41,8 @@ public class Time {
         while (start.isBefore(end.plusSeconds(1))){
             businessHours.add(start);
             start = start.plusMinutes(15);
-        } return businessHours;
+        }
+            return businessHours;
     }
     public static int lookupTime(LocalTime time) {
         int index = 0;
