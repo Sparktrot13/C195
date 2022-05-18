@@ -164,6 +164,26 @@ public class Utility {
 
         }
     }
+    public static void sendApptCust(TableView<Appointments> table, ActionEvent actionEvent, int custID) throws IOException {
+        if (table.getSelectionModel().getSelectedItem() == null) {
+            alert(alertType.error, selectionError, "error");
+        } else {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Utility.class.getResource(updateApptScreenURL));
+            loader.setResources(bundle());
+            Scene newScene = new Scene(loader.load());
+            Stage newStage = new Stage();
+            ModifyAppointment MPSController = loader.getController();
+            MPSController.populateAppt(table.getSelectionModel().getSelectedItem());
+            newStage.setTitle(updateApptTitle);
+            newStage.setScene(newScene);
+            newStage.initModality(Modality.APPLICATION_MODAL);
+            newStage.showAndWait();
+            table.setItems(lookupAppts(custID));
+
+
+        }
+    }
     public static void sendCust(TableView<Customers> table, ActionEvent actionEvent) throws IOException {
         if (table.getSelectionModel().getSelectedItem() == null) {
             alert(alertType.error, selectionError, "error");

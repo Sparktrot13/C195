@@ -82,9 +82,9 @@ public class ModifyCustomer {
     }
 
     public void UpdateAppt(ActionEvent actionEvent) throws IOException {
-        getLastURL = apptScreenURL;
-        getLastTitle = "Main Screen";
-        sendAppt(ApptTable_Cust,actionEvent);
+        getLastURL = updateCustomerURL;
+        getLastTitle = customerTitle;
+        sendApptCust(ApptTable_Cust,actionEvent,Integer.parseInt(ID_Cust.getText()));
     }
 
     public void DeleteAppt(ActionEvent actionEvent) {

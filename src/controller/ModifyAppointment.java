@@ -5,7 +5,6 @@ import javafx.scene.control.*;
 import model.Appointments;
 import model.Contacts;
 import model.Customers;
-import model.Users;
 
 import java.io.IOException;
 import java.sql.Timestamp;
