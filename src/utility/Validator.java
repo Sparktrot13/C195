@@ -3,11 +3,13 @@ package utility;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import model.Appointments;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 
+import static model.Lists.*;
 import static utility.Utility.*;
 public class Validator {
 
@@ -32,15 +34,25 @@ public class Validator {
             return true;
         }
     }
+    public static boolean chkCollision (int custID, LocalDateTime ldt){
+        for(Appointments a : getAppts()){
+            if (a.getAppt_Customer_ID() == custID){
+                if (ldt.isAfter(a.getAppt_StartTime())&& ldt.isBefore(a.getAppt_EndTime())){
+                    return false;
+                }
+            }
+        } return true;
+    }
     public static void chkDate(Timestamp start, Timestamp end, Timestamp now){
         LocalDateTime st = start.toLocalDateTime();
         LocalDateTime et = end.toLocalDateTime();
         LocalDateTime rn = now.toLocalDateTime();
         errors.clear();
-        if(rn.isAfter(st)){
-            errors.add(chkDateInv2);
-            throw new NumberFormatException(chkDateTitle);
-        }
+
+//        if(rn.isAfter(st)){
+//            errors.add(chkDateInv2);
+//            throw new NumberFormatException(chkDateTitle);
+//        }
         if (st.isAfter(et)){
             errors.add(chkDateInv);
             throw new NumberFormatException(chkDateTitle);
