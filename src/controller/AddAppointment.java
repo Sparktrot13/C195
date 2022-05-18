@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.ResourceBundle;
 
@@ -92,5 +93,20 @@ public class AddAppointment implements Initializable {
 
     public void populateCustomer(int Index) {
         Cust_Combo.getSelectionModel().select(Index);
+    }
+
+    public void StartAppt_Combo(ActionEvent actionEvent) {
+        LocalTime start = LocalTime.parse(Start_addApptCombo.getSelectionModel().getSelectedItem().toString());
+        if(End_addApptCombo.getSelectionModel().getSelectedItem()==null){
+            End_addApptCombo.getSelectionModel().select(lookupTime(start.plusMinutes(15)));
+        } else if(LocalTime.parse(End_addApptCombo.getSelectionModel().getSelectedItem().toString()).isBefore(start.plusMinutes(1))){
+            End_addApptCombo.getSelectionModel().select(lookupTime(LocalTime.parse(Start_addApptCombo.getSelectionModel().getSelectedItem().toString()).plusMinutes(15)));
+        }
+    }
+
+    public void ApptStart_Date(ActionEvent actionEvent) {
+        if(End_addApptDate.getValue() == null||End_addApptDate.getValue().isBefore(Start_addApptDate.getValue())){
+            End_addApptDate.setValue(Start_addApptDate.getValue());
+        }
     }
 }

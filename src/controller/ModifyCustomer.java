@@ -82,8 +82,8 @@ public class ModifyCustomer {
     }
 
     public void UpdateAppt(ActionEvent actionEvent) throws IOException {
-        getLastURL = updateCustomerURL;
-        getLastTitle = customerTitle;
+        ///getLastURL = updateCustomerURL;
+        //getLastTitle = customerTitle;
         sendApptCust(ApptTable_Cust,actionEvent,Integer.parseInt(ID_Cust.getText()));
     }
 
