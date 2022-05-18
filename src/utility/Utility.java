@@ -201,7 +201,7 @@ public class Utility {
             ObservableList<Appointments> upcoming = FXCollections.observableArrayList();
             ObservableList<Appointments> allAppts = getAppts();
             for (Appointments a : allAppts){
-                if (a.getAppt_StartTime().isBefore(ldt.plusMinutes(15))){
+                if (a.getAppt_StartTime().isBefore(ldt.plusMinutes(15))&& a.getAppt_StartTime().isAfter(ldt.minusSeconds(1))){
                     upcoming.add(a);
                 }
             } return upcoming;

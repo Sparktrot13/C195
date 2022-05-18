@@ -148,4 +148,7 @@ public class Appointments {
     public void setAppt_Contact_ID(int appt_Contact_ID) {
         Appt_Contact_ID = appt_Contact_ID;
     }
+    public String toString(){
+        return (Appt_Title);
+    }
 }

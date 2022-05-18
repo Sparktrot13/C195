@@ -45,6 +45,11 @@ public class LoginController implements Initializable {
                     setCurrentUser(usernameField.getText().trim());
                     viewScreen(actionEvent, apptScreenURL, apptViewerTitle);
                     checkAppt();
+                    if(checkAppt().size() == 0){
+                        alert(alertType.warning,"There are no appointments coming up","Upcoming Appts");
+                    } else {
+                        alert(alertType.warning,checkAppt().toString(),"Upcoming Appts");
+                    }
                 } else {
                     System.out.println("Invalid credentials, Login Unsuccessful");
                     alert(alertType.error, Username, incorrectCred);
