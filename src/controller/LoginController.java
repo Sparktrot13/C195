@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.TimeZone;
@@ -59,8 +60,10 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ZoneId zone = ZoneId.systemDefault();
+        LocalTime lt = LocalTime.now();
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("h:mm");
         //TimeZone tz = TimeZone.getTimeZone(zone);
         //ZoneId zone = TimeZone.getDefault().toZoneId();
-        LocationLabel.setText(zone.toString());
+        LocationLabel.setText(zone.toString() + ", " + lt.format(timeFormatter));
     }
 }

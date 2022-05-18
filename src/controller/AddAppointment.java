@@ -79,7 +79,7 @@ public class AddAppointment implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Start_addApptCombo.setItems(getBusinessHours());
-        End_addApptCombo.setItems(getTime());
+        End_addApptCombo.setItems(getBusinessHours());
         Contact_Combo.setItems(getContacts());
         Cust_Combo.setItems(getCustomers());
 

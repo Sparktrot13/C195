@@ -51,13 +51,13 @@
                 </DatePicker>
                 <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                     <buttons>
-                        <RadioButton fx:id="Appt_AllRadio" mnemonicParsing="false" onAction="#AllRadio_Appt" text="%all">
+                        <RadioButton fx:id="Appt_AllRadio" mnemonicParsing="false" onAction="#AllRadio_Appt" selected="true" text="%all">
                             <toggleGroup>
                                 <ToggleGroup fx:id="Appt_Selections" />
                             </toggleGroup>
                         </RadioButton>
                         <RadioButton fx:id="Appt_MonthRadio" mnemonicParsing="false" onAction="#MonthRadio_Appt" text="%month" toggleGroup="$Appt_Selections" />
-                        <RadioButton fx:id="Appt_WeekRadio" mnemonicParsing="false" onAction="#WeekRadio_Appt" selected="true" text="%week" toggleGroup="$Appt_Selections" />
+                        <RadioButton fx:id="Appt_WeekRadio" mnemonicParsing="false" onAction="#WeekRadio_Appt" text="%week" toggleGroup="$Appt_Selections" />
                     </buttons>
                     <GridPane.margin>
                         <Insets left="20.0" />

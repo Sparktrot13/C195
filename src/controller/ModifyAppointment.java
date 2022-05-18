@@ -89,8 +89,8 @@ public class ModifyAppointment{
         int contact = appt.getAppt_Contact_ID();
         int c = lookupContact(contact);
         int customers = lookupCustomer(cust);
-        Start_addApptCombo.setItems(getTime());
-        End_addApptCombo.setItems(getTime());
+        Start_addApptCombo.setItems(getBusinessHours());
+        End_addApptCombo.setItems(getBusinessHours());
         Contact_Combo.setItems(getContacts());
         Cust_Combo.setItems(getCustomers());
         ID_addApptTextfield.setText(Integer.toString(appt.getAppointment_ID()));
