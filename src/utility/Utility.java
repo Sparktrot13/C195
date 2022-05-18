@@ -1,6 +1,7 @@
 package utility;
 
 import controller.*;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,7 @@ import model.Customers;
 import model.Users;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.*;
 import static model.Lists.*;
 import static utility.Locales.*;
@@ -193,8 +195,16 @@ public class Utility {
             newStage.setScene(newScene);
             newStage.initModality(Modality.APPLICATION_MODAL);
             newStage.showAndWait();
-
         }
-
+        public static ObservableList<Appointments> checkAppt(){
+            LocalDateTime ldt = LocalDateTime.now();
+            ObservableList<Appointments> upcoming = FXCollections.observableArrayList();
+            ObservableList<Appointments> allAppts = getAppts();
+            for (Appointments a : allAppts){
+                if (a.getAppt_StartTime().isBefore(ldt.plusMinutes(15))){
+                    upcoming.add(a);
+                }
+            } return upcoming;
+        }
     }
 
