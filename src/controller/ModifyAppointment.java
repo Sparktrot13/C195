@@ -12,6 +12,7 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 import static database.DBAppointments.*;
@@ -57,8 +58,8 @@ public class ModifyAppointment{
             String Des = Description_addApptTextfield.getText().trim();
             String Loc = Location_addApptTextfield.getText().trim();
             String type = Type_addApptTextfield.getText().trim();
-            Timestamp start = Timestamp.valueOf(combineDateTime(Start_addApptDate,Start_addApptCombo));
-            Timestamp end = Timestamp.valueOf(combineDateTime(End_addApptDate,End_addApptCombo));
+            Timestamp start = convertTime(combineDateTime(Start_addApptDate,Start_addApptCombo), ZoneId.systemDefault(),ZoneId.of("UTC"));
+            Timestamp end = convertTime(combineDateTime(End_addApptDate,End_addApptCombo),ZoneId.systemDefault(),ZoneId.of("UTC"));
             Timestamp lastUpdate = Timestamp.valueOf(LocalDateTime.now());
             int cust_ID = getCustID(Cust_Combo);
             int contact_ID = getContactID(Contact_Combo);

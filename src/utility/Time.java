@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 
+import java.sql.Timestamp;
 import java.time.*;
 import java.util.TimeZone;
 
@@ -15,11 +16,11 @@ public class Time {
     public static ZonedDateTime businessEnd = ZonedDateTime.of(LocalDate.now(),LocalTime.of(22,0),ZoneId.of("America/New_York"));
     public static ZoneId est = ZoneId.of("America/New_York");
     public static ZoneId localID = ZoneId.of(TimeZone.getDefault().getID());
-    public static LocalTime convertTime(LocalTime lt, ZoneId current, ZoneId converted){
-        ZonedDateTime zdt = ZonedDateTime.of(LocalDate.now(),lt,current);
+    public static Timestamp convertTime(LocalDateTime ldt, ZoneId current, ZoneId converted){
+        ZonedDateTime zdt = ZonedDateTime.of(ldt,current);
         ZonedDateTime convertedZDT = zdt.withZoneSameInstant(converted);
-        LocalTime newTime = convertedZDT.toLocalTime();
-        return newTime;
+        Timestamp ts = Timestamp.valueOf(convertedZDT.toLocalDateTime());
+        return ts;
     }
 
     public static ObservableList<LocalTime> getBusinessHours(){
@@ -34,20 +35,20 @@ public class Time {
         } return businessHours;
     }
 
-    public static ObservableList getTime(){
-        ObservableList<LocalTime> businessHours = FXCollections.observableArrayList();
-        LocalTime start = LocalTime.of(5, 0);
-        LocalTime end = LocalTime.of(23,0);
-        while (start.isBefore(end.plusSeconds(1))){
-            businessHours.add(start);
-            start = start.plusMinutes(15);
-        }
-            return businessHours;
-    }
+//    public static ObservableList getTime(){
+//        ObservableList<LocalTime> businessHours = FXCollections.observableArrayList();
+//        LocalTime start = LocalTime.of(5, 0);
+//        LocalTime end = LocalTime.of(23,0);
+//        while (start.isBefore(end.plusSeconds(1))){
+//            businessHours.add(start);
+//            start = start.plusMinutes(15);
+//        }
+//            return businessHours;
+//    }
     public static int lookupTime(LocalTime time) {
         int index = 0;
         System.out.println(time);
-        ObservableList allTime = getTime();
+        ObservableList allTime = getBusinessHours();
         for (int i = 0; i < allTime.size(); i++) {
             Object t = allTime.get(i);
             if (t.toString().contains(time.toString())) {

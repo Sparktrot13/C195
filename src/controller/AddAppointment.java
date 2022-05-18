@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ResourceBundle;
 
 import static utility.Utility.*;
@@ -52,8 +53,8 @@ public class AddAppointment implements Initializable {
             String Des = Description_addApptTextfield.getText().trim();
             String Loc = Location_addApptTextfield.getText().trim();
             String type = Type_addApptTextfield.getText().trim();
-            Timestamp start = Timestamp.valueOf(combineDateTime(Start_addApptDate,Start_addApptCombo));
-            Timestamp end = Timestamp.valueOf(combineDateTime(End_addApptDate,End_addApptCombo));
+            Timestamp start = convertTime(combineDateTime(Start_addApptDate,Start_addApptCombo), ZoneId.systemDefault(),ZoneId.of("UTC"));
+            Timestamp end = convertTime(combineDateTime(End_addApptDate,End_addApptCombo),ZoneId.systemDefault(),ZoneId.of("UTC"));
             Timestamp create_Date = Timestamp.valueOf(LocalDateTime.now());
             Timestamp lastUpdate = Timestamp.valueOf(LocalDateTime.now());
             int cust_ID = getCustID(Cust_Combo);
