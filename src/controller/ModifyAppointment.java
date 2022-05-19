@@ -19,6 +19,7 @@ import static utility.Utility.*;
 import static utility.Time.*;
 import static model.Lists.*;
 import static utility.Validator.chkApptBlank;
+import static utility.Validator.chkCollision;
 
 public class ModifyAppointment{
 
@@ -64,6 +65,10 @@ public class ModifyAppointment{
             int contact_ID = getContactID(Contact_Combo);
             String updatedBy = currentUser.getUser_Name();
             int user_ID = currentUser.getUser_ID();
+            if (!chkCollision(cust_ID, combineDateTime(Start_addApptDate,Start_addApptCombo),combineDateTime(End_addApptDate,End_addApptCombo))){
+                errors.add("Collision Detected");
+                throw new NumberFormatException();
+            }
             UpdateAppt(appt,title,Des,Loc,type,start,end,lastUpdate,updatedBy,cust_ID,user_ID,contact_ID);
             closeScreen(actionEvent);
         } catch (NumberFormatException d){

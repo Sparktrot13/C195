@@ -35,11 +35,17 @@ public class Validator {
             return true;
         }
     }
-    public static boolean chkCollision (int custID, LocalDateTime ldt){
+    public static boolean chkCollision (int custID, LocalDateTime ldtStart, LocalDateTime ldtEnd){
+        System.out.println("given time: " + ldtStart);
         ObservableList <Appointments> custAppt = lookupAppts(custID);
         for(Appointments a : custAppt){
-            if(a.getAppt_StartTime().isBefore(ldt) && a.getAppt_EndTime().isAfter(ldt)){
+            System.out.println("Checked time: " + a.getAppt_StartTime());
+            if((a.getAppt_StartTime().isBefore(ldtStart) || a.getAppt_StartTime().isEqual(ldtStart)) && (a.getAppt_EndTime().isAfter(ldtStart)||a.getAppt_EndTime().isEqual(ldtStart))){
                 System.out.println("it done did work");
+                return false;
+            }
+            if((a.getAppt_StartTime().isBefore(ldtEnd) || a.getAppt_StartTime().isEqual(ldtEnd)) && (a.getAppt_EndTime().isAfter(ldtEnd)||a.getAppt_EndTime().isEqual(ldtEnd))){
+                System.out.println("it done did work again");
                 return false;
             }
         } return true;
