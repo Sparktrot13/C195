@@ -78,13 +78,9 @@ public class Lists {
     }
 
     public static String lookupCust(int ID){
-        ObservableList<Customers> allCust = getCustomers();
-        for (Customers customers : allCust) {
-            if (customers.getCustomer_ID() == ID) {
-                return customers.getCustomer_Name();
-            }
+        getCustomers().stream().filter(p -> p.getCustomer_ID() == ID); {
+            return ;
         }
-        return null;
     }
     public static int lookupCustomer(int ID){
         ObservableList<Customers> allCust = getCustomers();
