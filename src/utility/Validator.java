@@ -1,5 +1,6 @@
 package utility;
 
+import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -35,11 +36,11 @@ public class Validator {
         }
     }
     public static boolean chkCollision (int custID, LocalDateTime ldt){
-        for(Appointments a : getAppts()){
-            if (a.getAppt_Customer_ID() == custID){
-                if (ldt.isAfter(a.getAppt_StartTime())&& ldt.isBefore(a.getAppt_EndTime())){
-                    return false;
-                }
+        ObservableList <Appointments> custAppt = lookupAppts(custID);
+        for(Appointments a : custAppt){
+            if(a.getAppt_StartTime().isBefore(ldt) && a.getAppt_EndTime().isAfter(ldt)){
+                System.out.println("it done did work");
+                return false;
             }
         } return true;
     }

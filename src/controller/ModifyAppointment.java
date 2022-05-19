@@ -107,4 +107,19 @@ public class ModifyAppointment{
 
 
     }
+
+    public void StartAppt_Date(ActionEvent actionEvent) {
+        if(End_addApptDate.getValue() == null||End_addApptDate.getValue().isBefore(Start_addApptDate.getValue())){
+            End_addApptDate.setValue(Start_addApptDate.getValue());
+        }
+    }
+
+    public void StartAppt_Combo(ActionEvent actionEvent) {
+        LocalTime start = LocalTime.parse(Start_addApptCombo.getSelectionModel().getSelectedItem().toString());
+        if(End_addApptCombo.getSelectionModel().getSelectedItem()==null){
+            End_addApptCombo.getSelectionModel().select(lookupTime(start.plusMinutes(15)));
+        } else if(LocalTime.parse(End_addApptCombo.getSelectionModel().getSelectedItem().toString()).isBefore(start.plusMinutes(1))){
+            End_addApptCombo.getSelectionModel().select(lookupTime(LocalTime.parse(Start_addApptCombo.getSelectionModel().getSelectedItem().toString()).plusMinutes(15)));
+        }
+    }
 }

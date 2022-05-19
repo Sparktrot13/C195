@@ -56,6 +56,12 @@ public class Utility {
     public static final String customerHasAppt = bundle().getString("customerHasAppt");//" appointment, please delete all appointments before removing customer.";
     public static final String customerApptError = bundle().getString("customerApptError");//"Appointment error";
 
+    //need to add to bundle
+    public static final String apptWarning = bundle().getString("apptWarning");
+    public static final String apptWarnTitle = bundle().getString("apptWarnTitle");
+    public static final String noApptWaring = bundle().getString("noApptWarning");
+
+
 
     // URL for viewScreens
     public static final String apptScreenURL = "/view/ApptScreen.fxml";

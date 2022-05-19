@@ -46,9 +46,9 @@ public class LoginController implements Initializable {
                     viewScreen(actionEvent, apptScreenURL, apptViewerTitle);
                     checkAppt();
                     if(checkAppt().size() == 0){
-                        alert(alertType.warning,"There are no appointments coming up","Upcoming Appts");
+                        alert(alertType.warning,noApptWaring,apptWarnTitle);
                     } else {
-                        alert(alertType.warning,checkAppt().toString(),"Upcoming Appts");
+                        alert(alertType.warning,apptWarning + checkAppt(),apptWarnTitle);
                     }
                 } else {
                     System.out.println("Invalid credentials, Login Unsuccessful");

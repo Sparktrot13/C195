@@ -62,7 +62,7 @@ public class AddAppointment implements Initializable {
             int user_ID = currentUser.getUser_ID();
             int contact_ID = getContactID(Contact_Combo);
             String creator = currentUser.getUser_Name();
-            if (!chkCollision(cust_ID, start.toLocalDateTime())){
+            if (!chkCollision(cust_ID, combineDateTime(Start_addApptDate,Start_addApptCombo))){
                 errors.add("Collision Detected");
                 throw new NumberFormatException();
             }
