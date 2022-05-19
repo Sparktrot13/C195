@@ -46,6 +46,7 @@ public class Validator {
             }
             if((a.getAppt_StartTime().isBefore(ldtEnd) || a.getAppt_StartTime().isEqual(ldtEnd)) && (a.getAppt_EndTime().isAfter(ldtEnd)||a.getAppt_EndTime().isEqual(ldtEnd))){
                 System.out.println("it done did work again");
+
                 return false;
             }
         } return true;

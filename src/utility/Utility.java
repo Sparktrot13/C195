@@ -55,6 +55,7 @@ public class Utility {
     public static final String deleteAppt = bundle().getString("deleteAppt");//"You are about to delete appointment #";
     public static final String customerHasAppt = bundle().getString("customerHasAppt");//" appointment, please delete all appointments before removing customer.";
     public static final String customerApptError = bundle().getString("customerApptError");//"Appointment error";
+    public static final String apptStartCollides = bundle().getString("apptStartCollides");
 
     //need to add to bundle
     public static final String apptWarning = bundle().getString("apptWarning");
