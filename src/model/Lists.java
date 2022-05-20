@@ -3,6 +3,9 @@ package model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
+import utility.general;
+
+import java.util.Optional;
 
 import static database.DBAppointments.*;
 import static database.DBUsers.*;
@@ -12,7 +15,7 @@ import static database.DBCountries.*;
 import static database.DBFLDivision.*;
 import static utility.Time.*;
 
-public class Lists {
+public class Lists implements general{
     public static ObservableList<Appointments> getAppts(){
         return getAllAppointments();
     }
@@ -76,22 +79,30 @@ public class Lists {
             }
         } return index;
     }
+   public static findName lookupCust = (int i) -> getCustomers().stream().filter(c -> c.getCustomer_ID() == i).findAny().get().getCustomer_Name();
+   public interface findName {
+        String find(int i);
+   }
 
-    public static String lookupCust(int ID){
-        getCustomers().stream().filter(p -> p.getCustomer_ID() == ID); {
-            return ;
-        }
-    }
-    public static int lookupCustomer(int ID){
-        ObservableList<Customers> allCust = getCustomers();
-        for( int i = 0; i < allCust.size(); i++){
-            Customers customers = allCust.get(i);
-            if(customers.getCustomer_ID() == ID){
-                return allCust.indexOf(customers);
-            }
-        }
-        return ID;
-    }
+
+
+   public static findIndex lookupCustomer = (int i) -> getCustomers().indexOf(getCustomers().stream().filter(c -> c.getCustomer_ID() == i));
+   public interface findIndex {
+       int find(int i);
+   }
+
+
+
+//    public static int lookupCustomer(int ID){
+//        ObservableList<Customers> allCust = getCustomers();
+//        for( int i = 0; i < allCust.size(); i++){
+//            Customers customers = allCust.get(i);
+//            if(customers.getCustomer_ID() == ID){
+//                return allCust.indexOf(customers);
+//            }
+//        }
+//        return ID;
+//    }
     public static int lookupContact(int ID){
         ObservableList<Contacts> allContacts = getContacts();
         for( int i = 0; i < allContacts.size(); i++){

@@ -66,7 +66,7 @@ public class ModifyAppointment{
             String updatedBy = currentUser.getUser_Name();
             int user_ID = currentUser.getUser_ID();
             if (!chkCollision(cust_ID, combineDateTime(Start_addApptDate,Start_addApptCombo),combineDateTime(End_addApptDate,End_addApptCombo))){
-                errors.add(lookupCust(cust_ID) + " " + apptStartCollides);
+                errors.add(lookupCust.find(cust_ID) + " " + apptStartCollides);
                 throw new NumberFormatException();
             }
             UpdateAppt(appt,title,Des,Loc,type,start,end,lastUpdate,updatedBy,cust_ID,user_ID,contact_ID);
@@ -93,7 +93,7 @@ public class ModifyAppointment{
         int cust = appt.getAppt_Customer_ID();
         int contact = appt.getAppt_Contact_ID();
         int c = lookupContact(contact);
-        int customers = lookupCustomer(cust);
+        int customers = lookupCustomer.find(cust);
         Start_addApptCombo.setItems(getBusinessHours());
         End_addApptCombo.setItems(getBusinessHours());
         Contact_Combo.setItems(getContacts());

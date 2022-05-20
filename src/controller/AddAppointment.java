@@ -3,7 +3,6 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import model.Customers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -63,7 +62,7 @@ public class AddAppointment implements Initializable {
             int contact_ID = getContactID(Contact_Combo);
             String creator = currentUser.getUser_Name();
             if (!chkCollision(cust_ID, combineDateTime(Start_addApptDate,Start_addApptCombo),combineDateTime(End_addApptDate,End_addApptCombo))){
-                errors.add(lookupCust(cust_ID) + " " + apptStartCollides);
+                errors.add(lookupCust.find(cust_ID) + " " + apptStartCollides);
                 throw new NumberFormatException();
             }
             chkDate(start,end,create_Date);

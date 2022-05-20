@@ -75,7 +75,7 @@ public class ModifyCustomer {
 
     public void CreateAppt(ActionEvent actionEvent) throws IOException {
         int chkID = Integer.parseInt(ID_Cust.getText().trim());
-        int index = lookupCustomer(chkID);
+        int index = lookupCustomer.find(chkID);
         sendCustAppt(index);
         ObservableList l = lookupAppts(chkID);
         ApptTable_Cust.setItems(l);

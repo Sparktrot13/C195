@@ -3,6 +3,7 @@ package database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Appointments;
+import model.Customers;
 import utility.Utility;
 import static model.Lists.*;
 
@@ -55,7 +56,7 @@ public class DBAppointments {
     }
     public static void deleteAppt(Appointments a){
         int custID = a.getAppt_Customer_ID();
-        String custName = lookupCust(custID);
+        String custName = (lookupCust.find(custID));
         LocalDate ld = a.getAppt_StartTime().toLocalDate();
         if (alert(Utility.alertType.confirmation,deleteAppt + a.getAppointment_ID()+ " for " + custName + " on " + ld + ". " + confirm,confirmation)){
             String delete = "Delete from appointments where Appointment_ID = " + a.getAppointment_ID();
