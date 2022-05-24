@@ -5,25 +5,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import utility.Time;
-
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalTime;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 import java.util.ResourceBundle;
-import java.util.TimeZone;
-
-import static utility.Locales.bundle;
 import static utility.Utility.*;
 import static database.DBUsers.*;
-import static main.Main.*;
 
 public class LoginController implements Initializable {
     public TextField passwordField;
@@ -72,8 +62,6 @@ public class LoginController implements Initializable {
         ZoneId zone = ZoneId.systemDefault();
         LocalTime lt = LocalTime.now();
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("h:mm");
-        //TimeZone tz = TimeZone.getTimeZone(zone);
-        //ZoneId zone = TimeZone.getDefault().toZoneId();
-        LocationLabel.setText(zone.toString() + ", " + lt.format(timeFormatter));
+        LocationLabel.setText(zone + ", " + lt.format(timeFormatter));
     }
 }
