@@ -3,9 +3,6 @@ package model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
-import utility.general;
-
-import java.util.Optional;
 
 import static database.DBAppointments.*;
 import static database.DBUsers.*;
@@ -15,7 +12,7 @@ import static database.DBCountries.*;
 import static database.DBFLDivision.*;
 import static utility.Time.*;
 
-public class Lists implements general{
+public class Lists {
     public static ObservableList<Appointments> getAppts(){
         return getAllAppointments();
     }
