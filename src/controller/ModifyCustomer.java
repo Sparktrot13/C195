@@ -110,12 +110,12 @@ public class ModifyCustomer {
         Postal_Cust.setText(customer.getCustomer_Postal());
         int rc1 = lookupCountry(customer.getCustomer_Div_ID());
         int cs1 = countryIndex(rc1);
+        System.out.print("Country index is: " + cs1);
         Region_Combo.setItems(searchCountries(rc1));
         Region_Combo.getSelectionModel().select(regionIndex(customer.getCustomer_Div_ID(), rc1));
         Country_Combo.setItems(getCountries());
         Country_Combo.getSelectionModel().select(cs1);
-        System.out.println(cs1);
-        System.out.println(rc1);
+        System.out.println("Region code is: " + rc1);
 
         int custID = Integer.parseInt(ID_Cust.getText().trim());
         ObservableList l = lookupAppts(custID);

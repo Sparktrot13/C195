@@ -79,30 +79,21 @@ public class Lists implements general{
             }
         } return index;
     }
-   public static findName lookupCust = (int i) -> getCustomers().stream().filter(c -> c.getCustomer_ID() == i).findAny().get().getCustomer_Name();
-   public interface findName {
-        String find(int i);
-   }
+
+    //public static findName lookupUser = (int i) -> getUsers().stream().filter(u -> u.getUser_ID() == i).findAny().get().getUser_Name();
+    public static findName lookupCust = (int i) -> getCustomers().stream().filter(c -> c.getCustomer_ID() == i).findAny().get().getCustomer_Name();
+    public interface findName {
+         String find(int i);
+    }
 
 
 
-   public static findIndex lookupCustomer = (int i) -> getCustomers().indexOf(getCustomers().stream().filter(c -> c.getCustomer_ID() == i));
-   public interface findIndex {
-       int find(int i);
-   }
+    public static findIndex lookupCustomer = (int i) -> getCustomers().indexOf(getCustomers().stream().filter(c -> c.getCustomer_ID() == i));
+    public interface findIndex {
+        int find(int i);
+    }
 
 
-
-//    public static int lookupCustomer(int ID){
-//        ObservableList<Customers> allCust = getCustomers();
-//        for( int i = 0; i < allCust.size(); i++){
-//            Customers customers = allCust.get(i);
-//            if(customers.getCustomer_ID() == ID){
-//                return allCust.indexOf(customers);
-//            }
-//        }
-//        return ID;
-//    }
     public static int lookupContact(int ID){
         ObservableList<Contacts> allContacts = getContacts();
         for( int i = 0; i < allContacts.size(); i++){
