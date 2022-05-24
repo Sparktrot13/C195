@@ -18,10 +18,8 @@ import model.Users;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.*;
 import static model.Lists.*;
 import static utility.Locales.*;
@@ -37,7 +35,6 @@ public class Utility {
     public static final String loginBlank = bundle().getString("loginBlank");//"Username and password required for login, please try again.";
     public static final String loginTitle = bundle().getString("login_Title");//"Credentials Required";
     public static final String chkDateInv = bundle().getString("chkDateInv");//"Start day and time needs to be before End date and time, Please try again.";
-    public static final String chkDateInv2 = bundle().getString("chkDateInv2");//"Start day and time is in the past, Please select a date and time in the future.";
     public static final String chkDateTitle = bundle().getString("chkDateTitle");//"Date Error";
     public static final String desFieldBlank = bundle().getString("desFieldBlank");//"Appointment description is required";
     public static final String locFieldBlank = bundle().getString("locFieldBlank");//"Location is required";
@@ -187,7 +184,7 @@ public class Utility {
 
         }
     }
-    public static void sendApptCust(TableView<Appointments> table, ActionEvent actionEvent, int custID) throws IOException {
+    public static void sendApptCust(TableView<Appointments> table, int custID) throws IOException {
         if (table.getSelectionModel().getSelectedItem() == null) {
             alert(alertType.error, selectionError, "error");
         } else {

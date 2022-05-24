@@ -81,10 +81,10 @@ public class ModifyCustomer {
         ApptTable_Cust.setItems(l);
     }
 
-    public void UpdateAppt(ActionEvent actionEvent) throws IOException {
+    public void UpdateAppt() throws IOException {
         ///getLastURL = updateCustomerURL;
         //getLastTitle = customerTitle;
-        sendApptCust(ApptTable_Cust,actionEvent,Integer.parseInt(ID_Cust.getText()));
+        sendApptCust(ApptTable_Cust,Integer.parseInt(ID_Cust.getText()));
     }
 
     public void DeleteAppt(ActionEvent actionEvent) {
