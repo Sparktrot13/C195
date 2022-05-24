@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import utility.Time;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -35,6 +36,7 @@ public class LoginController implements Initializable {
     public Label ZoneLabel;
 
     public void loginButton(ActionEvent actionEvent) throws IOException {
+        loginAttempt(usernameField, passwordField);
         if (usernameField.getText().isBlank() || (passwordField.getText().isBlank())) {
             System.out.println("Username and/or password Blank");
             alert(alertType.error, loginBlank, loginTitle);

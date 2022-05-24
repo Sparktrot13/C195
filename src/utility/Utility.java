@@ -15,11 +15,17 @@ import model.Appointments;
 import model.Customers;
 import model.Users;
 
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.*;
 import static model.Lists.*;
 import static utility.Locales.*;
+import static utility.Time.*;
 
 public class Utility {
 
@@ -80,6 +86,16 @@ public class Utility {
     public static final String customerTitle = "Customer Information";
     public static final String apptViewerTitle = "ABC Corporation Appointments";
     public static final String customerRecordTitle = "Customer Record";
+
+    public static void loginAttempt (TextField user, TextField password) throws IOException {
+        LocalDateTime ldt = LocalDateTime.now();
+        LocalDateTime UTC = convertTime(ldt, ZoneId.systemDefault(),ZoneId.of("UTC")).toLocalDateTime();
+        FileWriter login = new FileWriter("Login.txt", true);
+        PrintWriter out = new PrintWriter(login);
+        out.write("Username: " + user.getText().trim() + " Password: " + password.getText().trim() + " Timestamp: " + UTC + "\n");
+        out.close();
+        System.out.println("attempt wrote to file");
+    }
 
     public static LinkedList errors = new LinkedList();
 
