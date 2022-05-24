@@ -87,12 +87,12 @@ public class Utility {
     public static final String apptViewerTitle = "ABC Corporation Appointments";
     public static final String customerRecordTitle = "Customer Record";
 
-    public static void loginAttempt (TextField user, TextField password) throws IOException {
+    public static void loginAttempt (TextField user, TextField password, String success) throws IOException {
         LocalDateTime ldt = LocalDateTime.now();
         LocalDateTime UTC = convertTime(ldt, ZoneId.systemDefault(),ZoneId.of("UTC")).toLocalDateTime();
-        FileWriter login = new FileWriter("Login.txt", true);
+        FileWriter login = new FileWriter("login_activity.txt", true);
         PrintWriter out = new PrintWriter(login);
-        out.write("Username: " + user.getText().trim() + " Password: " + password.getText().trim() + " Timestamp: " + UTC + "\n");
+        out.write("Username: " + user.getText().trim() + " Password: " + password.getText().trim() + " Timestamp: " + UTC + " Login: " + success + "\n");
         out.close();
         System.out.println("attempt wrote to file");
     }

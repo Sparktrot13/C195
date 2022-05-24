@@ -9,6 +9,7 @@ import utility.Time;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalTime;
@@ -36,13 +37,13 @@ public class LoginController implements Initializable {
     public Label ZoneLabel;
 
     public void loginButton(ActionEvent actionEvent) throws IOException {
-        loginAttempt(usernameField, passwordField);
         if (usernameField.getText().isBlank() || (passwordField.getText().isBlank())) {
             System.out.println("Username and/or password Blank");
             alert(alertType.error, loginBlank, loginTitle);
         } else {
             try {
                 if (chkCredentials(usernameField, passwordField)) {
+                    loginAttempt(usernameField, passwordField, "Successful");
                     System.out.println("Login Successful");
                     setCurrentUser(usernameField.getText().trim());
                     viewScreen(actionEvent, apptScreenURL, apptViewerTitle);
@@ -53,6 +54,7 @@ public class LoginController implements Initializable {
                         alert(alertType.warning,apptWarning + checkAppt(),apptWarnTitle);
                     }
                 } else {
+                    loginAttempt(usernameField, passwordField, "Unsuccessful");
                     System.out.println("Invalid credentials, Login Unsuccessful");
                     alert(alertType.error, Username, incorrectCred);
                 }
