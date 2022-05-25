@@ -3,8 +3,9 @@ package model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
-import java.util.stream.IntStream;
 
+import java.time.Month;
+import java.util.stream.IntStream;
 import static database.DBAppointments.*;
 import static database.DBUsers.*;
 import static database.DBContacts.*;
@@ -80,7 +81,7 @@ public class Lists {
         return contactAppt;
     };
     public interface findAppt {
-        ObservableList find(ComboBox c);
+        ObservableList<Appointments> find(ComboBox<Contacts> c);
     }
 
     public static findIndex lookupContact = (int i) -> IntStream.range(0, getContacts().size()).filter(ID -> getContacts().get(ID).getContact_ID()==i).findFirst().orElse(-1);
@@ -97,6 +98,18 @@ public class Lists {
                 custAppts.add(a);
             }
         } return custAppts;
+    }
+    public static ObservableList getType(){
+        ObservableList getApptType = FXCollections.observableArrayList();
+        for (Appointments a : getAppts()){
+            getApptType.add(a.getAppt_Type());
+        } return getApptType;
+    }
+    public static ObservableList getAllMonths(){
+        ObservableList getTheMonths = FXCollections.observableArrayList();
+        for(Month m : Month.values()){
+            getTheMonths.add(m);
+        } return getTheMonths;
     }
     public static ObservableList<Appointments> getMonthAppts() {
         ObservableList<Appointments> thisMonth = FXCollections.observableArrayList();

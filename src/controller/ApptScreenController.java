@@ -36,9 +36,16 @@ public class ApptScreenController implements Initializable {
     public Button CustomerAppt;
     public Button ExitAppt;
     public TableView<model.Appointments> ApptTable;
+    public ComboBox typeCombo;
+    public ComboBox monthCombo;
+    public Button contactsReport;
+    public Label matches_Appt;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        typeCombo.setItems(getType());
+        monthCombo.setItems(getAllMonths());
+        matches_Appt.setText("0");
         ApptTable.setItems(getAllAppointments());
         Appt_IDColumn.setCellValueFactory(new PropertyValueFactory<>("Appointment_ID"));
         Appt_TitleColumn.setCellValueFactory(new PropertyValueFactory<>("Appt_Title"));
@@ -95,5 +102,21 @@ public class ApptScreenController implements Initializable {
 
     public void contactsReport(ActionEvent actionEvent) throws IOException {
         viewScreen(actionEvent,contactReport,contactTitle);
+    }
+
+    public void typeCombo(ActionEvent actionEvent) {
+        if(monthCombo.getSelectionModel().getSelectedItem() == null){
+            System.out.println("Month is null");
+        } else {
+            System.out.println("month and type are good");
+        }
+    }
+
+    public void monthCombo(ActionEvent actionEvent) {
+        if(typeCombo.getSelectionModel().getSelectedItem() == null){
+            System.out.println("Type is null");
+        } else {
+            System.out.println("month and type are good");
+        }
     }
 }
