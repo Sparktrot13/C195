@@ -226,8 +226,8 @@ public class Utility {
 
     /**
      *
-     * @param CustID
-     * @throws IOException
+     * @param CustID Customer ID is used to grab the correct customers information.
+     * @throws IOException Throws exceptions
      */
     public static void sendCustAppt(int CustID) throws IOException {
         FXMLLoader loader = new FXMLLoader();
