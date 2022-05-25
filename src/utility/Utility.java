@@ -223,6 +223,12 @@ public class Utility {
 
         }
     }
+
+    /**
+     *
+     * @param CustID
+     * @throws IOException
+     */
     public static void sendCustAppt(int CustID) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Utility.class.getResource(addApptScreenURL));
