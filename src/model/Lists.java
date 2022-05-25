@@ -4,6 +4,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 
+import java.util.Optional;
+import java.util.stream.IntStream;
+
 import static database.DBAppointments.*;
 import static database.DBUsers.*;
 import static database.DBContacts.*;
@@ -67,40 +70,29 @@ public class Lists {
             }
         }return index;
     }
-    public static int countryIndex(int ID){
-        int index = 0;
-        ObservableList<Countries> country = getAllCountries();
-        for(Countries c: country){
-            if(c.getCountry_ID() == ID){
-                index = country.indexOf(c);
-            }
-        } return index;
-    }
-
-    //public static findName lookupUser = (int i) -> getUsers().stream().filter(u -> u.getUser_ID() == i).findAny().get().getUser_Name();
     public static findName lookupCust = (int i) -> getCustomers().stream().filter(c -> c.getCustomer_ID() == i).findAny().get().getCustomer_Name();
     public interface findName {
          String find(int i);
     }
 
-
-
-    public static findIndex lookupCustomer = (int i) -> getCustomers().indexOf(getCustomers().stream().filter(c -> c.getCustomer_ID() == i));
+    public static findIndex lookupContact = (int i) -> IntStream.range(0, getContacts().size()).filter(ID -> getContacts().get(ID).getContact_ID()==i).findFirst().orElse(-1);
+    public static findIndex countryIndex = (int i) -> IntStream.range(0,getCountries().size()).filter(ID -> getCountries().get(ID).getCountry_ID() == i).findFirst().orElse(-1);
+    public static findIndex lookupCustomer = (int i) -> IntStream.range(0,getCustomers().size()).filter(ID -> getCustomers().get(ID).getCustomer_ID()== i).findFirst().orElse(-1);
     public interface findIndex {
         int find(int i);
     }
 
 
-    public static int lookupContact(int ID){
-        ObservableList<Contacts> allContacts = getContacts();
-        for( int i = 0; i < allContacts.size(); i++){
-            Contacts c = allContacts.get(i);
-            if(c.getContact_ID() == ID){
-                return allContacts.indexOf(c);
-            }
-        }
-        return ID;
-    }
+//    public static int lookupContact(int ID){
+//        ObservableList<Contacts> allContacts = getContacts();
+//        for( int i = 0; i < allContacts.size(); i++){
+//            Contacts c = allContacts.get(i);
+//            if(c.getContact_ID() == ID){
+//                return allContacts.indexOf(c);
+//            }
+//        }
+//        return ID;
+//    }
     public static ObservableList<Appointments> lookupAppts(int custID){
         ObservableList<Appointments> allAppts = getAppts();
         ObservableList<Appointments> custAppts = FXCollections.observableArrayList();

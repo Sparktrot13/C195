@@ -92,7 +92,7 @@ public class ModifyAppointment{
         System.out.println(startTime);
         int cust = appt.getAppt_Customer_ID();
         int contact = appt.getAppt_Contact_ID();
-        int c = lookupContact(contact);
+        int c = lookupContact.find(contact);
         int customers = lookupCustomer.find(cust);
         Start_addApptCombo.setItems(getBusinessHours());
         End_addApptCombo.setItems(getBusinessHours());

@@ -103,7 +103,7 @@ public class ModifyCustomer {
         Phone_Cust.setText(customer.getCustomer_Phone());
         Postal_Cust.setText(customer.getCustomer_Postal());
         int rc1 = lookupCountry(customer.getCustomer_Div_ID());
-        int cs1 = countryIndex(rc1);
+        int cs1 = countryIndex.find(rc1);
         System.out.print("Country index is: " + cs1);
         Region_Combo.setItems(searchCountries(rc1));
         Region_Combo.getSelectionModel().select(regionIndex(customer.getCustomer_Div_ID(), rc1));
