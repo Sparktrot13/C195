@@ -82,7 +82,7 @@ public class ApptScreenController implements Initializable {
     /** Opens window to create a new appointment.
      *
      * @param actionEvent actionEvent is used to trigger the newScreen method.
-     * @throws IOException throws exception.
+     * @throws IOException throws exception for loader.
      */
     public void New_Appt(ActionEvent actionEvent) throws IOException {
         getLastURL = apptScreenURL;
@@ -93,7 +93,7 @@ public class ApptScreenController implements Initializable {
     /**Takes table selection and sends appointment information to a separate update screen.
      *
      * @param actionEvent actionEvent is used to trigger the newScreen method.
-     * @throws IOException throws exception.
+     * @throws IOException throws exception for loader.
      */
     public void Update_Appt(ActionEvent actionEvent) throws IOException {
             getLastURL = apptScreenURL;
@@ -117,7 +117,7 @@ public class ApptScreenController implements Initializable {
     /** Send user to Customer screen.
      *
      * @param actionEvent actionEvent triggers viewScreen method
-     * @throws IOException t
+     * @throws IOException throws exception for loader.
      */
     public void Customer_Appt(ActionEvent actionEvent) throws IOException {
         viewScreen(actionEvent,customerScreenURL,customerTitle);
