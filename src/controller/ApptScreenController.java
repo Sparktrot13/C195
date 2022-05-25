@@ -106,16 +106,20 @@ public class ApptScreenController implements Initializable {
 
     public void typeCombo(ActionEvent actionEvent) {
         if(monthCombo.getSelectionModel().getSelectedItem() == null){
+            matches_Appt.setText(String.valueOf(chkByType(typeCombo)));
             System.out.println("Month is null");
         } else {
+            matches_Appt.setText(String.valueOf(chkByBoth(typeCombo, monthCombo)));
             System.out.println("month and type are good");
         }
     }
 
     public void monthCombo(ActionEvent actionEvent) {
         if(typeCombo.getSelectionModel().getSelectedItem() == null){
+            matches_Appt.setText(String.valueOf(chkByMonth(monthCombo)));
             System.out.println("Type is null");
         } else {
+            matches_Appt.setText(String.valueOf(chkByBoth(typeCombo, monthCombo)));
             System.out.println("month and type are good");
         }
     }

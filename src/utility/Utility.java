@@ -19,6 +19,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.time.ZoneId;
 import java.util.*;
 import static model.Lists.*;
@@ -96,7 +97,7 @@ public class Utility {
         System.out.println("attempt wrote to file");
     }
 
-    public static LinkedList errors = new LinkedList();
+    public static LinkedList<String> errors = new LinkedList<String>();
 
     public static Users currentUser = null;
     public static void setCurrentUser(String name){
@@ -253,6 +254,32 @@ public class Utility {
                     upcoming.add(a);
                 }
             } return upcoming;
+        }
+        public static int chkByType(ComboBox c){
+        ObservableList chkList = FXCollections.observableArrayList();
+        for (Appointments a : getAppts()){
+            if (a.getAppt_Type().equals(c.getSelectionModel().getSelectedItem())){
+                    chkList.add(a);
+                }
+            } return chkList.size();
+        }
+        public static int chkByMonth(ComboBox c){
+        Month m = Month.valueOf(c.getValue().toString());
+        ObservableList chkList = FXCollections.observableArrayList();
+        for(Appointments a : getAppts()){
+            if(a.getAppt_StartTime().getMonth().equals(m)){
+                chkList.add(a);
+                }
+            } return chkList.size();
+        }
+        public static int chkByBoth(ComboBox type, ComboBox month){
+        Month m = Month.valueOf(month.getValue().toString());
+        ObservableList chkList = FXCollections.observableArrayList();
+        for(Appointments a : getAppts()){
+            if((a.getAppt_StartTime().getMonth().equals(m))&&(a.getAppt_Type().equals(type.getSelectionModel().getSelectedItem()))){
+                chkList.add(a);
+                }
+            } return chkList.size();
         }
     }
 

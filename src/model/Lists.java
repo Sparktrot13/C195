@@ -104,13 +104,14 @@ public class Lists {
     public static ObservableList getType(){
         ObservableList getApptType = FXCollections.observableArrayList();
         for (Appointments a : getAppts()){
+            if(!getApptType.contains(a.getAppt_Type().trim().toLowerCase()))
             getApptType.add(a.getAppt_Type());
         } return getApptType;
     }
-    public static ObservableList getAllMonths(){
-        ObservableList getTheMonths = FXCollections.observableArrayList();
+    public static ObservableList<Month> getAllMonths(){
+        ObservableList<Month> getTheMonths = FXCollections.observableArrayList();
         for(Month m : Month.values()){
-            getTheMonths.add(m.getDisplayName(TextStyle.FULL, Locale.getDefault()));
+            getTheMonths.add(m);
         } return getTheMonths;
     }
     public static ObservableList<Appointments> getMonthAppts() {
