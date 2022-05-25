@@ -73,6 +73,7 @@ public class Utility {
     public static final String addApptScreenURL = "/view/AddAppointment.fxml";
     public static final String updateApptScreenURL = "/view/ModifyAppointment.fxml";
     public static final String updateCustomerURL = "/view/ModifyCustomer.fxml";
+    public static final String contactReport   = "/view/contactSchedule.fxml";
 
     public static String getLastURL = null;
     public static String getLastTitle = null;
@@ -83,6 +84,7 @@ public class Utility {
     public static final String customerTitle = "Customer Information";
     public static final String apptViewerTitle = "ABC Corporation Appointments";
     public static final String customerRecordTitle = "Customer Record";
+    public static final String contactTitle = "Contact Schedule";
 
     public static void loginAttempt (TextField user, TextField password, String success) throws IOException {
         LocalDateTime ldt = LocalDateTime.now();

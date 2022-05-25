@@ -93,4 +93,7 @@ public class ApptScreenController implements Initializable {
         exitProgram(actionEvent);
     }
 
+    public void contactsReport(ActionEvent actionEvent) throws IOException {
+        viewScreen(actionEvent,contactReport,contactTitle);
+    }
 }
