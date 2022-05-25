@@ -4,10 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 
-import java.time.LocalDate;
 import java.time.Month;
-import java.time.format.TextStyle;
-import java.util.Locale;
 import java.util.stream.IntStream;
 import static database.DBAppointments.*;
 import static database.DBUsers.*;
@@ -79,7 +76,7 @@ public class Lists {
 
     public static findAppt contactAppts =  c -> {
         ObservableList <Appointments> contactAppt = FXCollections.observableArrayList();
-        Contacts con = (Contacts) c.getSelectionModel().getSelectedItem();
+        Contacts con = c.getSelectionModel().getSelectedItem();
         getAppts().stream().filter(a -> a.getAppt_Contact_ID() == con.getContact_ID()).forEach(contactAppt::add);
         return contactAppt;
     };
@@ -102,7 +99,7 @@ public class Lists {
             }
         } return custAppts;
     }
-    public static ObservableList getType(){
+    public static ObservableList <String> getType(){
         ObservableList getApptType = FXCollections.observableArrayList();
         for (Appointments a : getAppts()){
             if(!getApptType.contains(a.getAppt_Type().trim().toLowerCase()))

@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -41,11 +40,15 @@ public class AddAppointment implements Initializable {
     public Button Cancel_addApptButton;
     public DatePicker Start_addApptDate;
     public DatePicker End_addApptDate;
-    public ComboBox Start_addApptCombo;
-    public ComboBox End_addApptCombo;
-    public ComboBox Contact_Combo;
-    public ComboBox Cust_Combo;
+    public ComboBox<LocalTime> Start_addApptCombo;
+    public ComboBox<LocalTime> End_addApptCombo;
+    public ComboBox<model.Contacts> Contact_Combo;
+    public ComboBox<model.Customers> Cust_Combo;
 
+    /**Save appointment button.
+     *
+     * @param actionEvent action event is used to call the close screen method
+     */
     public void Save_addApptButton(ActionEvent actionEvent) {
         try {
             chkApptBlank(Title_addApptTextfield, Description_addApptTextfield, Location_addApptTextfield, Type_addApptTextfield, Start_addApptDate, Start_addApptCombo, End_addApptDate, End_addApptCombo, Cust_Combo, Contact_Combo);
@@ -70,13 +73,15 @@ public class AddAppointment implements Initializable {
             getAppts();
             closeScreen(actionEvent);
         } catch (NumberFormatException d){
-            System.out.println(d);
             alert(alertType.error,errorsFound.concat(errors.toString()),"Error");
         }
     }
 
-
-    public void Cancel_addApptButton(ActionEvent actionEvent) throws IOException {
+    /**Cancel adding appointment.
+     *
+     * @param actionEvent action event is used to call the close screen method
+     */
+    public void Cancel_addApptButton(ActionEvent actionEvent) {
         closeScreen(actionEvent);
 
     }
@@ -90,11 +95,18 @@ public class AddAppointment implements Initializable {
 
     }
 
+    /** Pulls customer data into the appropriate fields if selected from customer page.
+     *
+     * @param Index index used to refer to the customer for data loading.
+     */
     public void populateCustomer(int Index) {
         Cust_Combo.getSelectionModel().select(Index);
     }
 
-    public void StartAppt_Combo(ActionEvent actionEvent) {
+    /** Start time action that brings the end time 15 minutes after start time if end time is null or before start time
+     *
+     */
+    public void StartAppt_Combo() {
         LocalTime start = LocalTime.parse(Start_addApptCombo.getSelectionModel().getSelectedItem().toString());
         if(End_addApptCombo.getSelectionModel().getSelectedItem()==null){
             End_addApptCombo.getSelectionModel().select(lookupTime(start.plusMinutes(15)));
@@ -103,7 +115,10 @@ public class AddAppointment implements Initializable {
         }
     }
 
-    public void ApptStart_Date(ActionEvent actionEvent) {
+    /** Start date action sets the end date to match if the end date is null or before start date.
+     *
+     */
+    public void ApptStart_Date() {
         if(End_addApptDate.getValue() == null||End_addApptDate.getValue().isBefore(Start_addApptDate.getValue())){
             End_addApptDate.setValue(Start_addApptDate.getValue());
         }
