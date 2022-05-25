@@ -19,7 +19,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Locale.setDefault(new Locale("en"));
+            Locale.setDefault(new Locale("fr"));
             //LocalTime localTime = LocalTime.now(ZoneId.of("GMT-00:00"));
             ResourceBundle rb = bundle();
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/loginScreen.fxml")), rb);

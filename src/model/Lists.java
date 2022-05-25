@@ -5,6 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 
 import java.time.Month;
+import java.time.format.TextStyle;
+import java.util.Locale;
 import java.util.stream.IntStream;
 import static database.DBAppointments.*;
 import static database.DBUsers.*;
@@ -108,7 +110,7 @@ public class Lists {
     public static ObservableList getAllMonths(){
         ObservableList getTheMonths = FXCollections.observableArrayList();
         for(Month m : Month.values()){
-            getTheMonths.add(m);
+            getTheMonths.add(m.getDisplayName(TextStyle.FULL, Locale.getDefault()));
         } return getTheMonths;
     }
     public static ObservableList<Appointments> getMonthAppts() {
