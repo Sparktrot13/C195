@@ -33,12 +33,12 @@ public class Lists {
     public static ObservableList<FLDivisions> getDivisions(){
         return getAllFLDivision();
     }
-    public static int getContactID(ComboBox c){
-        Contacts contacts = (Contacts) c.getSelectionModel().getSelectedItem();
+    public static int getContactID(ComboBox<Contacts> c){
+        Contacts contacts = c.getSelectionModel().getSelectedItem();
         return contacts.getContact_ID();
     }
-    public static int getCustID(ComboBox c){
-        Customers cust = (Customers) c.getSelectionModel().getSelectedItem();
+    public static int getCustID(ComboBox<Customers> c){
+        Customers cust = c.getSelectionModel().getSelectedItem();
         return cust.getCustomer_ID();
     }
     public static ObservableList<FLDivisions> searchCountries(int country_ID){
