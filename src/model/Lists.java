@@ -3,8 +3,6 @@ package model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
-
-import java.util.Optional;
 import java.util.stream.IntStream;
 
 import static database.DBAppointments.*;
@@ -81,18 +79,6 @@ public class Lists {
     public interface findIndex {
         int find(int i);
     }
-
-
-//    public static int lookupContact(int ID){
-//        ObservableList<Contacts> allContacts = getContacts();
-//        for( int i = 0; i < allContacts.size(); i++){
-//            Contacts c = allContacts.get(i);
-//            if(c.getContact_ID() == ID){
-//                return allContacts.indexOf(c);
-//            }
-//        }
-//        return ID;
-//    }
     public static ObservableList<Appointments> lookupAppts(int custID){
         ObservableList<Appointments> allAppts = getAppts();
         ObservableList<Appointments> custAppts = FXCollections.observableArrayList();
