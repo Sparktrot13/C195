@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ContactSchedule">
    <children>
       <GridPane prefHeight="400.0" prefWidth="600.0">
@@ -22,20 +21,20 @@
           <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ComboBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="0.0" prefWidth="560.0" promptText="%selectContact">
+            <ComboBox fx:id="contactCombo" nodeOrientation="LEFT_TO_RIGHT" onAction="#contactCombo" prefHeight="0.0" prefWidth="560.0" promptText="%selectContact">
                <GridPane.margin>
                   <Insets left="20.0" right="20.0" top="20.0" />
                </GridPane.margin>
             </ComboBox>
-            <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+            <TableView fx:id="apptTable" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
               <columns>
-                <TableColumn minWidth="0.0" prefWidth="32.0" text="ID" />
-                <TableColumn prefWidth="118.0" text="%title" />
-                  <TableColumn prefWidth="75.0" text="%description" />
-                  <TableColumn prefWidth="75.0" text="%type" />
-                  <TableColumn prefWidth="102.0" text="%startDateTime" />
-                  <TableColumn prefWidth="92.0" text="%endDateTime" />
-                  <TableColumn prefWidth="65.0" text="%custID" />
+                <TableColumn fx:id="ID_appt" minWidth="0.0" prefWidth="32.0" text="ID" />
+                <TableColumn fx:id="title_Appt" prefWidth="118.0" text="%title" />
+                  <TableColumn fx:id="des_Appt" prefWidth="75.0" text="%description" />
+                  <TableColumn fx:id="type_Appt" prefWidth="75.0" text="%type" />
+                  <TableColumn fx:id="start_Appt" prefWidth="102.0" text="%startDateTime" />
+                  <TableColumn fx:id="end_Appt" prefWidth="92.0" text="%endDateTime" />
+                  <TableColumn fx:id="cust_Appt" prefWidth="65.0" text="%custID" />
               </columns>
                <GridPane.margin>
                   <Insets left="20.0" right="20.0" />

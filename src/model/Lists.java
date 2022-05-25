@@ -73,6 +73,16 @@ public class Lists {
          String find(int i);
     }
 
+    public static findAppt contactAppts =  c -> {
+        ObservableList <Appointments> contactAppt = FXCollections.observableArrayList();
+        Contacts con = (Contacts) c.getSelectionModel().getSelectedItem();
+        getAppts().stream().filter(a -> a.getAppt_Contact_ID() == con.getContact_ID()).forEach(contactAppt::add);
+        return contactAppt;
+    };
+    public interface findAppt {
+        ObservableList find(ComboBox c);
+    }
+
     public static findIndex lookupContact = (int i) -> IntStream.range(0, getContacts().size()).filter(ID -> getContacts().get(ID).getContact_ID()==i).findFirst().orElse(-1);
     public static findIndex countryIndex = (int i) -> IntStream.range(0,getCountries().size()).filter(ID -> getCountries().get(ID).getCountry_ID() == i).findFirst().orElse(-1);
     public static findIndex lookupCustomer = (int i) -> IntStream.range(0,getCustomers().size()).filter(ID -> getCustomers().get(ID).getCustomer_ID()== i).findFirst().orElse(-1);
