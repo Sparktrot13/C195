@@ -7,7 +7,7 @@ About
 
 Author and contact information
     Name: Jermey Van Sant
-    Email: jvansan@wgu.edu,
+    Email: jermey.e.vansant@gmail.com,
     Version number: v1.01
     Version Date: 2022-05-25
 
